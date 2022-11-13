@@ -108,6 +108,19 @@ properties:
           - xyz.openbmc_project.BIOSConfig.Common.Error.AttributeNotFound
           - xyz.openbmc_project.BIOSConfig.Common.Error.AttributeReadOnly
 
+    - name: CredentialBootstrap
+      type: boolean
+      description: >
+          True if the credential bootstrapping is enabled for Host Interface.
+      default: true
+
+    - name: EnableAfterReset
+      type: boolean
+      description: >
+          An indication to set/reset the CredentialBootstrap property on host power reset
+          for the Host Interface.
+      default: true
+
 enumerations:
     - name: AttributeType
       description: >
