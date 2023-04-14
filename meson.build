@@ -20,14 +20,14 @@ endif
 
 # Parse options to determine appropriate subdirectories to support.
 selected_subdirs = []
+if get_option('data_com_google')
+    selected_subdirs += 'com/google'
+endif
 if get_option('data_com_ibm')
     selected_subdirs += 'com/ibm'
 endif
 if get_option('data_com_intel')
     selected_subdirs += 'com/intel'
-endif
-if get_option('data_com_google')
-    selected_subdirs += 'com/google'
 endif
 if get_option('data_org_freedesktop')
     selected_subdirs += 'org/freedesktop'
@@ -38,6 +38,10 @@ endif
 if get_option('data_xyz_openbmc_project')
     selected_subdirs += 'xyz/openbmc_project'
 endif
+if get_option('data_com_ami')
+    selected_subdirs += 'com/ami'
+endif
+
 
 # Install the selected YAML files.
 inst_yaml_dir = get_option('datadir') / 'phosphor-dbus-yaml/yaml'
