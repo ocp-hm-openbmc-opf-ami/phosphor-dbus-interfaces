@@ -1,0 +1,344 @@
+description: >
+    This defines an NVMeMI interface.
+
+properties:
+    - name: NvmeCtrlCnt
+      type: uint32 
+      flags:
+       - const
+      description: >
+         NVMe SSD Count
+
+methods:
+    - name: getNvmeCtrlStatus
+      description: >
+        Get NVNMe Controller Status
+      parameters:
+       - name: ctrlId
+         type: uint32
+         description: >
+           NVMe Controller ID
+      returns:
+       - name: Status
+         type: array[byte]
+         description: >
+           NVMe Controller Status
+
+    - name: getNvmeCtrlVendorID 
+      description: >
+        Get NVMe Vendor ID 
+      parameters:
+       - name: ctrlId
+         type: uint32
+         description: >
+           NVMe Controller ID
+      returns:
+       - name: VendorID 
+         type: uint32
+         description: >
+           NVMe Vendor ID
+
+    - name: getNvmeCtrlSerial 
+      description: >
+        Get NVMe Serial Number
+      parameters:
+       - name: ctrlId
+         type: uint32
+         description: >
+           NVMe Controller ID
+      returns:
+       - name: Serial 
+         type: array[byte]
+         description: >
+           NVMe Serial Number 
+
+    - name: chkNvmeSSDPresence 
+      description: >
+        Check NVMe Presence
+      parameters:
+       - name: ctrlId
+         type: uint32
+         description: >
+           NVMe Controller ID
+      returns:
+       - name: presenceStatus
+         type: byte
+         description: >
+           Presence Status
+
+    - name: getSSDInfo 
+      description: >
+        Get NVMe Serial Number
+      returns:
+       - name: SSDInfo 
+         type: array[byte]
+         description: >
+           NVMe SSD Info
+
+    - name: getMICtrlList 
+      description: >
+        Get NVMe SSD Controller List
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD number
+      returns:
+       - name: Serial 
+         type: array[byte]
+         description: >
+           NVMe Controller List
+
+    - name: getSubsysHealthStatusPoll 
+      description: >
+        Get NVMe Subsystem Health Status
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+       - name: ctrlFlag 
+         type: byte
+         description: >
+           NVMe Controller Flag
+      returns:
+       - name: healthStatus 
+         type: array[byte]
+         description: >
+           NVme Subsystem Health Status
+
+    - name: readSubInfoData 
+      description: >
+        Get NVMe Subsystem Information
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+      returns:
+       - name: subsysInfo 
+         type: array[byte]
+         description: >
+           NVme Subsystem Info
+
+    - name: readPortInfoData 
+      description: >
+        Get NVMe Port Info
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+       - name: port
+         type: byte
+         description: >
+           NVMe SSD Port Number
+      returns:
+       - name: portInfo
+         type: array[byte]
+         description: >
+           NVMe SSD Port Info
+
+    - name: readVPDCommon 
+      description: >
+        Get NVMeMI VPD Common Part
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+      returns:
+       - name: commonInfo 
+         type: array[byte]
+         description: >
+           NVMe SSD VPD Common Info
+
+    - name: readVPDProductInfo 
+      description: >
+        Get NVMeMI VPD Product Info
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+      returns:
+       - name: productInfo 
+         type: array[byte]
+         description: >
+           NVMe SSD VPD Product Info
+
+    - name: readVPDNvmeRec 
+      description: >
+        Get NVMeMI VPD NVMe Multi Record
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+      returns:
+       - name: nvmeRec 
+         type: array[byte]
+         description: >
+           NVMe SSD VPD NVMe Multi Record 
+
+    - name: readVPDPciePortRec 
+      description: >
+        Get NVMeMI VPD PCIe Port Multi Record
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+      returns:
+       - name: pciePortRec 
+         type: array[byte]
+         description: >
+           NVMe SSD VPD PCIe Port Multi Record 
+
+    - name: geIdentify 
+      description: >
+        Get NVMe Identify Command
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+       - name: ctl 
+         type: uint16
+         description: >
+           NVMe SSD Controller ID
+ 
+      returns:
+       - name: identify 
+         type: array[byte]
+         description: >
+           identify output
+
+    - name: getFeatTempThold 
+      description: >
+        Get NVMe Temperature Threshold
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+       - name: ctl 
+         type: uint16
+         description: >
+           NVMe SSD Controller ID
+       - name: sel 
+         type: byte
+         description: >
+           Selection
+       - name: tholdType 
+         type: byte
+         description: >
+           Threshold Type
+       - name: sensor 
+         type: byte
+         description: >
+           Sensor Id
+ 
+      returns:
+       - name: tempThold 
+         type: array[byte]
+         description: >
+           Temperature Threshold 
+
+    - name: setFeatTempThold 
+      description: >
+        Set NVMe Temperature Threshold
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+       - name: ctl 
+         type: uint16
+         description: >
+           NVMe SSD Controller ID
+       - name: sav 
+         type: byte
+         description: >
+           Save or not
+       - name: tholdType 
+         type: byte
+         description: >
+           Threshold Type
+       - name: sensor 
+         type: byte
+         description: >
+           Sensor Id
+       - name: temp 
+         type: uint16
+         description: >
+           Temperature Value
+ 
+      returns:
+       - name: status 
+         type: array[byte]
+         description: >
+           Response 
+
+    - name: setHealthStsChg 
+      description: >
+        Clear Health Status Flag
+      parameters:
+       - name: ssd
+         type: byte
+         description: >
+           NVMe SSD Number
+       - name: ccsReady 
+         type: byte
+         description: >
+           CCS Ready 
+       - name: ccsCtlFatal 
+         type: byte
+         description: >
+           CCS Controller Fatal
+       - name: ccsShutdownSt 
+         type: byte
+         description: >
+           CCS Shutdown Status
+       - name: ccsNSSRO 
+         type: byte
+         description: >
+           ccsNSSRO
+       - name: ccsCECO 
+         type: byte
+         description: >
+           ccsCECO
+       - name: ccsNAC 
+         type: byte
+         description: >
+           ccsNAC
+       - name: ccsFA 
+         type: byte
+         description: >
+           ccsFA
+       - name: ccsCSTS 
+         type: byte
+         description: >
+           ccsCSTS
+       - name: ccsCTEMP 
+         type: byte
+         description: >
+           ccsCTEMP
+       - name: ccsPDLU 
+         type: byte
+         description: >
+           ccsPDLU
+       - name: ccsSpare 
+         type: byte
+         description: >
+           ccsSpare
+       - name: critWarn
+         type: byte
+         description: >
+           critWarn 
+ 
+      returns:
+       - name: status 
+         type: array[byte]
+         description: >
+           Response 

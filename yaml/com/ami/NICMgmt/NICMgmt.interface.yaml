@@ -1,0 +1,562 @@
+description: >
+    This defines an NC-SI interface for network management.
+
+properties:
+    - name: NICDeviceCount
+      type: byte 
+      flags:
+       - const
+      description: >
+         NIC device count under management
+
+methods:
+    - name: getNICDeviceInfo
+      description: >
+        Get NIC device information
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+      returns:
+       - name: NICDeviceInfo
+         type: struct[array[byte], string]
+         description: >
+           NIC device info
+
+    - name: getMCTPInfo
+      description: >
+        Get NIC device MCTP information 
+      returns:
+       - name: NICMCTPInfo
+         type: struct[byte,array[byte] ]
+         description: >
+           NIC device MCTP info
+
+    - name: clearInitialState 
+      description: >
+        Clear Initial State
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket 
+         type: array[byte]
+         description: >
+           Response packet
+    
+    - name: selectPackage 
+      description: >
+        Select Package 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+       - name: hardwareArbitration 
+         type: byte
+         description: >
+            Hardware Arbitration           
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: deselectPackage 
+      description: >
+        Deselect Package 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: enableChannel 
+      description: >
+        Enable Channel
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+    
+    - name: disableChannel 
+      description: >
+        Disable Channel 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+       - name: ald 
+         type: byte
+         description: >
+           ald 
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: resetChannel 
+      description: >
+        Reset Channel 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: enableChannelNetworkTX 
+      description: >
+        Enable Channel Network TX 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: disableChannelNetworkTX 
+      description: >
+        Disable Channel Network TX 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: aenEnable 
+      description: >
+        AEN Enable 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: aenMCID 
+         type: byte
+         description: >
+            AEN MCID           
+       - name: aenControl 
+         type: uint32
+         description: >
+            AEN Control
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: setLink 
+      description: >
+        Set link settings
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: linkSettings 
+         type: uint32
+         description: >
+            Link Settings          
+       - name: oemLinkSettings 
+         type: uint32
+         description: >
+            OEM Link Settings
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getLinkStatus 
+      description: >
+        Get Link Status 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+           NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+           NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: setVLANFilter 
+      description: >
+        Set VLAN Filter 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: vlanTag 
+         type: uint16
+         description: >
+            VLAN Tag          
+       - name: filterSelector 
+         type: byte
+         description: >
+            Filter Selector 
+       - name: vlanEnable 
+         type: byte
+         description: >
+            VLAN Enable 
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: enableVLAN 
+      description: >
+        Enable VLAN 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: mode 
+         type: byte 
+         description: >
+            Mode          
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: disableVLAN 
+      description: >
+        Disable VLAN 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: setMACAddress 
+      description: >
+        Set MAC Address 
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: macAddress
+         type: array[byte]
+         description: >
+            MAC Address
+       - name: macAddressNumber
+         type: byte
+         description: >
+           MAC Address Number 
+       - name: addressTypeAndEnable 
+         type: byte
+         description: >
+           MAC Address Type and Enable 
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: enableBroadcastFiltering 
+      description: >
+        Enable Broadcast Filtering
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: packetFilter
+         type: uint32
+         description: >
+            Pactet Filter      
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: disableBroadcastFiltering 
+      description: >
+        Disable Broadcast Filtering
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: setNCSIFlowControl 
+      description: >
+        Set NCSI Flow Control
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+       - name: flowControl 
+         type: byte
+         description: >
+            Flow Control      
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getVersionID 
+      description: >
+        Get Version ID
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getCapabilities 
+      description: >
+        Get Capabilities
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getParameters 
+      description: >
+        Get Parameters
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getControllerPacketStatistics 
+      description: >
+        Get Controllers Packet Statistics
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getNCSIStatistics 
+      description: >
+        Get NCSI  Statistics
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: getNCSIPassThroughStatistics 
+      description: >
+        Get NCSI  Passthrough Statistics
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: OEMIntelGetMACAddress 
+      description: >
+        Intel OEM Command Get MAC Address
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
+
+    - name: OEMIntelGetThermalStatus 
+      description: >
+        Intel OEM Command Get Thermal Status
+      parameters:
+       - name: controlID
+         type: byte
+         description: >
+            NIC Controller ID
+       - name: channelID 
+         type: byte
+         description: >
+            NIC Channel ID
+      returns:
+       - name: responsePacket
+         type: array[byte]
+         description: >
+           Response packet
