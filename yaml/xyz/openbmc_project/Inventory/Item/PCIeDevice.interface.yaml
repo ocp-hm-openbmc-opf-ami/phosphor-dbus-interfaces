@@ -1,7 +1,7 @@
 description: >
-    This defines a PCIe device to be exposed for system management.  It
-    includes the device properties and function properties for all 8
-    possible functions that are needed for the device identification.
+    This defines a PCIe device to be exposed for system management.  It includes
+    the device properties and function properties for all 8 possible functions
+    that are needed for the device identification.
 
 properties:
     - name: DeviceType
@@ -282,11 +282,6 @@ properties:
       type: string
       description: >
           The Vendor ID for this function.
-
-    - name: Manufacturer
-      type: string
-      description: >
-          The name of the Manufacturer for this device.
 
     - name: MaxLanes
       type: size
