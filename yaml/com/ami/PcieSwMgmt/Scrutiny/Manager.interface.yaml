@@ -1,0 +1,225 @@
+description: >
+    DBus interface to Broadcom's Scrutiny library
+methods:
+  - name: GetDeviceCount
+    description: >
+        Returns the number of discovered atlas pcie switches
+    returns:
+      - name: DeviceCount
+        type: array[uint32]
+        description: >
+            Number of discovered atlas pcie switches
+
+  - name: GetDeviceInfo
+    description: >
+        Returns device specifc information related to the switch that corresponds to DeviceNumber
+    parameters:
+      - name: DeviceNumber
+        type: uint32
+        description: >
+            The device number that corresponds to a particular atlas pcie switch
+    returns:
+      - name: DeviceInfo
+        type: array[uint32]
+        description: >
+            Device info data
+
+  - name: GetTemperature
+    description: >
+        Returns the device temperature
+    parameters:
+      - name: ProductHandle
+        type: uint32
+        description: >
+            Product handle 
+    returns:
+      - name: Temperature
+        type: array[uint32]
+        description: >
+            Temperature in degrees C
+
+  - name: UpdateFirmware
+    description: >
+        Updates atlas firmware (synthetic mode only)
+    parameters:
+      - name: ProductHandle
+        type: uint32
+        description: >
+            Product handle 
+      - name: File
+        type: string
+        description: >
+            Firmware file 
+    returns:
+      - name: Status
+        type: uint32
+        description: >
+            Return status
+
+  - name: GetPciePortProperties
+    description: >
+        Returns the pcie port properties
+    parameters:
+      - name: ProductHandle
+        type: uint32
+        description: >
+            Product handle 
+    returns:
+      - name: PciePortProperties
+        type: array[uint32]
+        description: >
+            Pcie port property data
+
+  - name: GetTraceBuffer
+    description: >
+        Get trace buffer
+    parameters:
+      - name: ProductHandle
+        type: uint32
+        description: >
+            Product handle 
+      - name: File
+        type: string
+        description: >
+            Trace buffer file. 
+    returns:
+      - name: Status
+        type: uint32
+        description: >
+            Return status
+
+  - name: GetCoreDump
+    description: >
+      Get core dump
+    parameters:
+      - name: ProductHandle
+        type: uint32
+        description: >
+          Product handle 
+      - name: File
+        type: string
+        description: >
+          Core dump file. 
+    returns:
+      - name: Status
+        type: uint32
+        description: >
+          Return status
+
+  - name: GetPowerOnSense
+    description: >
+        Get power on sense data
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+    returns:
+        - name: PowerOnSenseData
+          type: array[uint32]
+          description: >
+                Power on sense data
+                
+  - name: GetCcrStatus
+    description: >
+        Get CCR status
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+    returns:
+        - name: CcrStatus
+          type: array[uint32]
+          description: >
+                CCR status
+
+  - name: StartSbrErase
+    description: >
+        Start SBR Erase
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+
+        - name: RegionId
+          type: uint32
+          description: >
+                RegionId
+    returns:
+        - name: SbrEraseStatus
+          type: array[uint32]
+          description: >
+                SbrEraseStatus
+
+  - name: StartSbrUpload
+    description: >
+        Start SBR Upload
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+
+        - name: RegionId
+          type: uint32
+          description: >
+                RegionId
+    returns:
+        - name: SbrUploadStatus
+          type: array[uint32]
+          description: >
+                SbrUploadStatus
+
+  - name: StartSbrDownload
+    description: >
+        Start SBR Download
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+
+        - name: RegionId
+          type: uint32
+          description: >
+                RegionId
+    returns:
+        - name: SbrDownloadStatus
+          type: array[uint32]
+          description: >
+                SbrDownloadStatus
+  
+  - name: GetSbrVersion
+    description: >
+        Get SBR Version
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+    returns:
+        - name: SbrVersion
+          type: array[uint32]
+          description: >
+                SbrVersion
+  
+  - name: GetSbrInfo
+    description: >
+        Get SBR Version
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+
+        - name: RegionId
+          type: uint32
+          description: >
+                Region id
+    returns:
+        - name: SbrInfo
+          type: array[uint32]
+          description: >
+                SbrInfo

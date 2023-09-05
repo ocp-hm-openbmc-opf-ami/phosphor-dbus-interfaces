@@ -1,0 +1,331 @@
+description:
+  A gateway interface to the  PEX8900 Devices.
+
+properties :
+  - name : Manufacturer
+    type : string
+    description : Switch Manufacturer.
+    flags:
+      - readonly
+    default: "Broadcom"
+
+  - name : Model
+    type : string
+    description : State of the Service.
+    flags:
+      - readonly
+    default: "Atlas2"
+
+  - name : Mode
+    type : string
+    description : Mode the Device is operating.
+    flags:
+      - readonly
+
+  - name : Temperature
+    type : string
+    description : Reading Temperature from the Device.
+    flags:
+      - readonly
+    default: "0 C"
+
+  - name: ProductHandle
+    type: uint32
+    description: Product handle used to call additional APIs
+    flags:
+      - readonly
+
+  - name: HandleType
+    type: uint32
+    description: Type of handle
+    flags:
+      - readonly
+
+  - name: SASAddressLow
+    type: uint32
+    description: SASAddressLow
+    flags:
+      - readonly
+
+  - name: SASAddressHigh
+    type: uint32
+    description: SASAddressHigh
+    flags:
+      - readonly
+
+  - name: EnclosureWwidLow
+    type: uint32
+    description: EnclosureWwidLow
+    flags:
+      - readonly
+
+  - name: EnclosureWwidHigh
+    type: uint32
+    description: EnclosureWwidHigh
+    flags:
+      - readonly
+
+  - name: FwVersion
+    type: array[uint32]
+    description: FwVersion
+    flags:
+      - readonly
+
+  - name: SbrVersion
+    type: array[uint32]
+    description: SbrVersion
+    flags:
+      - readonly
+
+  - name: SmApiVersion
+    type: uint32
+    description: SmApiVersion
+    flags:
+      - readonly
+
+  - name: SwitchMode
+    type: uint32
+    description: SwitchMode
+    flags:
+      - readonly
+
+  - name: ComponentId
+    type: uint16
+    description: ComponentId
+    flags:
+      - readonly
+
+  - name: RevisionId
+    type: uint16
+    description: RevisionId
+    flags:
+      - readonly
+
+  - name: PciDeviceId
+    type: uint16
+    description: PciDeviceId
+    flags:
+      - readonly
+
+  - name: PciVendorId
+    type: uint16
+    description: PciVendorId
+    flags:
+      - readonly
+
+  - name: PciMptDeviceId
+    type: uint16
+    description: PciMptDeviceId
+    flags:
+      - readonly
+
+  - name: PciSSDeviceId
+    type: uint16
+    description:  PciSSDeviceId
+    flags:
+      - readonly
+
+  - name: PciSSVendorId
+    type: uint16
+    description: PciSSVendorId
+    flags:
+      - readonly
+
+  - name: NumLanes
+    type: uint32
+    description: NumLanes
+    flags:
+      - readonly
+
+  - name: PciAddrBusNumber
+    type: uint16
+    description: PciAddrBusNumber
+    flags:
+      - readonly
+
+  - name: PciAddrDeviceNumber
+    type: uint16
+    description: PciAddrDeviceNumber
+    flags:
+      - readonly
+
+  - name: PciAddrFunctionNumber
+    type: uint16
+    description: PciAddrFunctionNumber
+    flags:
+      - readonly
+
+  - name: LastOp
+    type: string
+    description: >
+        Last operation (FirmwareUpdate, SBRUpdate, CoreDump, TraceBuffer)
+    flags:
+      - readonly
+
+  - name: LastOpStatus
+    type: string
+    description: >
+        Status of last operation (SUCCESS or FAIL)
+    flags:
+      - readonly
+
+  - name: Ports
+    type: array[uint32]
+    description: >
+        List of ports
+    flags:
+      - readonly
+
+methods:
+
+  - name: StartFWUpdate
+    description: Performs Firmware update for the particular switch.
+    parameters:
+      - name: filename
+        type: string
+        description: FW Filename.
+
+    returns:
+     - name: Status
+       type: uint32
+       description: returns status Success/Failure.
+
+  - name: StartCoreDump
+    description: Performs core dump for the particular switch.
+    parameters:
+      - name: filename
+        type: string
+        description: Core Dump Filename.
+
+    returns:
+     - name: Status
+       type: uint32
+       description: returns status Success/Failure.
+
+  - name: StartTraceBuffer
+    description: Performs trace buffer for the particular switch.
+    parameters:
+      - name: filename
+        type: string
+        description: Tracebuffer filename.
+
+    returns:
+     - name: Status
+       type: uint32
+       description: returns status Success/Failure.
+
+  - name: Refresh
+    description: Refresh pcie port data
+
+    returns:
+     - name: Status
+       type: uint32
+       description: returns status Success/Failure.
+
+  - name: GetPowerOnSense
+    description: Get power on sense data
+
+    returns:
+      - name: PowerOnSenseData
+        type: array[uint32]
+        description: Power on sense data
+
+  - name: GetCcrStatus
+    description: Get CCR status
+    
+    returns:
+        - name: CcrStatus
+          type: array[uint32]
+          description: CCR status
+
+  - name: GetSbrVersion
+    description: Get SBR version
+    
+    returns:
+        - name: SBR Version
+          type: array[uint32]
+          description: SBR Version
+
+  - name: SbrUpload
+    description: Upload (base mode)
+    
+    returns:
+        - name: SBR Updload Status
+          type: uint32
+          description: SBR update status
+
+  - name: SbrDownload
+    description: Download (base mode)
+    
+    returns:
+        - name: SBR Download Status
+          type: uint32
+          description: SBR download status
+
+  - name: SbrErase
+    description: Erase (base mode)
+    
+    returns:
+        - name: SBR Erase Status
+          type: uint32
+          description: SBR erase status
+
+  - name: GetSbrInfo
+    description: Gets all information of the SBR region specified
+    parameters:
+      - name: RegionId
+        type: uint32
+        description: Region id
+
+    returns:
+     - name: SbrRegionInfo
+       type: array[uint32]
+       description: Sbr region Info.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

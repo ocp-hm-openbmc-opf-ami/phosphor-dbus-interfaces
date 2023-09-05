@@ -1,0 +1,167 @@
+description:
+  A gateway interface to the  PEX8900 Devices.
+
+properties :
+  - name : PortType
+    type : uint32
+    description : >
+            Type of port
+    flags:
+      - readonly
+
+  - name : PortNumber
+    type : uint32
+    description : >
+            Total Physical Number
+    flags:
+      - readonly
+
+  - name : isEnabled
+    type : uint32
+    description : >
+            Port enabled
+    flags:
+      - readonly
+
+  - name : GID
+    type : uint32
+    description : >
+            GID
+    flags:
+      - readonly
+
+  - name : MaxReadRequestSize
+    type : uint32
+    description : >
+            Max read request Size
+    flags:
+      - readonly
+
+  - name : MaxPayloadSize
+    type : uint32
+    description : >
+            Maximum payload size
+    flags:
+      - readonly
+
+  - name : MaxPayloadSizeSupport
+    type : uint32
+    description : >
+            Maximum payload support
+    flags:
+      - readonly
+
+  - name : NegotiatedLinkSpeed
+    type : uint32
+    description : >
+            Negotiated link Speed
+    flags:
+      - readonly
+
+  - name : MaxLinkSpeed
+    type : uint32
+    description : >
+            Max link speed
+    flags:
+      - readonly
+
+  - name : NegotiatedLinkWidth
+    type : uint32
+    description : >
+            Negotiated link width
+    flags:
+      - readonly
+
+  - name : MaxLinkWidth
+    type : uint32
+    description : >
+            Maximum link width
+    flags:
+      - readonly
+
+  - name : LinkModeType
+    type : uint32
+    description : >
+            Type of link mode
+    flags:
+      - readonly
+
+  - name : BusPrimary
+    type : uint32
+    description : >
+            Bus primary
+    flags:
+      - readonly
+
+  - name : BusSecondary
+    type : uint32
+    description : >
+            Bus secondary
+    flags:
+      - readonly
+
+  - name : BusSubordinate
+    type : uint32
+    description : >
+            Bus subordinate
+    flags:
+      - readonly
+
+  - name : Reserved
+    type : uint32
+    description : >
+           Reserved
+    flags:
+      - readonly
+
+  - name : ActiveLanes
+    type : uint32
+    description : >
+            Total actibe lanes
+    flags:
+      - readonly
+
+  - name : Reserved1
+    type : uint32
+    description : >
+            Reserved 1
+    flags:
+      - readonly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+

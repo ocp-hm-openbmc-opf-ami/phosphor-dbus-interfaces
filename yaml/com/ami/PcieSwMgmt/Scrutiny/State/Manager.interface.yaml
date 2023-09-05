@@ -1,0 +1,20 @@
+description: >
+    DBus interface to Broadcom's Scrutiny library State Machine
+
+properties:
+    - name: State
+      type: string
+      description: >
+          Currect state of Scrutiny (OPERATIONAL or BUSY)
+
+    - name: LastOp
+      type: string
+      description: >
+          Last operation (FirmwareUpdate, SBRUpdate, CoreDump, TraceBuffer)
+
+    - name: LastOpStatus
+      type: string
+      description: >
+          Status of last operation (SUCCESS or FAIL)
+
+
