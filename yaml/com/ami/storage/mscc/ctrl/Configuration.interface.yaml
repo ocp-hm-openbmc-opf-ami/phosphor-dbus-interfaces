@@ -1,0 +1,35 @@
+description: >
+  This defines a Microsemi RAID controller configuration methods
+
+methods:
+  - name: CreateLogicalDrive
+    parameters:
+    - name: Name
+      type: string
+    - name: RAIDLevel
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RAIDLevel]
+    - name: ArrayNumber
+      type: uint16
+    - name: PdList
+      type: array[uint16]
+    - name: StripSize
+      type: uint64
+    - name: Size
+      type: uint64
+    - name: ParityGroupCount
+      type: byte
+    - name: Accelerator
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LDAccelerator]
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+
+  - name: DeleteLogicalDrive
+    parameters:
+      - name: LdId
+        type: uint16
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy

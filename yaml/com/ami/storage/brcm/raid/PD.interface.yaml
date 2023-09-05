@@ -1,0 +1,10 @@
+description: >
+    This defines a physical drive count interface.
+
+properties:
+    - name: Count
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of Physical drive installed.

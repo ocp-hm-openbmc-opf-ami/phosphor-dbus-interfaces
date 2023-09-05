@@ -1,0 +1,17 @@
+description: >
+    This defines a mscc daemon interface.
+
+methods:
+    - name: Message
+      description: >
+        MSCC daemon command message
+      parameters:
+        - name: Request
+          type: array[byte]
+      returns:
+        - name: Response
+          type: array[byte]
+      errors:
+        - com.ami.storage.Common.Error.InvalidArgument
+        - com.ami.storage.Common.Error.InternalFailure
+        - com.ami.storage.Common.Error.DeviceOrResourceBusy

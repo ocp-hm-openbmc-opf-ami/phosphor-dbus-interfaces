@@ -1,0 +1,584 @@
+description: >
+    This defines a common storage controller info interface.
+
+methods:
+    - name: getRAIDCtrlCount
+      description: >
+        Get the RAID Controller Count
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2 - Controller count (M) 
+              RAID Controllers found in the system. 
+            Data 3:6 - Controller ID 1 (LSB first) 
+            Data 7:N - Controller ID 2 (LSB First)
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDCtrlInfo
+      description: >
+        Get the RAID Controller Information
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5 - Controller ID  
+              RAID Controller ID.( LSB first)  
+            Data 6:85 - Adapter Name 
+              RAID Adapter's name 
+            Data 86:133 - Serial Number (Only the first 32 bytes are valid) 
+              Serial Number of the controller 
+            Data 134:165 - Firmware version 
+            Data 166:197 - BIOS version 
+            Data 198:229 - UEFI version 
+            Data 230:261 - Expander version 
+            Data 262:293 - SEEPROM version 
+            Data 294:325 - CPLD version 
+            Data 326:421 - Package version 
+            Data 422:423 - PCI vendor ID 
+            Data 424: 425 - PCI Device ID 
+            Data 426:427 - PCI Sub Vendor ID 
+            Data 428:429 - PCI Sub System ID 
+            Data 430:431 - TMM Status 
+              Transportable Memory size in MB. 
+            Data 432 - ROC Temperature 
+              Temperature of the Controller; 0xFF for invalid 
+            Data 433- Expander Temperature 
+              Temperature of the expander card; 0xFF for invalid temperature. 
+            Data 434 - Reserved 
+            Data 435:495 - Reserved 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDPhysicalDevCount
+      description: >
+        Get the RAID Controller's physical device count
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5 - Controller ID 
+              RAID Controller ID. (LSB first) 
+            Data 6 - Physical Device Count (M) 
+              No of physical device present in the controller. 
+            Data 7:8 - Physical Device ID 1 (LSB first) 
+              Device ID of the 1st physical drive 
+            Data 9:N - Physical Device ID 2 (LSB First) 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDPhysicalDevInfo
+      description: >
+        Get the RAID Controller's physical device information
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+        - name: PhyDevID
+          type: uint16
+          description: >
+            Physical Disk ID
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5- Controller ID 
+              RAID Controller ID. (LSB first) 
+            Data 6:7 - Device ID 
+              Device ID of the Physical device. (LSB first) 
+            Data 8 - Device Type 
+                00h = HDD Type 
+                01h = SSD Type 
+                02h = SSM Flash Type 
+            Data 9 - Device State 
+                00h = Unconfigured Good 
+                01h = Unconfigured Bad 
+                02h = Hot Spare 
+                03h = Offline  
+                04h = Failed 
+                05h = Rebuild 
+                06h = Online 
+                07h = Copy Back 
+                08h = JBOD 
+                09h = Shield Unconfigured 
+                0Ah = Shield Hot Spare 
+                0Bh = Shield Configured 
+            Data 10:17 - Vendor ID 
+                Vendor ID of the Physical Drive 
+            Data 18: 33 - Product ID 
+              Product ID of the Physical Drive 
+            Data 34:81 - Serial Number 
+              Serial number of the physical drive 
+            Data 82:85 - Revision Number 
+              Revision number of the physical drive 
+            Data 86 - Slot Number 
+              Slot number connected to the physical drive 
+            Data 87 - Presence (Deprecated) 
+              Drive presence in the slot 
+            Data 88 - LED Status (Deprecated) 
+              LED Status of the physical drive 
+                00h = Not Available 
+                01h = LED On 
+                02h = LED Off 
+            Data 89 - Device Interface Type 
+                00h = Unknown 
+                01h = SCSI 
+                02h = SAS 
+                03h = SATA 
+                04h = FC 
+                05h = NVMe 
+                06h = AHCI 
+                07h = PCIe Switch 
+                08h = SCSI device on PCIe 
+            Data 90 - Cache Status (Deprecated) 
+                00h = Not Available 
+                01h = Disabled 
+                02h = Enabled 
+            Data 91 - Device Speed 
+                00h = Not Defined 
+                01h = 1.5GBS 
+                02h = 3.0GBS 
+                03h = 6.0GBS 
+                04h = 12.0GBS 
+                80h = 2.5GT/s 
+                81h = 5GT/s 
+                82h = 8GT/s 
+                83h = 16GT/s 
+            Data 92:99 - Number of Block/Sector in Device 
+            Data 100:103 - Block Size 
+              Block size in bytes 
+            Data 104 - Link Speed 
+              Negotiated Speed of the Drive 
+                00h = Not Defined 
+                01h = 1.5GBS 
+                02h = 3.0GBS 
+                03h = 6.0GBS 
+                04h = 12.0GBS 
+                80h = 2.5GT/s 
+                81h = 5GT/s 
+                82h = 8GT/s 
+                83h = 16GT/s 
+            Data 105 - Power State 
+                00h = Spun up 
+                01h = Spun down 
+            Data 106 - Drive Temperature 
+            Data 107 - SMART Error State 
+                00h = Not Available 
+                01h = SMART Errors Detected 
+                02h = SMART Errors Not Detected 
+            Data 108 - Drive Removal Status 
+                00h = Unknown 
+                01h = Ready for Removal 
+                02h = Not Ready for Removal 
+            Data 109:112 - Fail Count 
+            Data 113:114 - PD Type 
+              Bit 
+                [0-1]    reserved 
+                [2]       isGlobalSpare 
+                [3]       isSpare 
+                [4]       isForeign 
+                [5-15]  reserved 
+            Data 115:260 - Reserved 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDLogicalDevCount
+      description: >
+        Get the RAID Controller's logical device count
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5 - Controller ID (LSB first) 
+              RAID Controller ID.  
+            Data 6 - Logical Device Count (M) 
+              No. of logical device present in the controller. 
+            Data 7:8 - Logical Device ID 1 (LSB first) 
+              Device ID of the 1st logical drive. 
+            Data 9:N - Logical Device ID 2 (LSB First) 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDLogicalDevInfo
+      description: >
+        Get the RAID Controller's logical device information
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+        - name: LogDevID
+          type: uint16
+          description: >
+            Device ID 
+            Device ID of the logical drive. 
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5 - Controller ID (LSB first) 
+              RAID Controller ID.  
+            Data 6:7 - Device ID 
+              Device ID of the logical drive. (LSB first) 
+            Data 8:73 - Logical Drive Name 
+            Data 74 - RAID Type of the logical device 
+              RAID Levels are 0,1,5,6,10,50 and 60 
+            Data 75 - Logical drive state 
+                00h = Offline 
+                01h = Degraded  
+                02h = Rebuild 
+                03h = Optimal 
+            Data 76 - Stripe Size 
+                00h = 512 
+                01h = 1K (512 Bytes * 2) 
+                02h = 2K (1K * 2) 
+                03h = 4K (2K * 2) 
+                04h = 8K (4K * 2) 
+                05h = 16K  
+                06h = 32K 
+                07h = 64K 
+                08h = 128K 
+                09h = 256K 
+                0ah = 512K 
+                0bh = 1MB 
+                Etc., 
+            Data 77 - Access Policy 
+                00h = Read/Write 
+                01h = Read only 
+                02h = Blocked  
+            Data 78 - Read Policy 
+                00h = No Read Ahead 
+                01h = Read Ahead 
+            Data 79 - Write Policy 
+                00h = Write Through 
+                01h = Write Back 
+            Data 80 - Cache Policy 
+                00h = Direct IO 
+                01h = Cached IO 
+            Data 81 - BGI 
+                00h = Enabled 
+                01h = Disabled 
+            Data 82 - SSD Caching (Deprecated) 
+                00h = Disabled 
+                01h = Enabled 
+            Data 83 - Progress 
+                00h = Unknown 
+                01h = Rebuild 
+                02h = Transformation 
+                03h = Rekey 
+                04h = Parity Initialization 
+            Data 84 - Bad Blocks 
+                00h = LD bad block table is empty 
+                01h = LD bad block table is not empty 
+            Data 85:92 - Size 
+              Logical Drive Size – 512 byte blocks 
+            Data 93 – initstate 
+                00h = None 
+                01 = Quick initialization 
+                01 = Full initialization 
+            Data 94 - percentage 
+            Data 95:96 - DeviceGroup 
+            Data 97:173 - Reserved 
+            Data 174 - No. of Physical device in logical device 
+            Data 175:176 - Physical Device ID 1 (LSB First) 
+            Data 177 - Type 1 (Deprecated) 
+                00h = Invalid 
+                01h = SubArray 
+                02h = Data/Parity 
+                03h = Hot Spare 
+                FFh = Invalid 
+            Data 178:179 - Physical Device ID 2 (LSB First) 
+            Data 180 - Type 2 
+            … 
+            (The Max support count of element count is 256) 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: setRAIDDeleteLD
+      description: >
+        Delete logical device
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+        - name: LogDevID
+          type: uint16
+          description: >
+            Virtual Device ID (LSB first)
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDLevelStripSize
+      description: >
+        Get raid level/Strip Size
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5 - Controller ID  
+              Controller ID (LSB first) 
+            Data 6 - Minimum Stripe Size 
+              Eg. 07 - means 64hK 
+            Data 7 - Maximum Stripe Size 
+              Eg. 0bh = means 1 MB 
+              For other valid stripe sizes please refer the Get Logical Device Info  
+            Data 8:11 - Each bit specifies the different RAID Levels supported. LSB first 
+                [0] - RAID 0 support  
+                [1] - RAID 1 support 
+                [2] - RAID 5 support 
+                [3] - RAID 6 support 
+                [4] - RAID 00 support  
+                [5] - RAID 10 support 
+                [6] - RAID 1E support 
+                [7] - RAID 1E_RLQ0 support 
+                [8] - RAID 1E0_RLQ0 support 
+                [9] - RAID 50 support 
+                [10] - RAID 60 support 
+                [11:31] - Reserved 
+              Eg: suppose Data 8:11 value is BF:07:00:00 (LSB first) 
+                Hex value = 0x000007BF 
+                i.e. all bits from Bit 0 to 10 is set except Bit6. Except RAID 1E all RAID levels are supported 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: getRAIDHealth
+      description: >
+        Get the RAID health info
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code 
+            Data 2:5 - Controller ID (LSB first) 
+              Controller ID 
+            Data 6:7 - LD optimal count 
+            Data 8:9 - LD critical count 
+            Data 10:11 - LD offline count 
+            Data 12:13 - Reserved 
+            Data 14:15 - PD optimal count 
+            Data 16:17 - PD predictive failure count 
+            Data 18:19 - PD failed count 
+            Data 20:21 - BBU present 
+            Data 22:23 - Reserved 
+              [1] - BBU pack missing 
+                  00h = Pack present 
+                  01h = Pack missing 
+              [2] - BBU voltage low 
+                  00h = Voltage normal 
+                  01h = Voltage low 
+              [3] - BBU temperature high 
+                  00h =Temperature normal 
+                  01h = Temperature high 
+              [4:16] - BBU Reserved 
+            Data 24:25 - NVRAM un-correct table error count 
+            Data 26:33 - Reserved 
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: manageRAIDConfig
+      description: >
+        Manage the RAID configuration
+      parameters:
+        - name: CtrlId
+          type: uint32
+          description: >
+            Controller ID 
+        - name: CmdParm
+          type: byte
+          description: >
+            00h:CLEAR CFG 
+            01h:ADD CFG 
+        - name: prl
+          type: byte
+          description: >
+            PRL 
+            The Primary RAID level. 
+            00h = RAID0 
+            01h = RAID1 
+            02h = RAID5 
+            03h = RAID6 
+            04h = RAID 1E (RLQ = 1) 
+            05h = RAID 1E (RLQ = 0) 
+            06h = RAID 1E0 (RLQ = 0) 
+            07h = RAID 00 
+            08h = RAID 10 
+            09h = RAID 50 
+            0Ah = RAID 60 
+            Note: RLQ - RAID Level Qualifier. 
+        - name: stripeSize
+          type: byte
+          description: >
+            Stripe Size 
+            The Stripe Size for the virtual device 
+        - name: initState
+          type: byte
+          description: >
+            Initialization State 
+            00h = No Initialization 
+            01h = Quick Initialization 
+            02h = Fast Initialization 
+        - name: diskCachePolicy
+          type: byte
+          description: >
+            Disk Cache Policy 
+            00h = Unchanged 
+            01h = Enabled 
+            02h = Disabled 
+        - name: sizeLow
+          type: uint32
+          description: >
+            Low double word(4 bytes) of Volume Size 
+            The Size of the Virtual Drive Volume 
+        - name: sizeHigh
+          type: uint32
+          description: >
+            High double word(4 bytes) of Volume Size  
+            The Size of the Virtual Drive Volume 
+        - name: readpolicy
+          type: byte
+          description: >
+            Read Policy 
+            00h = No Read Ahead 
+            01h = Always Read Ahead 
+        - name: writepolicy
+          type: byte
+          description: >
+            Write Policy 
+            00h = Write Through 
+            01h = Always Write Back 
+            02h = Write back with BBU 
+        - name: iopolicy
+          type: byte
+          description: >
+            IO Policy 
+            00h = DirectIO 
+            01h = CachedIO 
+        - name: accesspolicy
+          type: byte
+          description: >
+            Access Policy 
+            00h = Read-Write 
+            01h = Read Only 
+            02h = Blocked 
+        - name: spanDepth
+          type: byte
+          description: >
+            No. of spans required for RAID Level. The default spanDepth is 1. The RAID Levels RAID00, RAID10, RAID50, RAID60 and RAID1E0_RLQ0 are required more than one span count. 
+        - name: numDrives
+          type: byte
+          description: >
+            The no. of physical devices per span. Each span will contain numDrives of physical devices. 
+        - name: Accelerator
+          type: byte
+          description: >
+            Reserved for BRCM. 
+        - name: ParityGroupCount
+          type: byte
+          description: >
+            Reserved for BRCM. 
+        - name: ArrayNumber
+          type: uint16
+          description: >
+            Reserved for BRCM. 
+        - name: VDName
+          type: array[byte] 
+          description: >
+            Virtual Device Name (Only the first 16 bytes are valid). 
+            Eg. 5 0x41 0x4d 0x49 0x56 0x44 
+            Means : 'AMIVD' 
+        - name: SpanID
+          type: array[byte] 
+          description: >
+            The spanID denotes the association of physical device with span. The span ID starts from 0. Each physical device should have proper span ID. 
+            List(vector) of span IDs 
+            Eg. 4 0 0 0 0 
+        - name: deviceID
+          type: array[uint16] 
+          description: >
+            List(vector) of Physical Device IDs 
+            Eg. 4 8 9 10 11 
+      returns:
+        - name: Data
+          type: array[byte]
+          description: >
+            Data 1 - Completion Code
+      errors:
+        - xyz.openbmc_project.Common.Error.Timeout
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Error.InternalFailure
+
+properties:
+    - name: Count
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Number of RAID Controllers installed.
+
+    - name: manageRAIDConfigStatus
+      type: uint32
+      description: >
+        The status of calling manageRAIDConfig method
+
+    - name: setRAIDDeleteLDStatus
+      type: uint32
+      description: >
+        The status of calling setRAIDDelete method
+
+    - name: configComplete
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The flag to indicate whether configuration information is ready. 
+        0xFFFFFFFFF: config operation in progress, 
+        0x0 : Configuration information updated.

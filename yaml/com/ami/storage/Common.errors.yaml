@@ -1,0 +1,19 @@
+- name: Timeout
+  description: Operation timed out.
+  errno: ETIMEDOUT
+- name: InternalFailure
+  description: The operation failed internally.
+- name: InvalidArgument
+  description: Invalid argument was given.
+  errno: EINVAL
+- name: NotAllowed
+  description: The operation is not allowed
+- name: ResourceNotFound
+  description: The resource is not found.
+- name: Unavailable
+  description: The service is temporarily unavailable.
+- name: UnsupportedRequest
+  description: The request is unsupported.
+- name: DeviceOrResourceBusy
+  description: The device or resource is busy.
+  errno: EBUSY

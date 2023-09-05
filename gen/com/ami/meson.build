@@ -2,3 +2,4 @@
 subdir('NIC')
 subdir('NICMgmt')
 subdir('NVMeMgmt')
+subdir('storage')

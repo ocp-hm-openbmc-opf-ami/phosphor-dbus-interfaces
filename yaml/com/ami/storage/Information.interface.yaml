@@ -1,0 +1,8 @@
+description: >
+    This defines a storage manager basic info
+
+properties:
+    - name: SupportedVendorList
+      type: array[string]
+      flags:
+        - readonly

@@ -1,0 +1,70 @@
+description: >
+    This defines a physical drive info interface.
+
+properties:
+    - name: BlockSizeBytes
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The size of the smallest addressable unit (Block) of this drive in bytes.
+    - name: FailurePredicted
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Is this drive currently predicting a failure in the near future.
+    - name: Id
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The Device Id of the drive.
+    - name: Manufacturer
+      type: string
+      flags:
+        - readonly
+      description: >
+        This is the manufacturer of this Drive.
+    - name: NegotiatedSpeedGbs
+      type: double
+      flags:
+        - readonly
+      description: >
+        The speed which this Drive is currently communicating to the Raid Controller.
+    - name: ProductID
+      type: string
+      flags:
+        - readonly
+      description: >
+        The model name of the drive.
+    - name: Protocol
+      type: string
+      flags:
+        - readonly
+      description: >
+        The protocol this Drive is using to communicate to the Raid Controllers.
+    - name: Revision
+      type: string
+      flags:
+        - readonly
+      description: >
+        The revision of this Drive.
+    - name: SerialNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        The serial number for this Drive.
+    - name: SlotNumber
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The solt number the drive connected.
+    - name: Health
+      type: string
+      flags:
+        - readonly
+      description: >
+        SMART.HealthGood status.

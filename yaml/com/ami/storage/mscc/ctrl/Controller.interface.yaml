@@ -1,0 +1,118 @@
+description: >
+    This defines a Microsemi RAID controller info
+
+properties:
+    - name: Name
+      type: string
+      flags:
+        - readonly
+      description: >
+        RAID controllers (RAID cards) name.
+    - name: ID
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The ID for this RAID controller.
+    - name: SerialNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        The serial number for this RAID controller.
+    - name: FirmwareVersion
+      type: string
+      flags:
+        - readonly
+      description: >
+        The firmware version of this RAID controller.
+    - name: PCIId
+      type: array[struct[uint16, uint16]]
+      flags:
+        - readonly
+      description: >
+        The PCI vendor id and device id of this RAID controller.
+    - name: Temperature
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The temperature sensor info of this RAID controller.
+    - name: WWN
+      type: string
+      flags:
+        - readonly
+      description: >
+        The world wide name of this RAID controller.
+    - name: CacheSize
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        Controller I/O read/write cache size available.
+    - name: MemorySize
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The total controller memory size in MB.
+    - name: Mode
+      type: enum[self.ModeType]
+      flags:
+        - readonly
+      description: >
+        Keeps tracking the support RAID mode, HBA mode and Mixed mode.
+    - name: SupportedMaxPDCount
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The max number of physical drives of the controller can support.
+    - name: SupportedMaxLDCount
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The max number of logical drives of the controller can support.
+    - name: SupportedMaxPDperLDCount
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The max number of physical drives that can be assigned to an array/logical drive.
+    - name: HWRevision
+      type: string
+      flags:
+        - readonly
+      description: >
+        The hardware revision of this RAID controller.
+    - name: CtrlDriverVersion
+      type: string
+      flags:
+        - readonly
+      description: >
+        The controller driver version of this RAID controller.
+    - name: VendorId
+      type: string
+      flags:
+        - readonly
+      description: >
+        The vendor ID of this RAID controller.
+
+enumerations:
+    - name: ModeType
+      description: >
+        The support type of RAID mode, HBA mode and Mixed mode.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown mode.
+        - name: "RAID"
+          description: >
+            RAID mode.
+        - name: "HBA"
+          description: >
+            HBA mode.
+        - name: "Mixed"
+          description: >
+            Mixed mode.

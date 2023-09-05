@@ -1,0 +1,58 @@
+description: >
+    This defines a logical drive info interface.
+
+properties:
+    - name: id
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The logical drive id
+    - name: Name
+      type: string
+      flags:
+        - readonly
+      description: >
+        The Name for the volume. 
+    - name: RAIDType
+      type: string
+      flags:
+        - readonly
+      description: >
+        The RAID type of this volume. 
+    - name: StripSizeBytes
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The number of blocks (bytes) in a strip in a disk array that uses striped data mapping. 
+    - name: ReadCachePolicyType
+      type: string
+      flags:
+        - readonly
+      description: >
+        Indicates the read cache policy setting for the Volume. 
+    - name: WriteCachePolicyType
+      type: string
+      flags:
+        - readonly
+      description: >
+        Indicates the write cache policy setting for the Volume. 
+    - name: CapacityBytes
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The size of this volume in bytes. 
+    - name: Health
+      type: string
+      flags:
+        - readonly
+      description: >
+        Health status of this logical drive. 
+    - name: DriveList
+      type: array[uint16]
+      flags:
+        - readonly
+      description: >
+        List of Drive ID used in this volume. 

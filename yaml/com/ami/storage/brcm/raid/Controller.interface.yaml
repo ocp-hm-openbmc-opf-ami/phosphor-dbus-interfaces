@@ -1,0 +1,95 @@
+description: >
+    This defines a Broadcom RAID controller info
+
+properties:
+    - name: Model
+      type: string
+      flags:
+        - readonly
+      description: >
+        RAID Controllers(RAID card) model name.
+    - name: MemberID
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Controller ID.
+    - name: SerialNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        The serial number for this Raid Controller.
+    - name: FirmwareVersion
+      type: string
+      flags:
+        - readonly
+      description: >
+        The firmware version of this Raid Controllers.
+    - name: Health
+      type: string
+      flags:
+        - readonly
+      description: >
+        The Health status of this Raid Controllers.
+
+    - name: SupportedRAIDTypes_RAID0
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID0 Support
+    - name: SupportedRAIDTypes_RAID00
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID00 Support
+    - name: SupportedRAIDTypes_RAID1
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID1 Support
+    - name: SupportedRAIDTypes_RAID10
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID10 Support
+    - name: SupportedRAIDTypes_RAID1E
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID1E Support
+    - name: SupportedRAIDTypes_RAID5
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID5 Support
+    - name: SupportedRAIDTypes_RAID50
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID50 Support
+    - name: SupportedRAIDTypes_RAID6
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID6 Support
+    - name: SupportedRAIDTypes_RAID60
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        RAID60 Support
+    - name: SupportedStripSize
+      type: array[string]
+      flags:
+        - readonly
+      description: >
+        support strip size type (5 "64 KB" "128 KB" "256 KB" "512 KB" ...)

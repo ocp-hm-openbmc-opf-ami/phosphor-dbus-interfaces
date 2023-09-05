@@ -1,0 +1,16 @@
+description: >
+    The interface for SMART information.
+
+properties:
+    - name: Attritubes
+      type: array[array[byte]]
+      flags:
+        - readonly
+      description: >
+        SMART attribute array.
+    - name: Thresholds
+      type: array[array[byte]]
+      flags:
+        - readonly
+      description: >
+        SMART threshold array.
