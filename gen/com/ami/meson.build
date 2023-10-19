@@ -2,4 +2,5 @@
 subdir('NIC')
 subdir('NICMgmt')
 subdir('NVMeMgmt')
+subdir('PcieSwMgmt')
 subdir('storage')
