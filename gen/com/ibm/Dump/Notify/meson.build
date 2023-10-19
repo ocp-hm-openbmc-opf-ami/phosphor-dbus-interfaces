@@ -1,15 +1,15 @@
 # Generated file; do not modify.
 generated_sources += custom_target(
-    'com/ami/NIC/NIC__cpp'.underscorify(),
-    input: [ '../../../../../yaml/com/ami/NIC/NIC.interface.yaml',  ],
-    output: [ 'server.cpp', 'server.hpp', 'client.hpp',  ],
+    'com/ibm/Dump/Notify__cpp'.underscorify(),
+    input: [ '../../../../../yaml/com/ibm/Dump/Notify.interface.yaml',  ],
+    output: [ 'common.hpp', 'server.cpp', 'server.hpp', 'aserver.hpp', 'client.hpp',  ],
     depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'cpp',
         '--output', meson.current_build_dir(),
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
-        'com/ami/NIC/NIC',
+        'com/ibm/Dump/Notify',
     ],
 )
 
