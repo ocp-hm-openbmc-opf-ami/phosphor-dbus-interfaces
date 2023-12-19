@@ -6,8 +6,8 @@ methods:
     parameters:
     - name: Name
       type: string
-    - name: RAIDLevel
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RAIDLevel]
+    - name: RaidLevel
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
     - name: ArrayNumber
       type: uint16
     - name: PdList
@@ -19,7 +19,7 @@ methods:
     - name: ParityGroupCount
       type: byte
     - name: Accelerator
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LDAccelerator]
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
     errors:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure

@@ -14,8 +14,8 @@ properties:
         - readonly
       description: >
         The logical drive ID.
-    - name: RAIDType
-      type: enum[self.RAIDLevel]
+    - name: RaidLevel
+      type: enum[self.RaidType]
       flags:
         - readonly
       description: >
@@ -38,49 +38,49 @@ properties:
         - readonly
       description: >
         The array number of this volume.
-    - name: DataPdIds
+    - name: DataPdList
       type: array[uint16]
       flags:
         - readonly
       description: >
         List PD member of LD.
-    - name: SparePdIds
+    - name: SparePdList
       type: array[uint16]
       flags:
         - readonly
       description: >
         List spare PD member of LD.
-    - name: LDType
-      type: enum[self.LDTypeInfo]
+    - name: LdType
+      type: enum[self.LdTypeInfo]
       flags:
         - readonly
       description: >
         Keep tracking the type of data/cache of this logical drive.
     - name: AcceleratorType
-      type: enum[self.LDAccelerator]
+      type: enum[self.LdAccelerator]
       flags:
         - readonly
       description: >
         Keep tracking the accelerator type of this logical drive.
     - name: StatusInfo
-      type: enum[self.LDStatusInfo]
+      type: enum[self.LdStatusInfo]
       flags:
         - readonly
       description: >
         Keep tracking the status info of this logical drive.
-    - name: LUCacheAlgorithm
+    - name: LuCacheAlgorithm
       type: enum[self.CacheAlgo]
       flags:
         - readonly
       description: >
         Keep tracking the LRU/LRU2/regional/simple info of this logical drive.
-    - name: LUCacheInfoActualWritePolicy
+    - name: LuCacheInfoActualWritePolicy
       type: enum[self.CachePolicy]
       flags:
         - readonly
       description: >
         Keep tracking to indicate the actual write policy setting for the Volume.
-    - name: LUCacheInfoRequestedWritePolicy
+    - name: LuCacheInfoRequestedWritePolicy
       type: enum[self.CachePolicy]
       flags:
         - readonly
@@ -100,7 +100,7 @@ properties:
         The progress/percentage of the Volume.
 
 enumerations:
-    - name: RAIDLevel
+    - name: RaidType
       description: >
         The logical drive ID.
       values:
@@ -140,7 +140,7 @@ enumerations:
         - name: "RAID10ADM"
           description: >
             RAID10 ADM.
-    - name: LDTypeInfo
+    - name: LdTypeInfo
       description: >
         List spare PD member of LD.
       values:
@@ -162,7 +162,7 @@ enumerations:
         - name: "SplitMirrorSetBackupOrphan"
           description: >
             Split mirror set as a backup orphan type.
-    - name: LDAccelerator
+    - name: LdAccelerator
       description: >
         The type of data/cache of this logical drive.
       values:
@@ -181,7 +181,7 @@ enumerations:
         - name: "LUCache"
           description: >
             LU cache type.
-    - name: LDStatusInfo
+    - name: LdStatusInfo
       description: >
         The status info of this logical drive.
       values:

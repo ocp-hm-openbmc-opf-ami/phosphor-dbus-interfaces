@@ -2,18 +2,18 @@ description: >
     This defines a Microsemi RAID controller info
 
 properties:
-    - name: Name
+    - name: Model
       type: string
       flags:
         - readonly
       description: >
-        RAID controllers (RAID cards) name.
-    - name: ID
-      type: uint16
+        RAID controllers (RAID cards) model name.
+    - name: Id
+      type: uint32
       flags:
         - readonly
       description: >
-        The ID for this RAID controller.
+        The Id for this RAID controller.
     - name: SerialNumber
       type: string
       flags:
@@ -26,7 +26,7 @@ properties:
         - readonly
       description: >
         The firmware version of this RAID controller.
-    - name: PCIId
+    - name: PCI
       type: array[struct[uint16, uint16]]
       flags:
         - readonly
@@ -62,37 +62,37 @@ properties:
         - readonly
       description: >
         Keeps tracking the support RAID mode, HBA mode and Mixed mode.
-    - name: SupportedMaxPDCount
+    - name: SupportedMaxPdCount
       type: uint16
       flags:
         - readonly
       description: >
         The max number of physical drives of the controller can support.
-    - name: SupportedMaxLDCount
+    - name: SupportedMaxLdCount
       type: uint16
       flags:
         - readonly
       description: >
         The max number of logical drives of the controller can support.
-    - name: SupportedMaxPDperLDCount
+    - name: SupportedMaxPdPerLdCount
       type: uint16
       flags:
         - readonly
       description: >
         The max number of physical drives that can be assigned to an array/logical drive.
-    - name: HWRevision
+    - name: HardwareRevision
       type: string
       flags:
         - readonly
       description: >
         The hardware revision of this RAID controller.
-    - name: CtrlDriverVersion
+    - name: DriverVersion
       type: string
       flags:
         - readonly
       description: >
         The controller driver version of this RAID controller.
-    - name: VendorId
+    - name: Manufacturer
       type: string
       flags:
         - readonly

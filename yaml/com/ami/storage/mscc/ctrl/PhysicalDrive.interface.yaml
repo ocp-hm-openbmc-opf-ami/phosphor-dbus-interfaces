@@ -26,8 +26,8 @@ properties:
         - readonly
       description: >
         The serial number for this physical drive.
-    - name: ConnectorType
-      type: enum[self.PDifc]
+    - name: InterfaceType
+      type: enum[self.PdIfc]
       flags:
         - readonly
       description: >
@@ -44,8 +44,8 @@ properties:
         - readonly
       description: >
         The temperature of this physical drive.
-    - name: PDType
-      type: enum[self.PDTypeInfo]
+    - name: PdType
+      type: enum[self.PdTypeInfo]
       flags:
         - readonly
       description: >
@@ -62,7 +62,7 @@ properties:
         - readonly
       description: >
         The boot priority of the physical drive. None/Primary/Secondary/Both primary and secondary.
-    - name: VendorId
+    - name: Manufacturer
       type: string
       flags:
         - readonly
@@ -81,7 +81,7 @@ properties:
       description: >
         The array number of this physical drive.
     - name: StatusInfo
-      type: struct[enum[self.PDStatusLevel], enum[self.PDStatusInfo]]
+      type: struct[enum[self.PdStatusLevel], enum[self.PdStatusInfo]]
       flags:
         - readonly
       description: >
@@ -111,19 +111,19 @@ properties:
       description: >
         The basic info of this physical drive.
     - name: LinkSpeed
-      type: enum[self.PDLinkRate]
+      type: enum[self.PdLinkRate]
       flags:
         - readonly
       description: >
         Keep tracking the link speed of this physical drive.
     - name: MaxLinkSpeed
-      type: enum[self.PDLinkRate]
+      type: enum[self.PdLinkRate]
       flags:
         - readonly
       description: >
         Keep tracking the max link speed of this physical drive.
-    - name: UsageInfo
-      type: byte
+    - name: Usage
+      type: enum[self.UsageInfo]
       flags:
         - readonly
       description: >
@@ -142,7 +142,7 @@ properties:
         The flag iInfo ID of this physical drive.
 
 enumerations:
-    - name: PDifc
+    - name: PdIfc
       description: >
         Available in SAS, SATA and NVMe.
       values:
@@ -158,7 +158,7 @@ enumerations:
         - name: "NVMe"
           description: >
             NVMe type.
-    - name: PDTypeInfo
+    - name: PdTypeInfo
       description: >
         The type of HDD/SSD of this physical drive.
       values:
@@ -171,7 +171,7 @@ enumerations:
         - name: "SSD"
           description: >
             SSD drive.
-    - name: PDStatusLevel
+    - name: PdStatusLevel
       description: >
         The status level of this physical drive.
       values:
@@ -190,7 +190,7 @@ enumerations:
         - name: "Failed"
           description: >
             Failed status.
-    - name: PDStatusInfo
+    - name: PdStatusInfo
       description: >
         The status info of this physical drive.
       values:
@@ -248,7 +248,7 @@ enumerations:
         - name: "IsSEDDataLocked"
           description: >
             SED data is locked status.
-    - name: PDLinkRate
+    - name: PdLinkRate
       description: >
         The speed which this Drive is currently communicating to the StorageControllers in Gigabits per second.
       values:
@@ -294,3 +294,18 @@ enumerations:
         - name: "PCIeGen5"
           description: >
             Link rate per PCIe Gen 5.
+    - name: UsageInfo
+      description: >
+        Disk usage.
+      values:
+        - name: "Unknown"
+        - name: "Unassigned"
+        - name: "Data"
+        - name: "AutoReplaceStandbySpare"
+        - name: "ShareableStandbySpare"
+        - name: "ShareableActiveSpare"
+        - name: "TransientData"
+        - name: "LuCacheData"
+        - name: "HBA"
+        - name: "TransientUnassigned"
+        - name: "Unconfigurable"
