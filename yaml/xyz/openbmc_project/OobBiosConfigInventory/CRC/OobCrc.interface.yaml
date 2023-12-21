@@ -1,0 +1,30 @@
+description: >
+    BIOS Inventory OOB CRC keys which is set when a corresponding module get updated from out-of-band user.
+
+properties:
+    - name: BootOverride
+      type: uint64
+      default: 0
+      description: >
+          OOB CRC property to be updated when Boot Override properties gets updated.
+
+    - name: Certificate
+      type: uint64
+      default: 0
+      description: >
+          OOB CRC property to be updated when Certificates or related properties gets updated.
+
+    - name: Boot
+      type: uint64
+      default: 0
+      description: >
+          OOB CRC property to be updated when Boot properties gets updated.
+
+    - name: Secureboot
+      type: uint64
+      default: 0
+      description: >
+          OOB CRC property to be updated when SecureBoot related properties gets updated.
+
+
+

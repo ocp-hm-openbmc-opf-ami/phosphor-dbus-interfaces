@@ -1,0 +1,100 @@
+description: >
+    Ami Host Interface Inventory Data Processing Dbus Services
+
+methods:
+    - name: processInventoryData
+      description: >
+          Parse the inventory file and populate DBUS.
+      parameters:
+          - name: inventoryFilePath
+            type: string
+            description: >
+                Path of the Bios Inventory file saved in BMC.
+
+    - name: saveBiosStaticFile
+      description: >
+          Compress and save the bios static files.
+      parameters:
+          - name: staticFilePath
+            type: string
+            description: >
+                Path of the Bios staic file saved in BMC.
+
+    - name: getBiosStaticFile
+      description: >
+          Uncompress and sent the bios static files.
+      parameters:
+          - name: staticFilePath
+            type: string
+            description: >
+                Path of the Bios staic file saved in BMC.
+      returns:
+          - name: BiosStaticFileString
+            type: string
+            description: >
+                Bios Static File in plain text format.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+properties:
+    - name: InventoryStatus
+      type: enum[self.InventoryProgress]
+      default: Unknown
+      description: >
+          Returns status of Inventory Processing.
+
+    - name: InventoryProcessingTimeInMs
+      type: uint64
+      default: 0
+      description: >
+          Returns the time taken in ms for processing inventory data.
+
+    - name: RedfishVersion
+      type: string
+      default: ""
+      description: >
+           Returns the current RedfishVersion supported in Bios.
+
+    - name: RtpVersion
+      type: string
+      default: ""
+      description: >
+           Returns the current Ami RTP version supported in Bios.
+    
+    - name: BiosAttributeRegistryVersion
+      type: string
+      default: ""
+      description: >
+           Returns the Bios Attribute Registry version.
+
+    - name: InventoryProcessingInfo
+      type: array[string]
+      description: >
+          Additional informations generated during inventory processing.
+
+    - name: DeletedModulesInfo
+      type: array[string]
+      description: >
+          Information regarding the modules deleted during inventory processing.
+
+enumerations:
+    - name: InventoryProgress
+      description: >
+          Inventory progress Type.
+      values:
+          - name: Completed
+            description: >
+                Inventory Processing is completed.
+          - name: InProgress
+            description: >
+                Inventory Processing in progress.
+          - name: Queued
+            description: >
+                Inventory Processing is queued.
+          - name: Failed
+            description: >
+                Inventory Processing failed.
+
+          - name: Unknown
+            description: >
+                Inventory Processing not started.

@@ -1,0 +1,35 @@
+description: >
+    BIOS Inventory modules Group CRC's.
+
+properties:
+    - name: Dimm
+      type: uint64
+      default: 0
+      description: >
+          CRC value for Dimm.
+
+    - name: Pcie
+      type: uint64
+      default: 0
+      description: >
+          CRC value for Pcie.
+
+    - name: CPU
+      type: uint64
+      default: 0
+      description: >
+          CRC value for CPU.
+
+    - name: Certificate
+      type: uint64
+      default: 0
+      description: >
+          CRC value for Certificates.
+
+    - name: Secureboot
+      type: uint64
+      default: 0
+      description: >
+          CRC for Secureboot.
+
+

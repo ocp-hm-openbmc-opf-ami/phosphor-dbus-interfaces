@@ -106,6 +106,7 @@ generated_others += custom_target(
     ],
 )
 
+subdir('OobBiosConfigInventory')
 subdir('PFR')
 subdir('PLDM')
 subdir('ScheduledTime')

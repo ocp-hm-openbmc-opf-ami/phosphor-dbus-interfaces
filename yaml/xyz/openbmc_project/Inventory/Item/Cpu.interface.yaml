@@ -61,6 +61,19 @@ properties:
       description: >
           The microcode information for this processor
       default: 0
+    - name: ProcessorArchitecture
+      type: string
+      description: >
+          The Architecture information for this processor.
+      default: ""
+    - name: ProcessorMemory
+      type: array[struct[uint32,boolean,string]]
+      description: >
+          The ProcessorMemory information for this processor.
+    - name: ProcessorType
+      type: string
+      description: >
+          The type of the processor.
 
 enumerations:
     - name: Capability
