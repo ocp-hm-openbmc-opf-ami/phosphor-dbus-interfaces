@@ -248,6 +248,11 @@ methods:
 
   - name: SbrUpload
     description: Upload (base mode)
+    parameters:
+      - name: RegionId
+        type: uint32
+        description: Region id
+
     
     returns:
         - name: SBR Updload Status
@@ -256,7 +261,11 @@ methods:
 
   - name: SbrDownload
     description: Download (base mode)
-    
+    parameters:
+      - name: RegionId
+        type: uint32
+        description: Region id
+
     returns:
         - name: SBR Download Status
           type: uint32
@@ -264,6 +273,10 @@ methods:
 
   - name: SbrErase
     description: Erase (base mode)
+    parameters:
+      - name: RegionId
+        type: uint32
+        description: Region id
     
     returns:
         - name: SBR Erase Status
@@ -282,9 +295,60 @@ methods:
        type: array[uint32]
        description: Sbr region Info.
 
+  - name: StartHardwareEye
+    description: >
+        HardWare Eye
+    parameters:
+
+        - name: startPort
+          type: uint32
+          description: >
+                Start Port Number
+
+        - name: portNum
+          type: uint32
+          description: >
+                Port Number
+
+        - name: timeout
+          type: uint32
+          description: >
+                timeout
+
+        - name: targetBER
+          type: uint32
+          description: >
+                BER
+    returns:
+     - name: HardwareEye Start Status
+       type: uint32
 
 
+  - name: GetHardwareEye
+    description: >
+        HardWare Eye
+    returns:
+     - name: HardwareEye Values
+       type: array[uint32]
 
+  - name: GetLtssmTrace
+    parameters:
+
+        - name: portNum
+          type: uint32
+          description: >
+                Port Number
+
+        - name: timeSec
+          type: uint32
+          description: >
+                time in secondds
+
+    returns:
+        - name: Status
+          type: uint32
+          description: >
+                Ltssm Trace Status
 
 
 
