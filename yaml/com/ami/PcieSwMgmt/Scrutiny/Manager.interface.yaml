@@ -223,3 +223,62 @@ methods:
           type: array[uint32]
           description: >
                 SbrInfo
+
+  - name: HardwareEye
+    description: >
+        HardWare Eye
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+
+        - name: startPort
+          type: uint32
+          description: >
+                Start Port Number
+
+        - name: portNum
+          type: uint32
+          description: >
+                Port Number
+
+        - name: timeout
+          type: uint32
+          description: >
+                timeout
+
+        - name: targetBER
+          type: uint32
+          description: >
+                BER
+
+    returns:
+        - name: hardwareEye
+          type: array[uint32]
+          description: >
+                Hardware Eye
+
+  - name: GetLtssmTrace
+    parameters:
+        - name: productHandle
+          type: uint32
+          description: >
+                Product handle
+
+        - name: portNum
+          type: uint32
+          description: >
+                Port Number
+
+        - name: timeSec
+          type: uint32
+          description: >
+                time in secondds
+
+    returns:
+        - name: Status
+          type: uint32
+          description: >
+                Ltssm Trace Status
+
