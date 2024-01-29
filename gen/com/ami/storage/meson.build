@@ -2,7 +2,7 @@
 subdir('Common')
 generated_others += custom_target(
     'com/ami/storage/Common__markdown'.underscorify(),
-    input: [ '../../../../yaml/com/ami/storage/Common.errors.yaml',  ],
+    input: [ '../../../../yaml/com/ami/storage/Common.interface.yaml',  ],
     output: [ 'Common.md' ],
     depend_files: sdbusplusplus_depfiles,
     command: [

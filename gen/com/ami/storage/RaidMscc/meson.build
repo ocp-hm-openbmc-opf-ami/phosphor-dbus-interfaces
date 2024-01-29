@@ -2,7 +2,7 @@
 generated_sources += custom_target(
     'com/ami/storage/RaidMscc__cpp'.underscorify(),
     input: [ '../../../../../yaml/com/ami/storage/RaidMscc.interface.yaml',  ],
-    output: [ 'common.hpp', 'server.cpp', 'server.hpp', 'aserver.hpp', 'client.hpp',  ],
+    output: [ 'common.hpp', 'server.cpp', 'server.hpp', 'client.hpp',  ],
     depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'cpp',

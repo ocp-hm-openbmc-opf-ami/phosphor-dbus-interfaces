@@ -140,6 +140,18 @@ properties:
         - readonly
       description: >
         The flag iInfo ID of this physical drive.
+    - name: FailurePredicted
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Predicted failure for physical drive.
+    - name: Health
+      type: enum[com.ami.storage.Common.Health]
+      flags:
+        - readonly
+      description: >
+        Physical drive health
 
 enumerations:
     - name: PdIfc

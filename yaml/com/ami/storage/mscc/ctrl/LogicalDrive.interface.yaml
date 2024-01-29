@@ -98,6 +98,12 @@ properties:
         - readonly
       description: >
         The progress/percentage of the Volume.
+    - name: Health
+      type: enum[com.ami.storage.Common.Health]
+      flags:
+        - readonly
+      description: >
+        Logical drive health
 
 enumerations:
     - name: RaidType

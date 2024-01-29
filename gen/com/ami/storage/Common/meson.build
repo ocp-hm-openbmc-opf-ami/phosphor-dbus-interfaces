@@ -1,8 +1,8 @@
 # Generated file; do not modify.
 generated_sources += custom_target(
     'com/ami/storage/Common__cpp'.underscorify(),
-    input: [ '../../../../../yaml/com/ami/storage/Common.errors.yaml',  ],
-    output: [ 'error.cpp', 'error.hpp',  ],
+    input: [ '../../../../../yaml/com/ami/storage/Common.interface.yaml',  ],
+    output: [ 'error.cpp', 'error.hpp', 'common.hpp', 'server.cpp', 'server.hpp', 'client.hpp',  ],
     depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'cpp',

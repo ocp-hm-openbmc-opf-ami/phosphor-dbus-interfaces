@@ -1,0 +1,8 @@
+description: >
+
+enumerations:
+    - name: Health
+      values:
+        - name: "Good"
+        - name: "Warning"
+        - name: "Critical"

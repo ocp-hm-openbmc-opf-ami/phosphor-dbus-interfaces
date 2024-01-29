@@ -98,6 +98,25 @@ properties:
         - readonly
       description: >
         The vendor ID of this RAID controller.
+    - name: SupportedRaidLevel
+      type: array[enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]]
+      flags:
+        - readonly
+      description: >
+        Supported RAID level
+    - name: SupportedStripSize
+      type: array[uint64]
+      flags:
+        - readonly
+      description: >
+        Supported RAID level
+    - name: Health
+      type: enum[com.ami.storage.Common.Health]
+      flags:
+        - readonly
+      description: >
+        Controller health
+
 
 enumerations:
     - name: ModeType
