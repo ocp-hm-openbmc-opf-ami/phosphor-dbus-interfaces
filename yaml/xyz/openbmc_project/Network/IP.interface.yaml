@@ -20,6 +20,16 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.NotAllowed
 
+    - name: Idx
+      type: byte
+      default: 0
+      description: >
+          Default index is 0.
+          Index value for IPv4 is 0.
+          This is for index valude when multiple ipv6 address used.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+
     - name: Origin
       type: enum[self.AddressOrigin]
       description: >

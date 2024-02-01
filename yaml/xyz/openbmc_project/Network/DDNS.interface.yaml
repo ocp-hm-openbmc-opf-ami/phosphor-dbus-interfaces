@@ -1,0 +1,162 @@
+description: >
+    This is to manipulate DDNS
+
+enumerations:
+      - name: Method
+        description: >
+              Register or De-Register
+        values:
+            - name: Register
+              description: >
+                    Register DNS record via Nsupdate.
+            - name: Deregister
+              description: >
+                    De-Register DNS record via Nsupdate.
+
+methods:
+      - name: DoNsupdate
+        description: >
+            Restart DNS Service
+        returns:
+            - name: Result
+              type: int16
+      - name: toDeregister
+        description: >
+            Run nsupdate to deregister.
+        returns:
+            - name: Result
+              type: int16
+      - name: toRegister
+        description: >
+            Run nsupdate to register
+        returns:
+            - name: Result
+              type: int16
+      - name: SetHostConf
+        description: >
+              HostName Configuration
+        parameters:
+            - name: HostSetting
+              type: boolean
+              description: >
+                    True for automatic and False for manual
+            - name: HostName
+              type: string
+              description: >
+                    Manually set hostname
+        returns:
+            - name: Result
+              type: int16
+        errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+      - name: SetInterfacesConf
+        description: >
+              Interfaces Configuration for DNS
+        parameters:
+            - name: InterfaceConf
+              type: array[struct[string,boolean,boolean,enum[self.Method]]]
+              description: >
+                    Data 1 - Interface Name
+                    Data 2 - Do nsupdate or not
+                    Data 4 - Use TSIG Authentication or not
+                    Data 5 - To register or deregister
+        returns:
+            - name: Result
+              type: int16
+        errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+      - name: SetDomainConf
+        description: >
+              Domain Configuration
+        parameters:
+            - name: DHCP
+              type: boolean
+              description: >
+                    True for DHCP method and False for static method
+            - name: Priority
+              type: byte
+              description: >
+                    1 for IPv4, 2 for IPv6 and 0 for static method
+            - name: DomainName
+              type: string
+              description: >
+                    Domain Nameto register DNS server if Domain DHCP is disable
+        returns:
+            - name: Result
+              type: int16
+        errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+      - name: SetDNSServer
+        description: >
+              DNS Configuration
+        parameters:
+            - name: Interface
+              type: string
+              description: >
+                    Interface for DNS server
+            - name: Servers
+              type: array[string]
+              description: >
+                    DNS Server IPs
+        returns:
+            - name: Result
+              type: int16
+        errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+      - name: GetDNSServer
+        description: >
+              DNS Configuration
+        parameters:
+            - name: Interface
+              type: string
+              description: >
+                    Interface for DNS server
+        returns:
+            - name: Result
+              type: array[string]
+        errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+properties:
+      - name: HostConf
+        type: struct[boolean,string]
+        flags:
+            - readonly
+        description: >
+            HostName Configuration
+            Data 1 - 1 for Automatic and 0 for Manual
+            Data 2 - Hostname
+      - name: InterfacesConf
+        type: array[struct[string,boolean,boolean,enum[self.Method]]]
+        flags:
+            - readonly
+        description: >
+              Interfaces Configuration for DNS
+              Data 1 - Interface Name
+              Data 2 - Do nsupdate or not
+              Data 4 - Use TSIG Authentication or not
+              Data 5 - To register or deregister
+      - name: DomainConf
+        type: struct[boolean,byte,string]
+        flags:
+            - readonly
+        description: >
+            Data 1 - Domain DHCP: 1 for DHCP method and 0 for static method
+            Data 2 - Domain Priority: 1 for IPv4, 2 for IPv6 and 0 for static met
+            Data 3 - Domain Name: to register DNS server if Domain DHCP is disabl
+        errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+      - name: DNSEnabled
+        type: boolean
+        flags:
+            - readonly
+        description: >
+            if true then the DNS servers received from the DHCP server
+            will be used and take precedence over any statically configured ones.
+      - name: SetInProgress
+        type: boolean
+        description: >
+            Shows if DNS is now updating
+      - name: UseMDNS
+        type: boolean
+        description: >
+            Enable mDNS or not (Default Enabled)

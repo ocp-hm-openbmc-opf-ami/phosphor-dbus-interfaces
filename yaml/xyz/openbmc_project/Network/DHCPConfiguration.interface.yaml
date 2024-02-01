@@ -28,3 +28,8 @@ properties:
       description: >
           if true then DHCP option 12 is enabled i.e machine`s hostname will be
           sent to the DHCP server.
+    - name: SendNsupdateEnabled
+      type: boolean
+      description: >
+          if true then nsupdate is
+          sent to the DHCP server.

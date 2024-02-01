@@ -17,6 +17,12 @@ properties:
           The low level mac address that the IP maps to.
       errors:
           - xyz.openbmc_project.Common.Error.NotAllowed
+    - name: PrefixLength
+      type: byte
+      description: >
+          This is the number of network bits in the ipaddress.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
     - name: State
       type: enum[self.State]
       description: >

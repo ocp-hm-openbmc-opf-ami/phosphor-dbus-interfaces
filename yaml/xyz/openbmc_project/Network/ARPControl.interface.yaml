@@ -1,0 +1,15 @@
+description: >
+    This defines ARP Control configuration.
+properties:
+    - name: ARPResponse
+      type: boolean
+      description: >
+          if true then the ARP Response Message send to received ARP requests Message
+    - name: GratuitousARP
+      type: boolean
+      description: >
+          if true then the gratuitous ARP service start to broadcast gratuitous ARP Message
+    - name: GratuitousARPInterval
+      type: uint64
+      description: >
+          Controls the interval between two gratuitous ARP Messages.By default the value is 2000 milliseconds

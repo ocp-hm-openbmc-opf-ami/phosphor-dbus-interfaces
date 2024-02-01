@@ -11,3 +11,7 @@ properties:
           - const
       description: >
           VLAN Identifier.
+    - name: Priority
+      type: uint32
+      description: >
+          VLAN Priority

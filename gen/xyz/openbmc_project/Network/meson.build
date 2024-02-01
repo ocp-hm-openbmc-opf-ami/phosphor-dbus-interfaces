@@ -14,6 +14,22 @@ generated_others += custom_target(
     ],
 )
 
+subdir('DDNS')
+generated_others += custom_target(
+    'xyz/openbmc_project/Network/DDNS__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Network/DDNS.interface.yaml',  ],
+    output: [ 'DDNS.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Network/DDNS',
+    ],
+)
+
+
 subdir('DHCPConfiguration')
 generated_others += custom_target(
     'xyz/openbmc_project/Network/DHCPConfiguration__markdown'.underscorify(),
@@ -57,6 +73,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/Network/IP',
+    ],
+)
+
+subdir('FirewallConfiguration')
+generated_others += custom_target(
+    'xyz/openbmc_project/Network/FirewallConfiguration__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Network/FirewallConfiguration.interface.yaml',  ],
+    output: [ 'FirewallConfiguration.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Network/FirewallConfiguration',
     ],
 )
 
@@ -120,6 +151,20 @@ generated_others += custom_target(
     ],
 )
 
+subdir('ARPControl')
+generated_others += custom_target(
+    'xyz/openbmc_project/Network/ARPControl__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Network/ARPControl.interface.yaml',  ],
+    output: [ 'ARPControl.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Network/ARPControl',
+    ],
+)
+
 subdir('VLAN')
 generated_others += custom_target(
     'xyz/openbmc_project/Network/VLAN__markdown'.underscorify(),
@@ -135,3 +180,17 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Bond')
+generated_others += custom_target(
+    'xyz/openbmc_project/Network/Bond__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Network/Bond.interface.yaml',  ],
+    output: [ 'Bond.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Network/Bond',
+    ],
+)
