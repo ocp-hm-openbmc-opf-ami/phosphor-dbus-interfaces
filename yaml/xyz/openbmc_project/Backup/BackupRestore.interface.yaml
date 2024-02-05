@@ -1,0 +1,37 @@
+description: >
+methods:
+    - name: CreateBackup
+      description: >
+          Create a Backup and Restore.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+      parameters:
+          - name: BackupName
+            type: string
+            description: >
+                Name for the backup file
+      returns:
+          - name: Path
+            type: string
+            description: >
+                The path for the created backup file
+    - name: RestoreBackup
+      description: >
+          Restore a Backup.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+      parameters:
+          - name: BackupFilePath
+            type: string
+            description: >
+                The backup file path
+      returns:
+          - name: retvalue
+            type: boolean
+            description: >
+                Indicates if successful or not
+properties:
+    - name: BackupFlags
+      type: string
+      description: >
+          Backup Flags

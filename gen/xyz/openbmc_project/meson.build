@@ -14,6 +14,7 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Backup')
 subdir('BIOSConfig')
 subdir('Certs')
 generated_others += custom_target(
