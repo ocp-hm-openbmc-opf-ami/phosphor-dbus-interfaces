@@ -1,0 +1,48 @@
+description: >
+methods:
+    - name: CreateSnmpAgent
+      description: >
+          Create a SnmpAgent
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+      parameters:
+          - name: SnmpAgent
+            type: string
+            description: >
+                Name for the backup file
+      returns:
+          - name: SnmpAgentName
+            type: string
+            description: >
+                The path for the created backup file
+    - name: GetSnmpAgent
+      description: >
+          GetSnmp
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+      returns:
+          - name: SnmpAgent
+            type: string
+            description: >
+                Indicates if successful or not
+properties:
+    - name: amiSnmpSleeper
+      type: int32
+      description: >
+          This is a simple object which is a basic integer.  It's value
+           indicates the number of seconds that the agent will take in
+           responding to requests of this object.
+
+    - name: amiSnmpString
+      type: string
+      description: >
+          This is a simple object which merely houses a writable
+           string.  It's only purposes is to hold the value of a single
+           string.
+
+    - name: amiSnmpInteger
+      type: int32
+      description: >
+          This is a simple object which merely houses a writable
+           integer.  It's only purposes is to hold the value of a single
+           integer.
