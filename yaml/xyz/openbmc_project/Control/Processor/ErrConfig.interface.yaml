@@ -1,0 +1,33 @@
+description: >
+    This defines processor error configuration.
+properties:
+    - name: ResetCfg
+      type: byte
+      description: >
+          Reset Configuration
+              [0]:   CATERR Reset Enabled
+                      0b: Disabled
+                      1b: Enabled
+              [1]:   ERR2 Reset Enabled
+                          0b: Disabled
+                          1b: Enabled
+              [7:2]: Reserved
+
+    - name: ResetErrorOccurrenceCounts
+      type: byte
+      description: >
+          Reset Error Occurrence Counts
+              [0]: Reset CPU Error Counts
+                      0b: Keep CPU Error Counts
+                      1b: Reset all CPU Error Counts to zero
+              [7:1]: Reserved
+    - name: CATERRStatus
+      type: array[byte]
+      description: >
+          For all CPUs including the non-legacy socket CPU
+          CPU CATERR (Core Error) occurrence
+              [5:0]: Error Occurrence Count
+              [7:6]: CPU Status
+                      00b: Disabled
+                      01b: Enabled
+                      11b: Not Present

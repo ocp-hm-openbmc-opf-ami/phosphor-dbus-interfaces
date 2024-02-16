@@ -43,6 +43,20 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Bios')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Bios__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Bios.interface.yaml',  ],
+    output: [ 'Bios.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Bios',
+    ],
+)
+
 subdir('Bmc')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/Bmc__markdown'.underscorify(),

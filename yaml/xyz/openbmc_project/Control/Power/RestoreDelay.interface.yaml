@@ -1,0 +1,11 @@
+description: >
+    Implement to specify power transition behavior on a BMC reset.
+    The implementation based on restore policy and set a delay time
+    for power restore.
+
+properties:
+    - name: PowerRestoreDelay
+      type: uint16
+      description: >
+          The delay time for power restore.
+          Power Restore Delay is NOT applied on power policy is "Always Off"

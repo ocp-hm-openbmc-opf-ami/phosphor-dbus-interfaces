@@ -42,3 +42,6 @@ enumerations:
           - name: PSU
             description: >
                 The version is a version for a PSU.
+          - name: PLDM
+            description: >
+              The version is a version for PLDM.

@@ -74,6 +74,20 @@ generated_others += custom_target(
     ],
 )
 
+subdir('RestoreDelay')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Power/RestoreDelay__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Power/RestoreDelay.interface.yaml',  ],
+    output: [ 'RestoreDelay.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Power/RestoreDelay',
+    ],
+)
+
 subdir('RestorePolicy')
 generated_others += custom_target(
     'xyz/openbmc_project/Control/Power/RestorePolicy__markdown'.underscorify(),

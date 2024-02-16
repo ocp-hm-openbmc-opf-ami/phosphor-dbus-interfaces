@@ -1,0 +1,27 @@
+description: >
+    Interface exposed by MCTP daemon for I3C binding
+
+properties:
+    - name: DiscoveredFlag
+      type: enum[self.DiscoveryFlags]
+      description: >
+        Each endpoint (except the bus owner) on the I3C bus maintains an
+        internal flag called the Discovered flag. The flag is set to the
+        discovered state when the Set Endpoint ID command is received.
+
+    - name: Address
+      type: byte
+      description: >
+        Represents own I3C address. In case of I3C primary, the address is
+        defined as 0x00.
+
+enumerations:
+    - name: DiscoveryFlags
+      description: >
+          The Prepare for Endpoint Discovery message causes each recipient
+          endpoint on the I3C bus to set their respective Discovered flag to
+          the undiscovered state.
+      values:
+        - name: Discovered
+        - name: Undiscovered
+        - name: NotApplicable

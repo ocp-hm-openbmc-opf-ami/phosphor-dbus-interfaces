@@ -1,0 +1,17 @@
+description: >
+  Interface exposed by MCTP daemon for SMBus binding
+
+properties:
+    - name: ArpControllerSupport
+      type: boolean
+      description: >
+        The SMBus binding can also run ARP Controller protocol and
+        assign SMBus addresses to the devices on the bus.
+
+    - name: BusNumber
+      type: byte
+      description: I2C bus number of the medium used
+
+    - name: TargetAddress
+      type: byte
+      description: Target address to be used for this medium

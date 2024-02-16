@@ -6,6 +6,11 @@ description: >
     MCTP-capable management controllers and managed devices.
 
 properties:
+    - name: Mode
+      type: enum[xyz.openbmc_project.MCTP.Base.BindingModeTypes]
+      description: >
+          Endpoint / BusOwner / Bridge
+
     - name: NetworkId
       type: uint32
       description: >

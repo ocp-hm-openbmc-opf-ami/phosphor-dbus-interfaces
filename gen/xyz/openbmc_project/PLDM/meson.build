@@ -14,6 +14,7 @@ generated_others += custom_target(
     ],
 )
 
+subdir('FWU')
 subdir('PDR')
 generated_others += custom_target(
     'xyz/openbmc_project/PLDM/PDR__markdown'.underscorify(),
