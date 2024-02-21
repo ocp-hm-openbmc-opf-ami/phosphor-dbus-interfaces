@@ -12,6 +12,14 @@ methods:
             type: uint16
             description: >
                 Network port.
+          - name: Version
+            type: string
+            description: >
+                SNMP Version.
+          - name: User
+            type: string
+            description: >
+                SNMP V3 User.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
       returns:

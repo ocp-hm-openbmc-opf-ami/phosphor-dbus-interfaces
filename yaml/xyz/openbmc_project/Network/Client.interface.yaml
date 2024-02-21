@@ -23,7 +23,31 @@ properties:
       default: TCP
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
-
+    - name: Version
+      type: string
+      description: >
+          The value of this property is the SNMP Version Type v1, v2c, v3.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: User
+      type: string
+      description: >
+          The value of this property is the SNMP V3 username. leave blank for v1,v2c
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: Algorithm
+      type: string
+      description: >
+          The value of this property is the SNMP V3 algorithm SHA256, SHA384, SHA512. leave blank for v1,v2c
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: Encryption
+      type: string
+      description: >
+          The value of this property is the SNMP V3 Encryption AES128.
+      default: AES128
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
 enumerations:
     - name: TransportProtocol
       description: >
