@@ -1,0 +1,19 @@
+description: >
+methods:
+    - name: SendSNMPTrap
+      description: >
+          Test SNMP Trap
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+      returns:
+          - name: success
+            type: boolean
+            description: >
+                Indicates if successful or not
+
+properties:
+    - name: SnmpTrapStatus
+      type: boolean
+      description: >
+            if true SnmpTrap is enable else SnmpTrap is disable
+
