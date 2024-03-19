@@ -1,0 +1,63 @@
+description: >
+  This interface provides methods and properties for managing license keys.
+
+methods:
+  - name: AddLicenseKey
+    description: >
+      Add a license key.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: Success
+        type: boolean
+        description: >
+          Indicates if adding the license key was successful or not.
+
+  - name: GetLicenseKey
+    description: >
+      Get the currently stored license key.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: LicenseKey
+        type: string
+        description: >
+          The currently stored license key.
+
+  - name: GlobalLicenseValidity
+    description: >
+      The global license validity obtained from the JSON file.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: value
+        type: int64
+        description: >
+          Return the global license validity.
+
+  - name: ServicesUpCountDays
+    description: >
+      The count of services up days obtained from the JSON file.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: value
+        type: int64
+        description: >
+          Return the count of services up days.
+
+properties:
+    - name: UserAlertCount
+      type: uint32
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+      description: >
+          Alert day count
+    - name: AlertMessage
+      type: string
+      flags:
+          - readonly
+      description: >
+          Indicate the Alert message
+
+
