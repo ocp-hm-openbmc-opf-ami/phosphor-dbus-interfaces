@@ -20,6 +20,9 @@ methods:
       type: byte
     - name: Accelerator
       type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
+    returns:
+      - name: MessageId
+        type: uint64
     errors:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure
@@ -29,7 +32,26 @@ methods:
     parameters:
       - name: LdId
         type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
     errors:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure
       - com.ami.storage.Common.Error.DeviceOrResourceBusy
+
+signals:
+    - name: MethodCompletedSignal
+      description: >
+        Signal indicating about the status of async dbus method call.
+      properties:
+        - name: Identification
+          type: uint64
+          description: >
+            Unique identification of each method call.
+        - name: ErrorCode
+          type: enum[com.ami.storage.Common.ErrorCode]
+        - name: What
+          type: string
+          description: >
+            The details about the error.
