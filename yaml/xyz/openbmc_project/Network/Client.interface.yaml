@@ -48,8 +48,7 @@ properties:
     - name: Encryption
       type: string
       description: >
-          The value of this property is the SNMP V3 Encryption AES128.
-      default: AES128
+          The value of this property is the SNMP V3 Encryption AES128. leave blank for v1,v2c
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
