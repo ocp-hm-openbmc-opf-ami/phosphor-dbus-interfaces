@@ -1,0 +1,15 @@
+description: >
+  This interface provides methods and properties for managing license keys.
+
+methods:
+  - name: EnableTwoFactorAuthentication
+    description: >
+      Enable Two Factor Authentication.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: TwoFactorURLString
+        type: string
+        description: >
+          Newly created URL string for the current user.
+
