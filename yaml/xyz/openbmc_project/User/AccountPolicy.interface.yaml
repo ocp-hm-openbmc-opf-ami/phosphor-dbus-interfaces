@@ -37,10 +37,3 @@ properties:
           feature is not enforced.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
-
-    - name: PasswordPolicyComplexity
-      type: string
-      description: >
-          Configure the Password Policy Complexity. Disabled, Low, Medium, High
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure

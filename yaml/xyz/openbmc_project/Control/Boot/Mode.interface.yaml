@@ -18,10 +18,7 @@ enumerations:
                 The regular/default mode, such as boot to an OS.
           - name: Safe
             description: >
-                Boot from default Hard-Drive,request Safe-Mode.
-          - name: Diag
-            description: >
-                Boot from Diagnostic Partition    
+                Boot to a diagnostic/trouble-shooting mode.
           - name: Setup
             description: >
                 Boot to BIOS setup.

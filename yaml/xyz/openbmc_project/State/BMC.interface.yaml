@@ -28,12 +28,6 @@ properties:
       description: >
           The last BMC reboot cause
 
-    - name: TimeOut
-      type: uint16
-      default: 0
-      description: >
-          The differnce timeout value.       
-
 enumerations:
     - name: Transition
       description: >

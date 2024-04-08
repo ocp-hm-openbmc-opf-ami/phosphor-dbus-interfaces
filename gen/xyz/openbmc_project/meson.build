@@ -148,6 +148,5 @@ generated_others += custom_target(
     ],
 )
 
-subdir('USB')
 subdir('User')
 subdir('VirtualMedia')

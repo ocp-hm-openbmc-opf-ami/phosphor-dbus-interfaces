@@ -1,10 +1,5 @@
 description: >
     Implement to create Certificate Signing Request(CSR).
-properties:
-    - name: isRenew
-      type: boolean
-      description: >
-          Decide Whether GenerateCSR will Renew or Rekey
 
 methods:
     - name: GenerateCSR
@@ -158,49 +153,6 @@ methods:
             type: string
             description: >
                 The unstructured name of the subject.
-      returns:
-          - name: path
-            type: string
-            description: >
-                The object path of the D-Bus object to be watch for retrieving
-                the CSR string.
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
-
-    - name: reKey
-      description: >
-          This command is used to initiate a certificate signing request.
-      parameters:
-          - name: KeyBitLength
-            type: int64
-            description: >
-                The length of the key in bits, if needed based on the value
-                of the KeyPairAlgorithm parameter.
-                Refer https://www.openssl.org/docs/man1.0.2/man1/genpkey.html
-          - name: KeyCurveId
-            type: string
-            description: >
-                The curve ID to be used with the key, if needed based on the
-                value of the KeyPairAlgorithm parameter.
-                Refer https://www.openssl.org/docs/man1.0.2/man1/genpkey.html
-          - name: KeyPairAlgorithm
-            type: string
-            description: >
-                The type of key pair for use with signing algorithms.
-
-                Valid built-in algorithm names for private key generation are
-                RSA and EC.
-      returns:
-          - name: path
-            type: string
-            description: >
-                The object path of the D-Bus object to be watch for retrieving
-                the CSR string.
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
-    - name: reNew
-      description: >
-          This command is used to initiate a certificate signing request.
       returns:
           - name: path
             type: string
