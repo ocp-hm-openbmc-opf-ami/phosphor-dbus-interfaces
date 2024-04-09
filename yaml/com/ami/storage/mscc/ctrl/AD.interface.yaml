@@ -1,0 +1,10 @@
+description: >
+    This defines an array drive count interface.
+
+properties:
+    - name: Count
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of array drive.

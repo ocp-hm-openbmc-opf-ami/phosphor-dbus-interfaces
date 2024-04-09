@@ -2,24 +2,14 @@ description: >
   This defines a Microsemi RAID controller configuration methods
 
 methods:
-  - name: CreateLogicalDrive
+  - name: AddPhysicalDriveToArrayDrive
     parameters:
-    - name: Name
-      type: string
-    - name: RaidLevel
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
-    - name: ArrayNumber
+    - name: AdId
       type: uint16
+    - name: ExpandMode
+      type: enum[com.ami.storage.mscc.ctrl.ArrayDrive.ExpandMode]
     - name: PdList
       type: array[uint16]
-    - name: StripSize
-      type: uint64
-    - name: Size
-      type: uint64
-    - name: ParityGroupCount
-      type: byte
-    - name: Accelerator
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
     returns:
       - name: MessageId
         type: uint64
@@ -27,10 +17,221 @@ methods:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure
       - com.ami.storage.Common.Error.DeviceOrResourceBusy
-
+  - name: RemovePhysicalDriveFromArrayDrive
+    parameters:
+    - name: AdId
+      type: uint16
+    - name: ShrinkMode
+      type: enum[com.ami.storage.mscc.ctrl.ArrayDrive.ShrinkMode]
+    - name: PdList
+      type: array[uint16]
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: AddSpareDriveToArrayDrive
+    parameters:
+    - name: AdId
+      type: uint16
+    - name: SpareType
+      type: enum[com.ami.storage.mscc.ctrl.ArrayDrive.SpareType]
+    - name: PdList
+      type: array[uint16]
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: RemoveSpareDriveFromArrayDrive
+    parameters:
+    - name: AdId
+      type: uint16
+    - name: PdList
+      type: array[uint16]
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: DeleteArrayDrive
+    parameters:
+    - name: AdId
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: CreateLogicalDrive
+    parameters:
+    - name: Name
+      type: string
+    - name: RaidLevel
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
+    - name: Size
+      type: uint64
+    - name: StripSize
+      type: uint64
+    - name: Accelerator
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
+    - name: ParityGroupCount
+      type: byte
+    - name: PdList
+      type: array[uint16]
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: CreateLogicalDriveOnArrayDrive
+    parameters:
+    - name: Name
+      type: string
+    - name: RaidLevel
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
+    - name: Size
+      type: uint64
+    - name: StripSize
+      type: uint64
+    - name: Accelerator
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
+    - name: ParityGroupCount
+      type: byte
+    - name: ArrayNumber
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: CreateLuCacheDrive
+    parameters:
+    - name: RaidLevel
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
+    - name: Size
+      type: uint64
+    - name: CacheLineSize
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.CacheLineSize]
+    - name: WritePolicy
+      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.CachePolicy]
+    - name: ParityGroupCount
+      type: byte
+    - name: PdList
+      type: array[uint16]
+    - name: LogicalDriveBinding
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
   - name: DeleteLogicalDrive
     parameters:
       - name: LdId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: SetControllerProperties
+    parameters:
+      - name: RebuildPriority
+        type: enum[com.ami.storage.mscc.ctrl.Controller.RebuildPriority]
+      - name: InconsistencyRepairPolicy
+        type: enum[com.ami.storage.mscc.ctrl.Controller.InconsistencyRepairPolicy]
+      - name: SpareActivationMode
+        type: enum[com.ami.storage.mscc.ctrl.Controller.SpareActivationMode]
+      - name: ReadCacheRatio
+        type: byte
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StartLocatePhysicalDrive
+    parameters:
+      - name: DriveId
+        type: uint16
+      - name: Seconds
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StartLocateArrayDrive
+    parameters:
+      - name: DriveId
+        type: uint16
+      - name: Seconds
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StartLocateLogicalDrive
+    parameters:
+      - name: DriveId
+        type: uint16
+      - name: Seconds
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopLocatePhysicalDrive
+    parameters:
+      - name: DriveId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopLocateArrayDrive
+    parameters:
+      - name: DriveId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopLocateLogicalDrive
+    parameters:
+      - name: DriveId
         type: uint16
     returns:
       - name: MessageId

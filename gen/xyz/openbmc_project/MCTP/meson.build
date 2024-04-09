@@ -4,6 +4,7 @@ generated_others += custom_target(
     'xyz/openbmc_project/MCTP/Base__markdown'.underscorify(),
     input: [ '../../../../yaml/xyz/openbmc_project/MCTP/Base.interface.yaml',  ],
     output: [ 'Base.md' ],
+    depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'markdown',
         '--output', meson.current_build_dir(),
@@ -19,6 +20,7 @@ generated_others += custom_target(
     'xyz/openbmc_project/MCTP/BusOwner__markdown'.underscorify(),
     input: [ '../../../../yaml/xyz/openbmc_project/MCTP/BusOwner.interface.yaml',  ],
     output: [ 'BusOwner.md' ],
+    depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'markdown',
         '--output', meson.current_build_dir(),
@@ -48,6 +50,7 @@ generated_others += custom_target(
     'xyz/openbmc_project/MCTP/SupportedMessageTypes__markdown'.underscorify(),
     input: [ '../../../../yaml/xyz/openbmc_project/MCTP/SupportedMessageTypes.interface.yaml',  ],
     output: [ 'SupportedMessageTypes.md' ],
+    depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'markdown',
         '--output', meson.current_build_dir(),
@@ -56,3 +59,4 @@ generated_others += custom_target(
         'xyz/openbmc_project/MCTP/SupportedMessageTypes',
     ],
 )
+

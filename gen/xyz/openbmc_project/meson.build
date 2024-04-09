@@ -14,9 +14,8 @@ generated_others += custom_target(
     ],
 )
 
-subdir('Snmp')
-subdir('Backup')
 subdir('BIOSConfig')
+subdir('Backup')
 subdir('Certs')
 generated_others += custom_target(
     'xyz/openbmc_project/Certs__markdown'.underscorify(),
@@ -129,6 +128,7 @@ generated_others += custom_target(
 
 subdir('Sensor')
 subdir('Smbios')
+subdir('Snmp')
 subdir('Software')
 subdir('State')
 subdir('Telemetry')
