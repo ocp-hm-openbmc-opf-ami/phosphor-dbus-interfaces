@@ -13,7 +13,6 @@ methods:
         description: >
           Newly created URL string for the current user.
 
-<<<<<<< HEAD
   - name: VerifyOTP
     description: >
       Input OTP will be Enabled for the corresponds to the particular user.
@@ -30,5 +29,3 @@ methods:
         description: >
           Indicates input OTP against user is valid or not.
 
-=======
->>>>>>> 09ab93f9a7a746550cb77b9ebc0da89bd512c34e
