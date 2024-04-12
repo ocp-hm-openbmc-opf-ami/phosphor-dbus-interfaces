@@ -5,6 +5,11 @@ methods:
   - name: EnableTwoFactorAuthentication
     description: >
       Enable Two Factor Authentication.
+    parameters: 
+        - name: UserName
+          type: string
+        - name: ChannelNumber
+          type: int32
     errors:
       - xyz.openbmc_project.Common.Error.NotAllowed
     returns:
@@ -17,9 +22,9 @@ methods:
     description: >
       Input OTP will be Enabled for the corresponds to the particular user.
     parameters: 
-        - name: OTPString
-          type: string
         - name: UserName
+          type: string
+        - name: OTPString
           type: string
     errors:
       - xyz.openbmc_project.Common.Error.NotAllowed
