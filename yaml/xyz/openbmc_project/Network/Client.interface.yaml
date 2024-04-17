@@ -15,6 +15,7 @@ properties:
       description: >
           The value of this property is the network port number.
       errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
     - name: TransportProtocol
       type: enum[self.TransportProtocol]
@@ -28,12 +29,14 @@ properties:
       description: >
           The value of this property is the SNMP Version Type v1, v2c, v3.
       errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
     - name: User
       type: string
       description: >
           The value of this property is the SNMP V3 username. leave blank for v1,v2c
       errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
     - name: Algorithm
       type: string
@@ -41,12 +44,13 @@ properties:
           The value of this property is the SNMP V3 algorithm SHA256, SHA384, SHA512. leave blank for v1,v2c
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
     - name: Encryption
       type: string
       description: >
-          The value of this property is the SNMP V3 Encryption AES128.
-      default: AES128
+          The value of this property is the SNMP V3 Encryption AES128. leave blank for v1,v2c
       errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
 enumerations:
     - name: TransportProtocol

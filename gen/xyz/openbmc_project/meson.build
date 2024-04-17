@@ -14,9 +14,8 @@ generated_others += custom_target(
     ],
 )
 
-subdir('Snmp')
-subdir('Backup')
 subdir('BIOSConfig')
+subdir('Backup')
 subdir('Certs')
 generated_others += custom_target(
     'xyz/openbmc_project/Certs__markdown'.underscorify(),
@@ -87,7 +86,7 @@ generated_others += custom_target(
 
 subdir('Ipmi')
 subdir('Led')
-subdir('TwoFactorAuthentication')
+subdir('License')
 subdir('Logging')
 subdir('MCTP')
 subdir('Memory')
@@ -96,6 +95,7 @@ subdir('Network')
 subdir('Nvme')
 subdir('Object')
 subdir('ObjectMapper')
+subdir('TwoFactorAuthentication')
 generated_others += custom_target(
     'xyz/openbmc_project/ObjectMapper__markdown'.underscorify(),
     input: [ '../../../yaml/xyz/openbmc_project/ObjectMapper.interface.yaml',  ],
@@ -130,6 +130,7 @@ generated_others += custom_target(
 
 subdir('Sensor')
 subdir('Smbios')
+subdir('Snmp')
 subdir('Software')
 subdir('State')
 subdir('Telemetry')

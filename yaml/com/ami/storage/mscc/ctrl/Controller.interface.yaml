@@ -116,7 +116,26 @@ properties:
         - readonly
       description: >
         Controller health
-
+    - name: RebuildPriority
+      type: enum[self.RebuildPriority]
+      flags:
+        - readonly
+    - name: InconsistencyRepairPolicy
+      type: enum[self.InconsistencyRepairPolicy]
+      flags:
+        - readonly
+    - name: SpareActivationMode
+      type: enum[self.SpareActivationMode]
+      flags:
+        - readonly
+    - name: ReadCacheRatio
+      type: byte
+      flags:
+        - readonly
+    - name: WriteCacheRatio
+      type: byte
+      flags:
+        - readonly
 
 enumerations:
     - name: ModeType
@@ -135,3 +154,20 @@ enumerations:
         - name: "Mixed"
           description: >
             Mixed mode.
+    - name: RebuildPriority
+      values:
+        - name: "Unknown"
+        - name: "Low"
+        - name: "Medium"
+        - name: "MediumHight"
+        - name: "Hight"
+    - name: InconsistencyRepairPolicy
+      values:
+        - name: "Unknown"
+        - name: "Enable"
+        - name: "Disable"
+    - name: SpareActivationMode
+      values:
+        - name: "Unknown"
+        - name: "Failure"
+        - name: "Predictive"

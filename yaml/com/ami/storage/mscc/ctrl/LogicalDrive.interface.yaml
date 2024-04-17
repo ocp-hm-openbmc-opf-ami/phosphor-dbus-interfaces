@@ -87,7 +87,7 @@ properties:
       description: >
         Keep tracking to indicate the requested write policy setting for the Volume.
     - name: CacheLineSize
-      type: enum[self.CacheLineSizeInfo]
+      type: enum[self.CacheLineSize]
       flags:
         - readonly
       description: >
@@ -319,13 +319,13 @@ enumerations:
         - name: "ReadOnly"
           description: >
             Read only cache policy.
-        - name: "WriteThru"
+        - name: "WriteThrough"
           description: >
             Write through cache policy.
         - name: "WriteBack"
           description: >
             Write back cache policy.
-    - name: CacheLineSizeInfo
+    - name: CacheLineSize
       description: >
         The size of cache line for the Volume.
       values:

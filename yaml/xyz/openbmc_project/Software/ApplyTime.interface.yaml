@@ -8,6 +8,14 @@ properties:
       description: >
           This property indicates when the software image update should be
           applied.
+    - name: MaintenanceWindowDurationInSeconds
+      type: uint64
+      description: >
+          The expiry time, in seconds, of the maintenance window.
+    - name: MaintenanceWindowStartTime
+      type: uint64
+      description: >
+          The start time of a maintenance window.
 enumerations:
     - name: RequestedApplyTimes
       description: >
@@ -20,3 +28,9 @@ enumerations:
           - name: OnReset
             description: >
                 Apply on a reset.
+          - name: AtMaintenanceWindowStart 
+            description: >
+                Apply during an administrator-specified maintenance window.
+          - name: InMaintenanceWindowOnReset 
+            description: >
+                 Apply after a reset but within an administrator-specified maintenance window.          

@@ -1,0 +1,119 @@
+description: >
+    This defines an array drive info interface.
+
+properties:
+    - name: Id
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The array drive ID.
+    - name: BlockSizeBytes
+      type: uint64
+      flags:
+        - readonly
+    - name: BlockCount
+      type: uint64
+      flags:
+        - readonly
+    - name: UsableBlockCount
+      type: uint64
+      flags:
+        - readonly
+    - name: ArrayType
+      type: enum[self.ArrayType]
+      flags:
+        - readonly
+      description: >
+        The array drive type.
+    - name: SpareType
+      type: enum[self.SpareType]
+      flags:
+        - readonly
+      description: >
+        The array drive type.
+    - name: MediaType
+      type: enum[self.MediaType]
+      flags:
+        - readonly
+    - name: InterfaceType
+      type: enum[self.InterfaceType]
+      flags:
+        - readonly
+    - name: AcceleratorType
+      type: enum[self.Accelerator]
+      flags:
+        - readonly
+    - name: DataPdList
+      type: array[uint16]
+      flags:
+        - readonly
+      description: >
+        List PD member of AD.
+    - name: SparePdList
+      type: array[uint16]
+      flags:
+        - readonly
+      description: >
+        List spare PD member of AD.
+    - name: LdList
+      type: array[uint16]
+      flags:
+        - readonly
+      description: >
+        List LD member of AD.
+
+enumerations:
+    - name: ArrayType
+      description: >
+        The array drive type
+      values:
+        - name: "Unknown"
+        - name: "Any"
+        - name: "Data"
+        - name: "LuCache"
+        - name: "SplitMirrorPrimary"
+        - name: "SplitMirrorBackup"
+        - name: "SplitMirrorBackupOrphan"
+    - name: SpareType
+      description: >
+        The array spare type
+      values:
+        - name: "Unknown"
+        - name: "Existing"
+        - name: "AutoReplace"
+        - name: "Dedicated"
+    - name: MediaType
+      description: >
+        The array media type
+      values:
+        - name: "Unknown"
+        - name: "SSD"
+        - name: "HDD"
+    - name: InterfaceType
+      description: >
+        The array Interface type
+      values:
+        - name: "Unknown"
+        - name: "SAS"
+        - name: "SATA"
+        - name: "NVMe"
+    - name: Accelerator
+      description: >
+        The array acceleration mode
+      values:
+        - name: "Unknown"
+        - name: "IoBypass"
+        - name: "Independent"
+    - name: ExpandMode
+      values:
+        - name: "Unknown"
+        - name: "Automatic"
+        - name: "AddDrivesToEachParityGroup"
+        - name: "MakeNewParityGroup"
+    - name: ShrinkMode
+      values:
+        - name: "Unknown"
+        - name: "Automatic"
+        - name: "RemoveDrivesFromEachParityGroup"
+        - name: "RemoveParityGroup"

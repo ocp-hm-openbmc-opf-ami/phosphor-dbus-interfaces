@@ -6,3 +6,13 @@ enumerations:
         - name: "Good"
         - name: "Warning"
         - name: "Critical"
+    - name: ErrorCode
+      values:
+        - name: "Success"
+        - name: "Timeout"
+        - name: "InternalFailure"
+        - name: "InvalidArgument"
+        - name: "NotAllowed"
+        - name: "Unavailable"
+        - name: "UnsupportedRequest"
+        - name: "DeviceOrResourceBusy"

@@ -1,10 +1,10 @@
 description: >
-    This defines a mscc daemon interface.
+    This defines a BRCM daemon interface.
 
 methods:
     - name: Message
       description: >
-        MSCC daemon command message
+        BRCM daemon command message
       parameters:
         - name: Request
           type: array[byte]
