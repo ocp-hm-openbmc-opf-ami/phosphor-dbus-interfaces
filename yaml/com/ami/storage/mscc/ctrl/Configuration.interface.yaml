@@ -240,28 +240,6 @@ methods:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure
       - com.ami.storage.Common.Error.DeviceOrResourceBusy
-  - name: ExportConfigFile
-    parameters:
-      - name: Filename
-        type: string
-    returns:
-      - name: MessageId
-        type: uint64
-    errors:
-      - com.ami.storage.Common.Error.InvalidArgument
-      - com.ami.storage.Common.Error.InternalFailure
-      - com.ami.storage.Common.Error.DeviceOrResourceBusy
-  - name: ImportConfigFile
-    parameters:
-      - name: Filename
-        type: string
-    returns:
-      - name: MessageId
-        type: uint64
-    errors:
-      - com.ami.storage.Common.Error.InvalidArgument
-      - com.ami.storage.Common.Error.InternalFailure
-      - com.ami.storage.Common.Error.DeviceOrResourceBusy
 
 signals:
     - name: MethodCompletedSignal
