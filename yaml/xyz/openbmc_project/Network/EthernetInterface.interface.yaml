@@ -9,16 +9,30 @@ properties:
           - const
       description: >
           Name of the ethernet interface.
-    - name: Speed
-      type: uint32
+    - name: Duplex
+      type: enum[self.Duplex]
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+      description: >
+          Current duplex of the ethernet interface.
+    - name: NCSI
+      type: boolean
       flags:
           - readonly
+      description: >
+          Indicate if this interface is NCSI
+    - name: Speed
+      type: uint32
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+          - xyz.openbmc_project.Common.Error.InvalidArgument
       description: >
           Current speed of the ethernet interface, in Mbps.
     - name: AutoNeg
       type: boolean
-      flags:
-          - readonly
+      default: true
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
       description: >
           This indicates if the speed and duplex are automatically negotiated
           and configured on this ethernet interface.
@@ -161,3 +175,9 @@ enumerations:
           - name: v6stateless
           - name: v4
           - name: none
+    - name: Duplex
+      description: >
+          High level definitions of PHY settings for duplex.
+      values:
+          - name: half
+          - name: full
