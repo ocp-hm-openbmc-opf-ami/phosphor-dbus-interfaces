@@ -1,0 +1,59 @@
+description: >
+    This defines NCSI configuration.
+
+enumerations:
+      - name: Mode
+        description: >
+              NCSI Mode
+        values:
+            - name: Auto
+              description: >
+                    Automatically detect NCSI package and channel
+            - name: Manual
+              descroption: >
+                    Manually set NCSI active package and channel
+
+methods:
+      - name: SetPackageChannel
+        description: >
+              Set preferred package and channel
+        parameters:
+            - name: Package
+              type: byte
+              description: >
+                    Preferred package
+            - name: Channel
+              type: byte
+              description: >
+                    Preferred channel
+        returns:
+            - name: Result
+              type: int16
+
+properties:
+    - name: Mode
+      type: enum[self.Mode]
+      errors:
+            - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: Channel
+      type: byte
+      flags:
+            - readonly
+      errors:
+            - xyz.openbmc_project.Common.Error.NotAllowed
+      description: >
+          Active channel ID or preffered channel ID
+    - name: Package
+      type: byte
+      flags:
+            - readonly
+      errors:
+            - xyz.openbmc_project.Common.Error.NotAllowed
+      description: >
+          Active Package ID or preffered package ID
+    - name: ChannelList
+      type: array[struct[uint16, array[uint16]]]
+      flags:
+            - readonly
+      description: >
+          Available packages and channels
