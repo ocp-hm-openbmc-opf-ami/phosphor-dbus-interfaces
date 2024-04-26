@@ -92,6 +92,36 @@ generated_others += custom_target(
     ],
 )
 
+subdir('PresenceState')
+generated_others += custom_target(
+    'xyz/openbmc_project/State/PresenceState__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/State/PresenceState.interface.yaml',  ],
+    output: [ 'PresenceState.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/State/PresenceState',
+    ],
+)
+
+subdir('ProcessorPerformance')
+generated_others += custom_target(
+    'xyz/openbmc_project/State/ProcessorPerformance__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/State/ProcessorPerformance.interface.yaml',  ],
+    output: [ 'ProcessorPerformance.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/State/ProcessorPerformance',
+    ],
+)
+
 subdir('ScheduledHostTransition')
 generated_others += custom_target(
     'xyz/openbmc_project/State/ScheduledHostTransition__markdown'.underscorify(),

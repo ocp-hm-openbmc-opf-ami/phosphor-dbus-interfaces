@@ -223,6 +223,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Endpoint')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Endpoint__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Endpoint.interface.yaml',  ],
+    output: [ 'Endpoint.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Endpoint',
+    ],
+)
+
 subdir('Ethernet')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/Ethernet__markdown'.underscorify(),
@@ -358,6 +373,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Port')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Port__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Port.interface.yaml',  ],
+    output: [ 'Port.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Port',
+    ],
+)
+
 subdir('PowerSupply')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/PowerSupply__markdown'.underscorify(),
@@ -385,6 +415,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Rotor',
+    ],
+)
+
+subdir('SPDMResponder')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/SPDMResponder__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/SPDMResponder.interface.yaml',  ],
+    output: [ 'SPDMResponder.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/SPDMResponder',
     ],
 )
 

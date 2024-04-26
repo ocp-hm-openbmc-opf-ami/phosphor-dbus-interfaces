@@ -1,0 +1,122 @@
+description: >
+    Implement to provide value of performance state of a processor (CPU, GPU, etc).
+
+properties:
+    - name: Value
+      type: enum[self.PerformanceStates]    
+      description: >
+          This is current discreate value of the sensor. 
+
+    - name: ThrottleReason
+      type: array[enum[self.ThrottleReasons]]
+      description: >
+        Throttle reasons for a processor.
+      flags:
+        - readonly
+
+    - name: ThermalTrip
+      type: boolean
+      description: Thermal trip status for processor
+      flags:
+        - readonly
+
+    - name: PowerLimitThrottleDuration
+      type: uint64
+      description: Total duration of throttling in nano seconds caused by a power limit of the processor since reset.
+      flags:
+        - readonly
+    - name: ThermalLimitThrottleDuration
+      type: uint64
+      description: Total duration of throttling in nano seconds caused by a thermal limit of the processor since reset.
+      flags:
+        - readonly
+    - name: PCIeTXBytes
+      type: uint32
+      description: Total number of bytes sent by the PCIe transmitter.
+      flags:
+        - readonly
+    - name: PCIeRXBytes
+      type: uint32
+      description: Total number of bytes received by the PCIe receiver.
+      flags:
+        - readonly
+    - name: HardwareViolationThrottleDuration
+      type: uint64
+      description: Total duration of throttling in nano seconds caused by hardware violation of the processor since reset.
+      flags:
+        - readonly
+    - name: GlobalSoftwareViolationThrottleDuration
+      type: uint64
+      description: Total duration of throttling in nano seconds caused by global software violation of the processor since reset.
+      flags:
+        - readonly
+    - name: AccumulatedGPUContextUtilizationDuration
+      type: uint32
+      description:  Total duration of the accumulated GPU context utilization of the processor since reset in nano seconds.
+      flags:
+        - readonly
+    - name: AccumulatedSMUtilizationDuration
+      type: uint32
+      description:  Total duration of the accumulated SM utilization of the processor since reset in nano seconds.
+      flags:
+        - readonly
+
+enumerations:
+    - name: PerformanceStates
+      description: >
+          Different value types for performance discreate sensor.
+      values:
+          - name: Normal
+            description: >
+                To represent the performance state is normal.
+          - name: Throttled
+            description: >
+                To represent the performance state is throttled.
+          - name: Degraded  
+            description: >
+                To represent the performance state is degraded.  
+          - name: Unknown
+            description: >
+                To represent the performance state as unknown.
+
+    - name: ThrottleReasons
+      description: >
+          Different value types for processor throttling reason.
+      values:
+          - name: Idle
+            description: >
+                Processor idle.
+          - name: UserDefined
+            description: >
+                User defined clocks.
+          - name: AppClock
+            description: >
+                Applicaiton Clock Settings.
+          - name: SWPowerCap
+            description: >
+                Software powercap.
+          - name: HWSlowdown
+            description: >
+                Hardware slowdown.
+          - name: HWThermalSlowdown
+            description: >
+                Hardware thermal slowdown.
+          - name: HWPowerBrakeSlowdown
+            description: >
+                Hardware power brake slowdown.
+          - name: SyncBoost
+            description: >
+                Sync boost.
+          - name: SWThermalSlowdownTavg
+            description: >
+                Software thermal slowdown Tavg.
+          - name: SWThermalSlowdownTLimit
+            description: >
+                Software thermal slowdown Tlimit.
+          - name: DisplayClock
+            description: >
+                Display Clock Settings.
+          - name: None
+            description: >
+                Not Throttled.
+

@@ -44,6 +44,9 @@ endif
 if get_option('data_com_ami')
     selected_subdirs += 'com/ami'
 endif
+if get_option('data_com_nvidia')
+    selected_subdirs += 'com/nvidia'
+endif
 
 # Install the selected YAML files.
 inst_yaml_dir = get_option('datadir') / 'phosphor-dbus-yaml/yaml'
