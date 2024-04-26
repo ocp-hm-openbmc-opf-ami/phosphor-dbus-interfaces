@@ -1,4 +1,19 @@
 # Generated file; do not modify.
+subdir('Area')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/Area__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/Area.interface.yaml',  ],
+    output: [ 'Area.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/Area',
+    ],
+)
+
 subdir('Asset')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Decorator/Asset__markdown'.underscorify(),
@@ -116,6 +131,36 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Decorator/I2CDevice',
+    ],
+)
+
+subdir('Instance')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/Instance__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/Instance.interface.yaml',  ],
+    output: [ 'Instance.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/Instance',
+    ],
+)
+
+subdir('Location')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/Location__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/Location.interface.yaml',  ],
+    output: [ 'Location.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/Location',
     ],
 )
 
