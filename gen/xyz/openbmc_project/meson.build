@@ -114,6 +114,7 @@ generated_others += custom_target(
 subdir('OobBiosConfigInventory')
 subdir('PFR')
 subdir('PLDM')
+subdir('SPDM')
 subdir('ScheduledTime')
 generated_others += custom_target(
     'xyz/openbmc_project/ScheduledTime__markdown'.underscorify(),
