@@ -1,0 +1,36 @@
+description: >
+    Signature interface to install signatures.
+methods: 
+    - name: InstallSignature
+      description: >
+          Method to add new signature for a secureboot database.
+      parameters: 
+          - name: DatabaseId
+            type: string
+            description: >
+                The database Id.
+          - name: SignatureTypeRegistry
+            type: string
+            description: >
+                The type of the signature..
+          - name: UefiSignatureOwner
+            type: string
+            description: >
+                The UEFI signature owner for this signature.
+          - name: SignatureType
+            type: string
+            description: >
+                The format of the signature.
+          - name: SignatureString
+            type: string
+            description: >
+                The string for the signature.
+      returns:
+          - name: ObjectPath
+            type: string
+            description: >
+                D-Bus object path to created object.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.NotAllowed
+

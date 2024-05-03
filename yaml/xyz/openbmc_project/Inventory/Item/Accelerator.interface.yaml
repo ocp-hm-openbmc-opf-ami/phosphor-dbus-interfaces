@@ -10,6 +10,10 @@ properties:
       default: "Unknown"
       description: >
           The type of accelerator.
+    - name: PowerWatts
+      type: uint16
+    - name: fpgaReconfigurationSlots
+      type: array[string]
 
 enumerations:
     - name: AcceleratorType

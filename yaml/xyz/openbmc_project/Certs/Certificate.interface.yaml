@@ -92,3 +92,9 @@ properties:
       description: >
           The certificate validity start date and time, in epoch time, in
           milliseconds.
+    - name: UefiSignatureOwner
+      type: string
+      description: >
+          The UEFI signature owner for this certificate as UEFI signature as
+          defined by the UEFI Specification.
+

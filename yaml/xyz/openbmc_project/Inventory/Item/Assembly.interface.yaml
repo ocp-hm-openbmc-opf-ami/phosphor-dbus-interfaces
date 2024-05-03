@@ -1,0 +1,5 @@
+properties:
+    - name: Assemblies
+      type: array[dict[string,string]]
+      description: >
+        Assemblies property and datas.

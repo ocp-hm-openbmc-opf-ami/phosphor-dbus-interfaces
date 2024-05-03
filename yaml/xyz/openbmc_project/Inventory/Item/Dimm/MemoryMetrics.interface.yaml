@@ -1,0 +1,134 @@
+description: >
+    Implement to provide Memory connection information to sockets and memory
+    controllers.
+properties:
+    - name: Name
+      type: string
+      description: >
+          The name identifier for this memory metrics.
+    - name: Id
+      type: string
+      description: >
+          The unique identifier for this memory metrics.
+    - name: BandwidthPercent
+      type: byte
+      description: >
+          The memory bandwidth utilization as a percentage.
+    - name: BlockSizeBytes
+      type: uint64
+      description: >
+          The block size, in bytes.
+    - name: CorrectedPersistentErrorCount
+      type: uint64
+      description: >
+          The number of corrected errors in persistent memory.
+    - name: CorrectedVolatileErrorCount
+      type: uint64
+      description: >
+          The number of corrected errors in volatile memory.
+    - name: CurrentPeriodBlocksRead
+      type: uint64
+      description: >
+          The number of blocks read since reset.
+    - name: CurrentPeriodBlocksWritten
+      type: uint64
+      description: >
+          The number of blocks written since reset.
+    - name: CurrentPeriodCorrectableECCErrorCount
+      type: uint64
+      description: >
+          The number of the correctable errors since reset.
+    - name: CurrentPeriodIndeterminateCorrectableErrorCount
+      type: uint64
+      description: >
+          The number of indeterminate correctable errors since reset.
+    - name: CurrentPeriodIndeterminateUncorrectableErrorCount
+      type: uint64
+      description: >
+          The number of indeterminate uncorrectable errors since reset.
+    - name: CurrentPeriodUncorrectableECCErrorCount
+      type: uint64
+      description: >
+          The number of the uncorrectable errors since reset.
+    - name: DirtyShutdownCount
+      type: uint64
+      description: >
+          The number of shutdowns while outstanding writes have not 
+          completed to persistent memory.
+    - name: HealthDataDataLossDetected
+      type: boolean
+      description: >
+          An indication of whether data loss was detected.
+    - name: HealthDataLastShutdownSuccess
+      type: boolean
+      description: >
+          An indication of whether the last shutdown succeeded.
+    - name: HealthDataPerformanceDegraded
+      type: boolean
+      description: >
+          An indication of whether performance has degraded.
+    - name: HealthDataPredictedMediaLifeLeftPercent
+      type: byte
+      description: >
+          The percentage of reads and writes that are predicted to 
+          still be available for the media.
+    - name: HealthDataRemainingSpareBlockPercentage
+      type: byte
+      description: >
+          The remaining spare blocks, as a percentage.
+    - name: HealthDataAlarmTripsAddressParityError
+      type: boolean
+      description: >
+          An indication of whether an address parity error was detected 
+          that a retry could not correct.
+    - name: HealthDataAlarmTripsCorrectableECCError
+      type: boolean
+      description: >
+          An indication of whether the correctable error threshold 
+          crossing alarm trip was detected.
+    - name: HealthDataAlarmTripsSpareBlock
+      type: boolean
+      description: >
+          An indication of whether the spare block capacity crossing 
+          alarm trip was detected.
+    - name: HealthDataAlarmTripsTemperature
+      type: boolean
+      description: >
+          An indication of whether a temperature threshold alarm trip 
+          was detected.
+    - name: HealthDataAlarmTripsUncorrectableECCError
+      type: boolean
+      description: >
+          An indication of whether the uncorrectable error threshold 
+          alarm trip was detected. 
+    - name: LifeTimeBlocksRead
+      type: uint64
+      description: >
+          The number of blocks read for the lifetime of the memory..
+    - name: LifeTimeBlocksWritten
+      type: uint64
+      description: >
+          The number of blocks written for the lifetime of the memory..
+    - name: LifeTimeCorrectableECCErrorCount
+      type: uint64
+      description: >
+          The number of the correctable errors for the lifetime of the memory.
+    - name: LifeTimeIndeterminateCorrectableErrorCount
+      type: uint64
+      description: >
+          The number of indeterminate correctable errors for the lifetime of 
+          the memory.
+    - name: LifeTimeIndeterminateUncorrectableErrorCount
+      type: uint64
+      description: >
+          The number of indeterminate uncorrectable errors for the lifetime of
+          the memory.
+    - name: LifeTimeUncorrectableECCErrorCount
+      type: uint64
+      description: >
+          The number of the uncorrectable errors for the lifetime of the memory.
+    - name: OperatingSpeedMHz
+      type: uint64
+      description: >
+          Operating speed of memory in MHz or MT/s as appropriate..
+

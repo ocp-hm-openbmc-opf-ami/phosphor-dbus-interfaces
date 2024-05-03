@@ -1,0 +1,26 @@
+description: >
+    Secureboot Database Dbus properties.
+
+properties: 
+    - name: DatabaseId
+      type: string
+      description: >
+          Contains the name of the UEFI Secure Boot database.
+    - name: Name
+      type: string
+      description: >
+          Name of the secureboot database.
+    - name: ResetKeyActionType
+      type: string
+      default: ""
+      description: >
+          The Reset key action type.
+    - name: OobUpdated
+      type: boolean
+      default: false
+      description: >
+          This is a flag to indicate whether this Database is 
+          updated from OOB. Updation include addition or deletion 
+          of Signatures and Certificates.
+
+

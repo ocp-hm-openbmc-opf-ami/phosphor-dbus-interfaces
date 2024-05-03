@@ -74,6 +74,34 @@ properties:
       type: string
       description: >
           The type of the processor.
+    - name: ProcessorId
+      type: dict[string,string]
+      description: >
+          Processor Id information.
+    - name: MaxSpeedMHZ
+      type: uint16
+      description: >
+          MaxSpeedMHZ information.
+    - name: MaxTDPaWtts
+      type: uint16
+      description: >
+          MaxTDPaWtts information.
+    - name: TDPWatts
+      type: uint16
+      description: >
+          TDPWatts information.
+    - name: TotalEnabledCores
+      type: uint16
+      description: >
+          Total number of enabled cores information.
+    - name: OperatingSpeedMHZ
+      type: uint16
+      description: >
+          The information of operating speed.
+    - name: AdditionalFirmawareVersion
+      type: dict[string,string]
+      description: >
+          The information of Additional firmware version.
 
 enumerations:
     - name: Capability

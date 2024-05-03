@@ -1,0 +1,20 @@
+description: >
+        Secureboot Databases signatures DBUS prperties.
+
+properties: 
+    - name: SignatureTypeRegistry
+      type: string
+      description: >
+          The type of the signature..
+    - name: UefiSignatureOwner
+      type: string
+      description: >
+          The UEFI signature owner for this signature.
+    - name: SignatureType
+      type: string
+      description: >
+          The format of the signature.
+    - name: SignatureString
+      type: string
+      description: >
+          The string for the signature.

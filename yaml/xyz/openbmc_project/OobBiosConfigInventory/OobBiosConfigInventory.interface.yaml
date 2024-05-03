@@ -35,6 +35,19 @@ methods:
                 Bios Static File in plain text format.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: deleteBootStrapAccounts
+      description: >
+          Delete all the available bootstrap accounts.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: copyInventoryFileToTmp
+      description: >
+          Decompress and copy the compressed inventory file to /tmp as
+          inventory_debug.json if its available. This is purley used for
+          debugging purpose. User can copy the inventory file from /tmp
+          and should take care of deleting the file to free up /tmp space.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
 
 properties:
     - name: InventoryStatus

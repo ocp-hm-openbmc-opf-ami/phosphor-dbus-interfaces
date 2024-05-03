@@ -1,0 +1,60 @@
+description: >
+    Implement to provide host secureboot properties
+
+properties:
+    - name: SecureBootMode
+      type: enum[self.SecureBootModeType]
+      description: >
+          The current UEFI Secure Boot Mode.
+    - name: SecureBootCurrentBoot
+      type: enum[self.SecureBootCurrentBootType]
+      default: Disabled
+      description: >
+          The UEFI Secure Boot state during the current boot cycle.
+    - name: SecureBootEnable
+      type: boolean
+      default: false
+      description: >
+          An indication of whether UEFI Secure Boot is enabled.
+
+    - name: ResetKeyActionType
+      type: string
+      default: ""
+      description: >
+          The Reset key action type.
+
+    - name: SecureBootEnableOobUpdate
+      type: boolean
+      default: false
+      description: >
+          An indication of whether the property SecureBootEnable is
+          updated from OOB via patch request.
+
+enumerations:
+    - name: SecureBootModeType
+      description: >
+          Current mode of UEFI secureboot.
+      values: 
+          - name: SetupMode
+            description: >
+                UEFI Secure Boot is currently in Setup Mode.
+          - name: UserMode
+            description: >
+                UEFI Secure Boot is currently in User Mode.
+          - name: AuditMode
+            description: >
+                UEFI Secure Boot is currently in Audit Mode.
+          - name: DeployedMode
+            description: >
+                UEFI Secure Boot is currently in Deployed Mode.
+           
+    - name: SecureBootCurrentBootType
+      description: >
+           Current boot type for secureboot
+      values:
+          - name: Enabled
+            description: >
+                UEFI Secure Boot is currently enabled.
+          - name: Disabled 
+            description: >
+                UEFI Secure Boot is currently disabled.

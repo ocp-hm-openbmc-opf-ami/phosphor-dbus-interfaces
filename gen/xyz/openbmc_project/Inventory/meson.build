@@ -13,6 +13,21 @@ generated_sources += custom_target(
     ],
 )
 
+subdir('BiosPasswordManager')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/BiosPasswordManager__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Inventory/BiosPasswordManager.interface.yaml',  ],
+    output: [ 'BiosPasswordManager.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Inventory/BiosPasswordManager',
+    ],
+)
+
 subdir('Connector')
 subdir('Decorator')
 subdir('Item')
@@ -42,6 +57,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/Inventory/Manager',
+    ],
+)
+
+subdir('SecureBoot')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/SecureBoot__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Inventory/SecureBoot.interface.yaml',  ],
+    output: [ 'SecureBoot.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Inventory/SecureBoot',
     ],
 )
 
