@@ -43,21 +43,6 @@ generated_others += custom_target(
     ],
 )
 
-subdir('Fpga')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/Fpga__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fpga.interface.yaml',  ],
-    output: [ 'Fpga.md' ],
-    depend_files: sdbusplusplus_depfiles,
-    command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
-        'xyz/openbmc_project/Inventory/Item/Fpga',
-    ],
-)
-
 subdir('Battery')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/Battery__markdown'.underscorify(),
