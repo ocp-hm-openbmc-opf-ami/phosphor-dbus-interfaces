@@ -11,8 +11,8 @@ properties:
           Name of the ethernet interface.
     - name: Duplex
       type: enum[self.Duplex]
-      errors:
-          - xyz.openbmc_project.Common.Error.NotAllowed
+      flags:
+          - readonly
       description: >
           Current duplex of the ethernet interface.
     - name: NCSI
@@ -23,16 +23,15 @@ properties:
           Indicate if this interface is NCSI
     - name: Speed
       type: uint32
-      errors:
-          - xyz.openbmc_project.Common.Error.NotAllowed
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+      flags:
+          - readonly
       description: >
           Current speed of the ethernet interface, in Mbps.
     - name: AutoNeg
       type: boolean
       default: true
-      errors:
-          - xyz.openbmc_project.Common.Error.NotAllowed
+      flags:
+          - readonly
       description: >
           This indicates if the speed and duplex are automatically negotiated
           and configured on this ethernet interface.
@@ -148,6 +147,21 @@ properties:
       type: string
       description: >
           IPv6 Static Router Address of ethernet interface.
+
+methods:
+      - name: SetPHYConfiguration
+        description: >
+              Set the auto negotiation, duplex and speed in the current interface
+        parameters:
+            - name: AutoNeg
+              type: boolean
+            - name: Duplex
+              type: enum[self.Duplex]
+            - name: Speed
+              type: uint32
+        returns:
+            - name: result
+              type: int16
 
 enumerations:
     - name: LinkLocalConf
