@@ -1,0 +1,96 @@
+description: >
+    Implement to provide BootOption Properties
+
+properties:
+    - name: Alias
+      type: enum[self.AliasType]
+      description: >
+          The alias of this boot source.
+    - name: UefiDevicePath
+      type: string
+      default: ""
+      description: >
+          The UEFI device path to access this UEFI boot option.
+    - name: BootOptionEnabled
+      type: boolean
+      default: false
+      description: >
+          An indication of whether the boot option is enabled.
+
+    - name: BootOptionReference
+      type: string
+      default: ""
+      description: >
+          The unique boot option.
+
+    - name: Description
+      type: string
+      default: ""
+      description: >
+          The description of this resource.
+
+    - name: Id
+      type: string
+      default: ""
+      description: >
+          The unique identifier for this resource.
+
+    - name: DisplayName
+      type: string
+      default: ""
+      description: >
+          The user-readable display name of the boot option. 
+
+enumerations:
+    - name: AliasType
+      description: >
+          The alias of this boot source.
+      values:
+          - name: None
+            description: >
+                Boot from the normal boot device.
+          - name: Pxe
+            description: >
+                Boot from the Pre-boot eXecution Environment (PXE).
+          - name: Floppy
+            description: >
+                Boot from the floppy disk drive.
+          - name: Cd
+            description: >
+                Boot from the CD or DVD.
+          - name: Usb
+            description: >
+                Boot from a system BIOS-specified USB device.
+          - name: Hdd
+            description: >
+                Boot from a hard drive.
+          - name: BiosSetup
+            description: >
+                Boot to the BIOS setup utility.
+          - name: Utilities
+            description: >
+                Boot to the manufacturer's utilities program or programs.
+          - name: Diags
+            description: >
+                Boot to the manufacturer's diagnostics program.
+          - name: UefiShell
+            description: >
+                Boot to the UEFI Shell.
+          - name: UefiTarget
+            description: >
+                Boot to the UEFI device specified in the UefiTargetBootSourceOverride property.
+          - name: SDCard
+            description: >
+                Boot from an SD card.
+          - name: UefiHttp
+            description: >
+                Boot from a UEFI HTTP network location.
+          - name: RemoteDrive
+            description: >
+                Boot from a remote drive, such as an iSCSI target.
+          - name: UefiBootNext
+            description: >
+                Boot to the UEFI device that the BootNext property specifies.
+          - name: Recovery
+            description: >
+                Boot to a system-designated recovery process or image.

@@ -1,0 +1,45 @@
+description: >
+    Implement to provide BootOption Properties.
+methods: 
+    - name: InstallBootOption
+      description: >
+          Method to create BootOption.
+      parameters: 
+          - name: UefiDevicePath
+            type: string
+            description: >
+                The UEFI device path to access this UEFI boot option.
+          - name: BootOptionEnabled
+            type: boolean
+            description: >
+                An indication of whether the boot option is enabled.
+          - name: BootOptionReference
+            type: string
+            description: >
+                The unique boot option.
+          - name: Description
+            type: string
+            description: >
+                The description of this resource.
+          - name: Id
+            type: string
+            description: >
+                The unique identifier for this resource.
+          - name: DisplayName
+            type: string
+            description: >
+                The user-readable display name of the boot option.
+                
+          - name: Alias
+            type: string
+            description: >
+                The alias of this boot source.
+      returns:
+          - name: ObjectPath
+            type: string
+            description: >
+                D-Bus object path to created object.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.NotAllowed
+

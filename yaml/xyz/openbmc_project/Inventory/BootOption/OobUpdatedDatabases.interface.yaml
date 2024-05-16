@@ -1,0 +1,15 @@
+description: >
+    This defines an interface which contains the list of secureboot databases
+    which are updated from OOB user. This interface contains an array of
+    string which carries the databases names which are updated from OOB.
+    This is used for the InventoryData get call from Bios, to frame the 
+    secureboot obect which contains the databases info which are updated from 
+    OOB.
+    
+
+properties:
+    - name: OobUpdatedDatabases
+      type: array[string]
+      description: >
+          Name of the databases which are updated from OOB.
+

@@ -1,0 +1,16 @@
+description: >
+    An array of BootOptionReference strings that represent the persistent boot 
+    order for with this computer system.  Changes to the boot order typically 
+    require a system reset before they take effect.  It is likely that a 
+    client finds the `@Redfish.Settings` term in this resource, and if it is 
+    found, the client makes requests to change boot order settings by modifying 
+    the resource identified by the `@Redfish.Settings` term.
+
+properties:
+    - name: BootOrder
+      type: array[string]
+      description: >
+          This property shall contain an array of BootOptionReference 
+          strings that represent the persistent boot order for this 
+          computer system.  For UEFI systems, this is the UEFI 
+          Specification-defined UEFI BootOrder.
