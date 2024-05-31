@@ -96,6 +96,7 @@ subdir('Network')
 subdir('Nvme')
 subdir('Object')
 subdir('ObjectMapper')
+subdir('TwoFactorAuthentication')
 generated_others += custom_target(
     'xyz/openbmc_project/ObjectMapper__markdown'.underscorify(),
     input: [ '../../../yaml/xyz/openbmc_project/ObjectMapper.interface.yaml',  ],

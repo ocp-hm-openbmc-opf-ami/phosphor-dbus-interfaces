@@ -1,0 +1,48 @@
+description: >
+  This interface provides methods and properties for managing license keys.
+
+methods:
+  - name: EnableTwoFactorAuthentication
+    description: >
+      Enable Two Factor Authentication.
+    parameters: 
+        - name: UserName
+          type: string
+          description: >
+            User name of the particular user that need a 2FA.
+        - name: ChannelNumber
+          type: byte
+          description: >
+            Channel number of the user belongs.
+        - name: TwoFacStatus
+          type: boolean
+          description: >
+            TFA enabled / disabled.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: TwoFactorURLString
+        type: string
+        description: >
+          Newly created URL string for the current user.
+
+  - name: VerifyOTP
+    description: >
+      Input OTP will be Enabled for the corresponds to the particular user.
+    parameters: 
+        - name: UserName
+          type: string
+          description: >
+            User name for corresponding OTP.
+        - name: OTPString
+          type: string
+          description: >
+            OTP value generated from 2FA application.
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+    returns:
+      - name: Success
+        type: boolean
+        description: >
+          Indicates input OTP against user is valid or not.
+
