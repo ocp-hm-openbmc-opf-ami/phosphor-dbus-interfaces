@@ -35,7 +35,7 @@ signals:
           description: >
             Unique identification of each method call.
         - name: ErrorCode
-          type: enum[com.ami.storage.Common.ErrorCode]
+          type: enum[com.ami.storage.mscc.Enumerations.ErrorCode]
         - name: What
           type: string
           description: >

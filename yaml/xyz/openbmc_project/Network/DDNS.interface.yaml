@@ -65,27 +65,6 @@ methods:
               type: int16
         errors:
             - xyz.openbmc_project.Common.Error.InvalidArgument
-      - name: SetDomainConf
-        description: >
-              Domain Configuration
-        parameters:
-            - name: DHCP
-              type: boolean
-              description: >
-                    True for DHCP method and False for static method
-            - name: Priority
-              type: byte
-              description: >
-                    1 for IPv4, 2 for IPv6 and 0 for static method
-            - name: DomainName
-              type: string
-              description: >
-                    Domain Nameto register DNS server if Domain DHCP is disable
-        returns:
-            - name: Result
-              type: int16
-        errors:
-            - xyz.openbmc_project.Common.Error.InvalidArgument
       - name: SetDNSServer
         description: >
               DNS Configuration
@@ -135,23 +114,6 @@ properties:
               Data 2 - Do nsupdate or not
               Data 4 - Use TSIG Authentication or not
               Data 5 - To register or deregister
-      - name: DomainConf
-        type: struct[boolean,byte,string]
-        flags:
-            - readonly
-        description: >
-            Data 1 - Domain DHCP: 1 for DHCP method and 0 for static method
-            Data 2 - Domain Priority: 1 for IPv4, 2 for IPv6 and 0 for static met
-            Data 3 - Domain Name: to register DNS server if Domain DHCP is disabl
-        errors:
-            - xyz.openbmc_project.Common.Error.InvalidArgument
-      - name: DNSEnabled
-        type: boolean
-        flags:
-            - readonly
-        description: >
-            if true then the DNS servers received from the DHCP server
-            will be used and take precedence over any statically configured ones.
       - name: SetInProgress
         type: boolean
         description: >
@@ -160,3 +122,8 @@ properties:
         type: boolean
         description: >
             Enable mDNS or not (Default Enabled)
+      - name: SendNsupdateEnabled
+        type: boolean
+        default: true
+        description: >
+            if true then nsupdate is performed.

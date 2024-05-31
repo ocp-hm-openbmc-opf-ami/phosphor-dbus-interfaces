@@ -147,7 +147,6 @@ properties:
       type: string
       description: >
           IPv6 Static Router Address of ethernet interface.
-
 methods:
       - name: SetPHYConfiguration
         description: >

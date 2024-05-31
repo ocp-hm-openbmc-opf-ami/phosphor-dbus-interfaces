@@ -1,0 +1,508 @@
+description: >
+  This defines Microsemi RAID Enumerations
+
+enumerations:
+    - name: ModeType
+      description: >
+        The support type of RAID mode, HBA mode and Mixed mode.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown mode.
+        - name: "RAID"
+          description: >
+            RAID mode.
+        - name: "HBA"
+          description: >
+            HBA mode.
+        - name: "Mixed"
+          description: >
+            Mixed mode.
+    - name: RebuildPriority
+      values:
+        - name: "Unknown"
+        - name: "Low"
+        - name: "Medium"
+        - name: "MediumHight"
+        - name: "Hight"
+    - name: InconsistencyRepairPolicy
+      values:
+        - name: "Unknown"
+        - name: "Enable"
+        - name: "Disable"
+    - name: SpareActivationMode
+      values:
+        - name: "Unknown"
+        - name: "Failure"
+        - name: "Predictive"
+    - name: PdIfc
+      description: >
+        Available in SAS, SATA and NVMe.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown type.
+        - name: "SAS"
+          description: >
+            SAS type.
+        - name: "SATA"
+          description: >
+            SATA type.
+        - name: "NVMe"
+          description: >
+            NVMe type.
+    - name: PdTypeInfo
+      description: >
+        The type of HDD/SSD of this physical drive.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown drive.
+        - name: "HDD"
+          description: >
+            HDD drive.
+        - name: "SSD"
+          description: >
+            SSD drive.
+    - name: PdStatusLevel
+      description: >
+        The status level of this physical drive.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown status.
+        - name: "OK"
+          description: >
+            OK status.
+        - name: "info"
+          description: >
+            Info status.
+        - name: "Warning"
+          description: >
+            Warning status.
+        - name: "Failed"
+          description: >
+            Failed status.
+    - name: PdStatusInfo
+      description: >
+        The status info of this physical drive.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown status.
+        - name: "Failed"
+          description: >
+            Failed status.
+        - name: "FailedPSA"
+          description: >
+            Failed PSA status.
+        - name: "UnsupportedNoLicense"
+          description: >
+            Unsupported no license status.
+        - name: "PredictiveFailure"
+          description: >
+            Predictive failure status.
+        - name: "PredictiveFailureWornOut"
+          description: >
+            Predictive failure worn out status.
+        - name: "IsTransientDrive"
+          description: >
+            Transient drive is status.
+        - name: "ErasingOffline"
+          description: >
+            Erasing offline status.
+        - name: "InvalidDriveSize"
+          description: >
+            Invalid drive size status.
+        - name: "FWUpdateRequired"
+          description: >
+            FW update rquired status.
+        - name: "ExposedToOS"
+          description: >
+            Exposed to OS status.
+        - name: "MaskedWithInvalidCCM"
+          description: >
+            Masked with invalid CCM status.
+        - name: "UnsupportedForConfig"
+          description: >
+            Unsupported for config status.
+        - name: "Rebuilding"
+          description: >
+            Rebuilding status.
+        - name: "RebuildQueued"
+          description: >
+            Rebuild queued status.
+        - name: "FailedHotRemoval"
+          description: >
+            Failed hot removal status.
+        - name: "FailedSEDQualification"
+          description: >
+            Failed SED qualification status.
+        - name: "IsSEDDataLocked"
+          description: >
+            SED data is locked status.
+    - name: PdLinkRate
+      description: >
+        The speed which this Drive is currently communicating to the StorageControllers in Gigabits per second.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown link rate.
+        - name: "Disabled"
+          description: >
+            Disabled link rate.
+        - name: "NegotiationFailed"
+          description: >
+            Negotiation failed.
+        - name: "SATASpinUpHold"
+          description: >
+            SATA spin up is hold.
+        - name: "Rate15Gbps"
+          description: >
+            Link rate per 1.5 Gbps.
+        - name: "Rate30Gbps"
+          description: >
+            Link rate per 3.0 Gbps.
+        - name: "Rate60Gbps"
+          description: >
+            Link rate per 6.0 Gbps.
+        - name: "Rate120Gbps"
+          description: >
+            Link rate per 12.0 Gbps.
+        - name: "Rate225Gbps"
+          description: >
+            Link rate per 22.5 Gbps.
+        - name: "PCIeGen1"
+          description: >
+            Link rate per PCIe Gen 1.
+        - name: "PCIeGen2"
+          description: >
+            Link rate per PCIe Gen 2.
+        - name: "PCIeGen3"
+          description: >
+            Link rate per PCIe Gen 3.
+        - name: "PCIeGen4"
+          description: >
+            Link rate per PCIe Gen 4.
+        - name: "PCIeGen5"
+          description: >
+            Link rate per PCIe Gen 5.
+    - name: UsageInfo
+      description: >
+        Disk usage.
+      values:
+        - name: "Unknown"
+        - name: "Unassigned"
+        - name: "Data"
+        - name: "AutoReplaceStandbySpare"
+        - name: "ShareableStandbySpare"
+        - name: "ShareableActiveSpare"
+        - name: "TransientData"
+        - name: "LuCacheData"
+        - name: "HBA"
+        - name: "TransientUnassigned"
+        - name: "Unconfigurable"
+    - name: ArrayType
+      description: >
+        The array drive type
+      values:
+        - name: "Unknown"
+        - name: "Any"
+        - name: "Data"
+        - name: "LuCache"
+        - name: "SplitMirrorPrimary"
+        - name: "SplitMirrorBackup"
+        - name: "SplitMirrorBackupOrphan"
+    - name: SpareType
+      description: >
+        The array spare type
+      values:
+        - name: "Unknown"
+        - name: "Existing"
+        - name: "AutoReplace"
+        - name: "Dedicated"
+    - name: MediaType
+      description: >
+        The array media type
+      values:
+        - name: "Unknown"
+        - name: "SSD"
+        - name: "HDD"
+    - name: InterfaceType
+      description: >
+        The array Interface type
+      values:
+        - name: "Unknown"
+        - name: "SAS"
+        - name: "SATA"
+        - name: "NVMe"
+    - name: Accelerator
+      description: >
+        The array acceleration mode
+      values:
+        - name: "Unknown"
+        - name: "IoBypass"
+        - name: "Independent"
+    - name: ExpandMode
+      values:
+        - name: "Unknown"
+        - name: "Automatic"
+        - name: "AddDrivesToEachParityGroup"
+        - name: "MakeNewParityGroup"
+    - name: ShrinkMode
+      values:
+        - name: "Unknown"
+        - name: "Automatic"
+        - name: "RemoveDrivesFromEachParityGroup"
+        - name: "RemoveParityGroup"
+    - name: RaidType
+      description: >
+        The logical drive ID.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown LD ID.
+        - name: "RAID0"
+          description: >
+            RAID0.
+        - name: "RAID1"
+          description: >
+            RAID1.
+        - name: "RAID10"
+          description: >
+            RAID10.
+        - name: "RAID5"
+          description: >
+            RAID5.
+        - name: "RAID50"
+          description: >
+            RAID50.
+        - name: "RAID6"
+          description: >
+            RAID6.
+        - name: "RAID60"
+          description: >
+            RAID60.
+        - name: "RAID1Triple"
+          description: >
+            RAID1 triple.
+        - name: "RAID1ADM"
+          description: >
+            RAID1 ADM.
+        - name: "RAID10Triple"
+          description: >
+            RAID10 triple.
+        - name: "RAID10ADM"
+          description: >
+            RAID10 ADM.
+    - name: LdTypeInfo
+      description: >
+        List spare PD member of LD.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown LD type.
+        - name: "Data"
+          description: >
+            Data type.
+        - name: "Cache"
+          description: >
+            Cache type.
+        - name: "SplitMirrorSetPrimary"
+          description: >
+            Split mirror set as a primary type.
+        - name: "SplitMirrorSetBackup"
+          description: >
+            Split mirror set as a backup type.
+        - name: "SplitMirrorSetBackupOrphan"
+          description: >
+            Split mirror set as a backup orphan type.
+    - name: LdAccelerator
+      description: >
+        The type of data/cache of this logical drive.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown LD accelerator type.
+        - name: "None"
+          description: >
+            None accelerator type.
+        - name: "ControllerCache"
+          description: >
+            Controller cache type.
+        - name: "IOBypass"
+          description: >
+            IO bypass type.
+        - name: "LUCache"
+          description: >
+            LU cache type.
+    - name: LdStatusInfo
+      description: >
+        The status info of this logical drive.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown status.
+        - name: "OK"
+          description: >
+            OK status.
+        - name: "Failed"
+          description: >
+            Failed status.
+        - name: "NotConfigured"
+          description: >
+            Not configured status.
+        - name: "InterimRecovery"
+          description: >
+            Interim recovery status.
+        - name: "ReadyForRecovery"
+          description: >
+            Ready for recovery status.
+        - name: "Recovering"
+          description: >
+            Recovering status.
+        - name: "WrongDriveReplaced"
+          description: >
+            Wrong drive replaced status.
+        - name: "DriveImproperlyConnected"
+          description: >
+            Drive improperly connected status.
+        - name: "HardwareIsOverheating"
+          description: >
+            Hardware is overheating status.
+        - name: "HardwareHasOverheated"
+          description: >
+            Hardware has overheated status.
+        - name: "Expanding"
+          description: >
+            Expanding status.
+        - name: "NotYetAvailable"
+          description: >
+            Not yet available status.
+        - name: "QueuedForExpansion"
+          description: >
+            Queued for expansion status.
+        - name: "DisabledFromSCSIIdConflict"
+          description: >
+            Disabled from SCSI ID conflict status.
+        - name: "Ejected"
+          description: >
+            Ejected status.
+        - name: "EraseInProgress"
+          description: >
+            Erase in progress status.
+        - name: "Unused"
+          description: >
+            Unused status.
+        - name: "ReadyToPerformPredictiveSpareRebuild"
+          description: >
+            Ready to perform predictive spare rebuild status.
+        - name: "RPIInProgress"
+          description: >
+            RPI in progress status.
+        - name: "RPIQueued"
+          description: >
+            RPI queued status.
+        - name: "EncryptedVolumeWithoutKey"
+          description: >
+            Encrypted volume without key status.
+        - name: "PlainTextVolumeRejectedInEncryptingMode"
+          description: >
+            Plain text volume rejected in encrypting mode status.
+        - name: "EncryptionMigration"
+          description: >
+            Encryption migration status.
+        - name: "EncryptedVolumeRekeying"
+          description: >
+            Encrypted volume rekeying status.
+        - name: "EncryptedVolumeEncryptionOff"
+          description: >
+            Encrypted volume encryption off status.
+        - name: "VolumeEncodeRequested"
+          description: >
+            Volume encode requested status.
+        - name: "EncryptedVolumeRekeyRequested"
+          description: >
+            Encrypted volume rekey requested status.
+        - name: "UnsupportedOnThisController"
+          description: >
+            Unsupported on this controller status.
+        - name: "HasLockedSED"
+          description: >
+            Has locked SED status.
+        - name: "SEDQualificationOngoing"
+          description: >
+            SED qualification ongoing status.
+        - name: "SEDQualificationFailed"
+          description: >
+            SED qualification failed status.
+        - name: "SEDVolumeDataLocked"
+          description: >
+            SED volume data locked status.
+    - name: CacheAlgo
+      description: >
+        The LRU/LRU2/regional/simple info of this logical drive.
+      values:
+        - name: "unknown"
+          description: >
+            Unknown algorithm.
+        - name: "HashingLRU"
+          description: >
+            Hashing LRU algorithm.
+        - name: "HashingLRU2"
+          description: >
+            Hashing LRU2 algorithm.
+        - name: "Regional"
+          description: >
+            Regional algorithm.
+        - name: "SimpleLRU"
+          description: >
+            Simple LRU algorithm.
+    - name: CachePolicy
+      description: >
+        Indicates the actual write/requested policy setting for the Volume.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown cache policy.
+        - name: "ReadOnly"
+          description: >
+            Read only cache policy.
+        - name: "WriteThrough"
+          description: >
+            Write through cache policy.
+        - name: "WriteBack"
+          description: >
+            Write back cache policy.
+    - name: CacheLineSize
+      description: >
+        The size of cache line for the Volume.
+      values:
+        - name: "Unknown"
+          description: >
+            Unknown size.
+        - name: "LineSize64kb"
+          description: >
+            Line size with 64kb.
+        - name: "LineSize128kb"
+          description: >
+            Line size with 128kb.
+        - name: "LineSize256kb"
+          description: >
+            Line size with 256kb.
+    - name: Health
+      values:
+        - name: "Good"
+        - name: "Warning"
+        - name: "Critical"
+    - name: ErrorCode
+      values:
+        - name: "Success"
+        - name: "Timeout"
+        - name: "InternalFailure"
+        - name: "InvalidArgument"
+        - name: "NotAllowed"
+        - name: "Unavailable"
+        - name: "UnsupportedRequest"
+        - name: "DeviceOrResourceBusy"
+

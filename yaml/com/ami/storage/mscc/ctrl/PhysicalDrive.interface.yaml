@@ -27,7 +27,7 @@ properties:
       description: >
         The serial number for this physical drive.
     - name: InterfaceType
-      type: enum[self.PdIfc]
+      type: enum[com.ami.storage.mscc.Enumerations.PdIfc]
       flags:
         - readonly
       description: >
@@ -45,7 +45,7 @@ properties:
       description: >
         The temperature of this physical drive.
     - name: PdType
-      type: enum[self.PdTypeInfo]
+      type: enum[com.ami.storage.mscc.Enumerations.PdTypeInfo]
       flags:
         - readonly
       description: >
@@ -81,7 +81,7 @@ properties:
       description: >
         The array number of this physical drive.
     - name: StatusInfo
-      type: struct[enum[self.PdStatusLevel], enum[self.PdStatusInfo]]
+      type: struct[enum[com.ami.storage.mscc.Enumerations.PdStatusLevel], enum[com.ami.storage.mscc.Enumerations.PdStatusInfo]]
       flags:
         - readonly
       description: >
@@ -111,19 +111,19 @@ properties:
       description: >
         The basic info of this physical drive.
     - name: LinkSpeed
-      type: enum[self.PdLinkRate]
+      type: enum[com.ami.storage.mscc.Enumerations.PdLinkRate]
       flags:
         - readonly
       description: >
         Keep tracking the link speed of this physical drive.
     - name: MaxLinkSpeed
-      type: enum[self.PdLinkRate]
+      type: enum[com.ami.storage.mscc.Enumerations.PdLinkRate]
       flags:
         - readonly
       description: >
         Keep tracking the max link speed of this physical drive.
     - name: Usage
-      type: enum[self.UsageInfo]
+      type: enum[com.ami.storage.mscc.Enumerations.UsageInfo]
       flags:
         - readonly
       description: >
@@ -147,177 +147,9 @@ properties:
       description: >
         Predicted failure for physical drive.
     - name: Health
-      type: enum[com.ami.storage.Common.Health]
+      type: enum[com.ami.storage.mscc.Enumerations.Health]
       flags:
         - readonly
       description: >
         Physical drive health
 
-enumerations:
-    - name: PdIfc
-      description: >
-        Available in SAS, SATA and NVMe.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown type.
-        - name: "SAS"
-          description: >
-            SAS type.
-        - name: "SATA"
-          description: >
-            SATA type.
-        - name: "NVMe"
-          description: >
-            NVMe type.
-    - name: PdTypeInfo
-      description: >
-        The type of HDD/SSD of this physical drive.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown drive.
-        - name: "HDD"
-          description: >
-            HDD drive.
-        - name: "SSD"
-          description: >
-            SSD drive.
-    - name: PdStatusLevel
-      description: >
-        The status level of this physical drive.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown status.
-        - name: "OK"
-          description: >
-            OK status.
-        - name: "info"
-          description: >
-            Info status.
-        - name: "Warning"
-          description: >
-            Warning status.
-        - name: "Failed"
-          description: >
-            Failed status.
-    - name: PdStatusInfo
-      description: >
-        The status info of this physical drive.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown status.
-        - name: "Failed"
-          description: >
-            Failed status.
-        - name: "FailedPSA"
-          description: >
-            Failed PSA status.
-        - name: "UnsupportedNoLicense"
-          description: >
-            Unsupported no license status.
-        - name: "PredictiveFailure"
-          description: >
-            Predictive failure status.
-        - name: "PredictiveFailureWornOut"
-          description: >
-            Predictive failure worn out status.
-        - name: "IsTransientDrive"
-          description: >
-            Transient drive is status.
-        - name: "ErasingOffline"
-          description: >
-            Erasing offline status.
-        - name: "InvalidDriveSize"
-          description: >
-            Invalid drive size status.
-        - name: "FWUpdateRequired"
-          description: >
-            FW update rquired status.
-        - name: "ExposedToOS"
-          description: >
-            Exposed to OS status.
-        - name: "MaskedWithInvalidCCM"
-          description: >
-            Masked with invalid CCM status.
-        - name: "UnsupportedForConfig"
-          description: >
-            Unsupported for config status.
-        - name: "Rebuilding"
-          description: >
-            Rebuilding status.
-        - name: "RebuildQueued"
-          description: >
-            Rebuild queued status.
-        - name: "FailedHotRemoval"
-          description: >
-            Failed hot removal status.
-        - name: "FailedSEDQualification"
-          description: >
-            Failed SED qualification status.
-        - name: "IsSEDDataLocked"
-          description: >
-            SED data is locked status.
-    - name: PdLinkRate
-      description: >
-        The speed which this Drive is currently communicating to the StorageControllers in Gigabits per second.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown link rate.
-        - name: "Disabled"
-          description: >
-            Disabled link rate.
-        - name: "NegotiationFailed"
-          description: >
-            Negotiation failed.
-        - name: "SATASpinUpHold"
-          description: >
-            SATA spin up is hold.
-        - name: "Rate15Gbps"
-          description: >
-            Link rate per 1.5 Gbps.
-        - name: "Rate30Gbps"
-          description: >
-            Link rate per 3.0 Gbps.
-        - name: "Rate60Gbps"
-          description: >
-            Link rate per 6.0 Gbps.
-        - name: "Rate120Gbps"
-          description: >
-            Link rate per 12.0 Gbps.
-        - name: "Rate225Gbps"
-          description: >
-            Link rate per 22.5 Gbps.
-        - name: "PCIeGen1"
-          description: >
-            Link rate per PCIe Gen 1.
-        - name: "PCIeGen2"
-          description: >
-            Link rate per PCIe Gen 2.
-        - name: "PCIeGen3"
-          description: >
-            Link rate per PCIe Gen 3.
-        - name: "PCIeGen4"
-          description: >
-            Link rate per PCIe Gen 4.
-        - name: "PCIeGen5"
-          description: >
-            Link rate per PCIe Gen 5.
-    - name: UsageInfo
-      description: >
-        Disk usage.
-      values:
-        - name: "Unknown"
-        - name: "Unassigned"
-        - name: "Data"
-        - name: "AutoReplaceStandbySpare"
-        - name: "ShareableStandbySpare"
-        - name: "ShareableActiveSpare"
-        - name: "TransientData"
-        - name: "LuCacheData"
-        - name: "HBA"
-        - name: "TransientUnassigned"
-        - name: "Unconfigurable"

@@ -57,7 +57,7 @@ properties:
       description: >
         The total controller memory size in MB.
     - name: Mode
-      type: enum[self.ModeType]
+      type: enum[com.ami.storage.mscc.Enumerations.ModeType]
       flags:
         - readonly
       description: >
@@ -99,7 +99,7 @@ properties:
       description: >
         The vendor ID of this RAID controller.
     - name: SupportedRaidLevel
-      type: array[enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]]
+      type: array[enum[com.ami.storage.mscc.Enumerations.RaidType]]
       flags:
         - readonly
       description: >
@@ -111,21 +111,21 @@ properties:
       description: >
         Supported RAID level
     - name: Health
-      type: enum[com.ami.storage.Common.Health]
+      type: enum[com.ami.storage.mscc.Enumerations.Health]
       flags:
         - readonly
       description: >
         Controller health
     - name: RebuildPriority
-      type: enum[self.RebuildPriority]
+      type: enum[com.ami.storage.mscc.Enumerations.RebuildPriority]
       flags:
         - readonly
     - name: InconsistencyRepairPolicy
-      type: enum[self.InconsistencyRepairPolicy]
+      type: enum[com.ami.storage.mscc.Enumerations.InconsistencyRepairPolicy]
       flags:
         - readonly
     - name: SpareActivationMode
-      type: enum[self.SpareActivationMode]
+      type: enum[com.ami.storage.mscc.Enumerations.SpareActivationMode]
       flags:
         - readonly
     - name: ReadCacheRatio
@@ -137,37 +137,3 @@ properties:
       flags:
         - readonly
 
-enumerations:
-    - name: ModeType
-      description: >
-        The support type of RAID mode, HBA mode and Mixed mode.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown mode.
-        - name: "RAID"
-          description: >
-            RAID mode.
-        - name: "HBA"
-          description: >
-            HBA mode.
-        - name: "Mixed"
-          description: >
-            Mixed mode.
-    - name: RebuildPriority
-      values:
-        - name: "Unknown"
-        - name: "Low"
-        - name: "Medium"
-        - name: "MediumHight"
-        - name: "Hight"
-    - name: InconsistencyRepairPolicy
-      values:
-        - name: "Unknown"
-        - name: "Enable"
-        - name: "Disable"
-    - name: SpareActivationMode
-      values:
-        - name: "Unknown"
-        - name: "Failure"
-        - name: "Predictive"

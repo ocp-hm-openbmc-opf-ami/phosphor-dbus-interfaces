@@ -21,27 +21,27 @@ properties:
       flags:
         - readonly
     - name: ArrayType
-      type: enum[self.ArrayType]
+      type: enum[com.ami.storage.mscc.Enumerations.ArrayType]
       flags:
         - readonly
       description: >
         The array drive type.
     - name: SpareType
-      type: enum[self.SpareType]
+      type: enum[com.ami.storage.mscc.Enumerations.SpareType]
       flags:
         - readonly
       description: >
         The array drive type.
     - name: MediaType
-      type: enum[self.MediaType]
+      type: enum[com.ami.storage.mscc.Enumerations.MediaType]
       flags:
         - readonly
     - name: InterfaceType
-      type: enum[self.InterfaceType]
+      type: enum[com.ami.storage.mscc.Enumerations.InterfaceType]
       flags:
         - readonly
     - name: AcceleratorType
-      type: enum[self.Accelerator]
+      type: enum[com.ami.storage.mscc.Enumerations.Accelerator]
       flags:
         - readonly
     - name: DataPdList
@@ -63,57 +63,3 @@ properties:
       description: >
         List LD member of AD.
 
-enumerations:
-    - name: ArrayType
-      description: >
-        The array drive type
-      values:
-        - name: "Unknown"
-        - name: "Any"
-        - name: "Data"
-        - name: "LuCache"
-        - name: "SplitMirrorPrimary"
-        - name: "SplitMirrorBackup"
-        - name: "SplitMirrorBackupOrphan"
-    - name: SpareType
-      description: >
-        The array spare type
-      values:
-        - name: "Unknown"
-        - name: "Existing"
-        - name: "AutoReplace"
-        - name: "Dedicated"
-    - name: MediaType
-      description: >
-        The array media type
-      values:
-        - name: "Unknown"
-        - name: "SSD"
-        - name: "HDD"
-    - name: InterfaceType
-      description: >
-        The array Interface type
-      values:
-        - name: "Unknown"
-        - name: "SAS"
-        - name: "SATA"
-        - name: "NVMe"
-    - name: Accelerator
-      description: >
-        The array acceleration mode
-      values:
-        - name: "Unknown"
-        - name: "IoBypass"
-        - name: "Independent"
-    - name: ExpandMode
-      values:
-        - name: "Unknown"
-        - name: "Automatic"
-        - name: "AddDrivesToEachParityGroup"
-        - name: "MakeNewParityGroup"
-    - name: ShrinkMode
-      values:
-        - name: "Unknown"
-        - name: "Automatic"
-        - name: "RemoveDrivesFromEachParityGroup"
-        - name: "RemoveParityGroup"

@@ -7,7 +7,7 @@ methods:
     - name: AdId
       type: uint16
     - name: ExpandMode
-      type: enum[com.ami.storage.mscc.ctrl.ArrayDrive.ExpandMode]
+      type: enum[com.ami.storage.mscc.Enumerations.ExpandMode]
     - name: PdList
       type: array[uint16]
     returns:
@@ -22,7 +22,7 @@ methods:
     - name: AdId
       type: uint16
     - name: ShrinkMode
-      type: enum[com.ami.storage.mscc.ctrl.ArrayDrive.ShrinkMode]
+      type: enum[com.ami.storage.mscc.Enumerations.ShrinkMode]
     - name: PdList
       type: array[uint16]
     returns:
@@ -37,7 +37,7 @@ methods:
     - name: AdId
       type: uint16
     - name: SpareType
-      type: enum[com.ami.storage.mscc.ctrl.ArrayDrive.SpareType]
+      type: enum[com.ami.storage.mscc.Enumerations.SpareType]
     - name: PdList
       type: array[uint16]
     returns:
@@ -76,13 +76,13 @@ methods:
     - name: Name
       type: string
     - name: RaidLevel
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
+      type: enum[com.ami.storage.mscc.Enumerations.RaidType]
     - name: Size
       type: uint64
     - name: StripSize
       type: uint64
     - name: Accelerator
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
+      type: enum[com.ami.storage.mscc.Enumerations.LdAccelerator]
     - name: ParityGroupCount
       type: byte
     - name: PdList
@@ -99,13 +99,13 @@ methods:
     - name: Name
       type: string
     - name: RaidLevel
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
+      type: enum[com.ami.storage.mscc.Enumerations.RaidType]
     - name: Size
       type: uint64
     - name: StripSize
       type: uint64
     - name: Accelerator
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.LdAccelerator]
+      type: enum[com.ami.storage.mscc.Enumerations.LdAccelerator]
     - name: ParityGroupCount
       type: byte
     - name: ArrayNumber
@@ -120,13 +120,13 @@ methods:
   - name: CreateLuCacheDrive
     parameters:
     - name: RaidLevel
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.RaidType]
+      type: enum[com.ami.storage.mscc.Enumerations.RaidType]
     - name: Size
       type: uint64
     - name: CacheLineSize
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.CacheLineSize]
+      type: enum[com.ami.storage.mscc.Enumerations.CacheLineSize]
     - name: WritePolicy
-      type: enum[com.ami.storage.mscc.ctrl.LogicalDrive.CachePolicy]
+      type: enum[com.ami.storage.mscc.Enumerations.CachePolicy]
     - name: ParityGroupCount
       type: byte
     - name: PdList
@@ -154,11 +154,11 @@ methods:
   - name: SetControllerProperties
     parameters:
       - name: RebuildPriority
-        type: enum[com.ami.storage.mscc.ctrl.Controller.RebuildPriority]
+        type: enum[com.ami.storage.mscc.Enumerations.RebuildPriority]
       - name: InconsistencyRepairPolicy
-        type: enum[com.ami.storage.mscc.ctrl.Controller.InconsistencyRepairPolicy]
+        type: enum[com.ami.storage.mscc.Enumerations.InconsistencyRepairPolicy]
       - name: SpareActivationMode
-        type: enum[com.ami.storage.mscc.ctrl.Controller.SpareActivationMode]
+        type: enum[com.ami.storage.mscc.Enumerations.SpareActivationMode]
       - name: ReadCacheRatio
         type: byte
     returns:
@@ -251,7 +251,7 @@ signals:
           description: >
             Unique identification of each method call.
         - name: ErrorCode
-          type: enum[com.ami.storage.Common.ErrorCode]
+          type: enum[com.ami.storage.mscc.Enumerations.ErrorCode]
         - name: What
           type: string
           description: >

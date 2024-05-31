@@ -15,7 +15,7 @@ properties:
       description: >
         The logical drive ID.
     - name: RaidLevel
-      type: enum[self.RaidType]
+      type: enum[com.ami.storage.mscc.Enumerations.RaidType]
       flags:
         - readonly
       description: >
@@ -51,43 +51,43 @@ properties:
       description: >
         List spare PD member of LD.
     - name: LdType
-      type: enum[self.LdTypeInfo]
+      type: enum[com.ami.storage.mscc.Enumerations.LdTypeInfo]
       flags:
         - readonly
       description: >
         Keep tracking the type of data/cache of this logical drive.
     - name: AcceleratorType
-      type: enum[self.LdAccelerator]
+      type: enum[com.ami.storage.mscc.Enumerations.LdAccelerator]
       flags:
         - readonly
       description: >
         Keep tracking the accelerator type of this logical drive.
     - name: StatusInfo
-      type: enum[self.LdStatusInfo]
+      type: enum[com.ami.storage.mscc.Enumerations.LdStatusInfo]
       flags:
         - readonly
       description: >
         Keep tracking the status info of this logical drive.
     - name: LuCacheAlgorithm
-      type: enum[self.CacheAlgo]
+      type: enum[com.ami.storage.mscc.Enumerations.CacheAlgo]
       flags:
         - readonly
       description: >
         Keep tracking the LRU/LRU2/regional/simple info of this logical drive.
     - name: LuCacheInfoActualWritePolicy
-      type: enum[self.CachePolicy]
+      type: enum[com.ami.storage.mscc.Enumerations.CachePolicy]
       flags:
         - readonly
       description: >
         Keep tracking to indicate the actual write policy setting for the Volume.
     - name: LuCacheInfoRequestedWritePolicy
-      type: enum[self.CachePolicy]
+      type: enum[com.ami.storage.mscc.Enumerations.CachePolicy]
       flags:
         - readonly
       description: >
         Keep tracking to indicate the requested write policy setting for the Volume.
     - name: CacheLineSize
-      type: enum[self.CacheLineSize]
+      type: enum[com.ami.storage.mscc.Enumerations.CacheLineSize]
       flags:
         - readonly
       description: >
@@ -99,245 +99,9 @@ properties:
       description: >
         The progress/percentage of the Volume.
     - name: Health
-      type: enum[com.ami.storage.Common.Health]
+      type: enum[com.ami.storage.mscc.Enumerations.Health]
       flags:
         - readonly
       description: >
         Logical drive health
 
-enumerations:
-    - name: RaidType
-      description: >
-        The logical drive ID.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown LD ID.
-        - name: "RAID0"
-          description: >
-            RAID0.
-        - name: "RAID1"
-          description: >
-            RAID1.
-        - name: "RAID10"
-          description: >
-            RAID10.
-        - name: "RAID5"
-          description: >
-            RAID5.
-        - name: "RAID50"
-          description: >
-            RAID50.
-        - name: "RAID6"
-          description: >
-            RAID6.
-        - name: "RAID60"
-          description: >
-            RAID60.
-        - name: "RAID1Triple"
-          description: >
-            RAID1 triple.
-        - name: "RAID1ADM"
-          description: >
-            RAID1 ADM.
-        - name: "RAID10Triple"
-          description: >
-            RAID10 triple.
-        - name: "RAID10ADM"
-          description: >
-            RAID10 ADM.
-    - name: LdTypeInfo
-      description: >
-        List spare PD member of LD.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown LD type.
-        - name: "Data"
-          description: >
-            Data type.
-        - name: "Cache"
-          description: >
-            Cache type.
-        - name: "SplitMirrorSetPrimary"
-          description: >
-            Split mirror set as a primary type.
-        - name: "SplitMirrorSetBackup"
-          description: >
-            Split mirror set as a backup type.
-        - name: "SplitMirrorSetBackupOrphan"
-          description: >
-            Split mirror set as a backup orphan type.
-    - name: LdAccelerator
-      description: >
-        The type of data/cache of this logical drive.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown LD accelerator type.
-        - name: "None"
-          description: >
-            None accelerator type.
-        - name: "ControllerCache"
-          description: >
-            Controller cache type.
-        - name: "IOBypass"
-          description: >
-            IO bypass type.
-        - name: "LUCache"
-          description: >
-            LU cache type.
-    - name: LdStatusInfo
-      description: >
-        The status info of this logical drive.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown status.
-        - name: "OK"
-          description: >
-            OK status.
-        - name: "Failed"
-          description: >
-            Failed status.
-        - name: "NotConfigured"
-          description: >
-            Not configured status.
-        - name: "InterimRecovery"
-          description: >
-            Interim recovery status.
-        - name: "ReadyForRecovery"
-          description: >
-            Ready for recovery status.
-        - name: "Recovering"
-          description: >
-            Recovering status.
-        - name: "WrongDriveReplaced"
-          description: >
-            Wrong drive replaced status.
-        - name: "DriveImproperlyConnected"
-          description: >
-            Drive improperly connected status.
-        - name: "HardwareIsOverheating"
-          description: >
-            Hardware is overheating status.
-        - name: "HardwareHasOverheated"
-          description: >
-            Hardware has overheated status.
-        - name: "Expanding"
-          description: >
-            Expanding status.
-        - name: "NotYetAvailable"
-          description: >
-            Not yet available status.
-        - name: "QueuedForExpansion"
-          description: >
-            Queued for expansion status.
-        - name: "DisabledFromSCSIIdConflict"
-          description: >
-            Disabled from SCSI ID conflict status.
-        - name: "Ejected"
-          description: >
-            Ejected status.
-        - name: "EraseInProgress"
-          description: >
-            Erase in progress status.
-        - name: "Unused"
-          description: >
-            Unused status.
-        - name: "ReadyToPerformPredictiveSpareRebuild"
-          description: >
-            Ready to perform predictive spare rebuild status.
-        - name: "RPIInProgress"
-          description: >
-            RPI in progress status.
-        - name: "RPIQueued"
-          description: >
-            RPI queued status.
-        - name: "EncryptedVolumeWithoutKey"
-          description: >
-            Encrypted volume without key status.
-        - name: "PlainTextVolumeRejectedInEncryptingMode"
-          description: >
-            Plain text volume rejected in encrypting mode status.
-        - name: "EncryptionMigration"
-          description: >
-            Encryption migration status.
-        - name: "EncryptedVolumeRekeying"
-          description: >
-            Encrypted volume rekeying status.
-        - name: "EncryptedVolumeEncryptionOff"
-          description: >
-            Encrypted volume encryption off status.
-        - name: "VolumeEncodeRequested"
-          description: >
-            Volume encode requested status.
-        - name: "EncryptedVolumeRekeyRequested"
-          description: >
-            Encrypted volume rekey requested status.
-        - name: "UnsupportedOnThisController"
-          description: >
-            Unsupported on this controller status.
-        - name: "HasLockedSED"
-          description: >
-            Has locked SED status.
-        - name: "SEDQualificationOngoing"
-          description: >
-            SED qualification ongoing status.
-        - name: "SEDQualificationFailed"
-          description: >
-            SED qualification failed status.
-        - name: "SEDVolumeDataLocked"
-          description: >
-            SED volume data locked status.
-    - name: CacheAlgo
-      description: >
-        The LRU/LRU2/regional/simple info of this logical drive.
-      values:
-        - name: "unknown"
-          description: >
-            Unknown algorithm.
-        - name: "HashingLRU"
-          description: >
-            Hashing LRU algorithm.
-        - name: "HashingLRU2"
-          description: >
-            Hashing LRU2 algorithm.
-        - name: "Regional"
-          description: >
-            Regional algorithm.
-        - name: "SimpleLRU"
-          description: >
-            Simple LRU algorithm.
-    - name: CachePolicy
-      description: >
-        Indicates the actual write/requested policy setting for the Volume.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown cache policy.
-        - name: "ReadOnly"
-          description: >
-            Read only cache policy.
-        - name: "WriteThrough"
-          description: >
-            Write through cache policy.
-        - name: "WriteBack"
-          description: >
-            Write back cache policy.
-    - name: CacheLineSize
-      description: >
-        The size of cache line for the Volume.
-      values:
-        - name: "Unknown"
-          description: >
-            Unknown size.
-        - name: "LineSize64kb"
-          description: >
-            Line size with 64kb.
-        - name: "LineSize128kb"
-          description: >
-            Line size with 128kb.
-        - name: "LineSize256kb"
-          description: >
-            Line size with 256kb.
