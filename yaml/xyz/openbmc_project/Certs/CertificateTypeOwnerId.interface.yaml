@@ -1,0 +1,32 @@
+description: >
+    Implement to provide certificate management features.
+
+    An OpenBMC implementation providing installed certificate management
+    functions. An implementation service should additionally implement
+    xyz.openbmc_project.Object.Delete to allow the deletion of individual
+    certificate objects.
+properties:
+    - name: OwnerGuid
+      type: string
+      description: >
+          This property shall contain the OwnerGuid for the certificate.
+          
+    - name: CertificateType
+      type: enum[self.CertificateTypeEnum]
+      description: >
+          The format of the certificate.
+
+enumerations:
+    - name: CertificateTypeEnum
+      description: >
+          The format of the certificate.
+      values:
+          - name: PEM
+            description: >
+                A Privacy Enhanced Mail (PEM)-encoded single certificate.
+          - name: PEMchain
+            description: >
+                A Privacy Enhanced Mail (PEM)-encoded certificate chain.
+          - name: PKCS7
+            description: >
+                A Privacy Enhanced Mail (PEM)-encoded PKCS7 certificate.

@@ -1,7 +1,7 @@
 # Generated file; do not modify.
 generated_sources += custom_target(
-    'xyz/openbmc_project/TwoFactorAuthentication/WebTwoFactorAuthentication__cpp'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/TwoFactorAuthentication/WebTwoFactorAuthentication.interface.yaml',  ],
+    'xyz/openbmc_project/Certs/CertificateTypeOwnerId__cpp'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Certs/CertificateTypeOwnerId.interface.yaml',  ],
     output: [ 'common.hpp', 'server.cpp', 'server.hpp', 'aserver.hpp', 'client.hpp',  ],
     depend_files: sdbusplusplus_depfiles,
     command: [
@@ -9,7 +9,7 @@ generated_sources += custom_target(
         '--output', meson.current_build_dir(),
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
-        'xyz/openbmc_project/TwoFactorAuthentication/WebTwoFactorAuthentication',
+        'xyz/openbmc_project/Certs/CertificateTypeOwnerId',
     ],
 )
 
