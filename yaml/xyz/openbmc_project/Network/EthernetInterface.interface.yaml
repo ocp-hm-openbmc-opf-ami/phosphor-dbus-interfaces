@@ -147,6 +147,11 @@ properties:
       type: string
       description: >
           IPv6 Static Router Address of ethernet interface.
+    - name: IPv6StaticRtr2Addr
+      type: string
+      description: >
+          IPv6 Static Router 2 Address of ethernet interface.
+
 methods:
       - name: SetPHYConfiguration
         description: >
@@ -194,3 +199,13 @@ enumerations:
       values:
           - name: half
           - name: full
+
+methods:
+      - name: GetIPv6DynamicRouterInfo
+        description: >
+              Get IPv6 Dynamic Router Address, Prefix, Prefix Length, Gateway.
+        returns:
+            - name: result
+              type: array[struct[array[byte],array[byte],byte,array[byte]]]
+
+
