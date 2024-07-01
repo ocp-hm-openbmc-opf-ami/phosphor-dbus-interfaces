@@ -14,6 +14,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('HbaBrcm')
+generated_others += custom_target(
+    'com/ami/storage/HbaBrcm__markdown'.underscorify(),
+    input: [ '../../../../yaml/com/ami/storage/HbaBrcm.interface.yaml',  ],
+    output: [ 'HbaBrcm.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'com/ami/storage/HbaBrcm',
+    ],
+)
+
 subdir('Information')
 generated_others += custom_target(
     'com/ami/storage/Information__markdown'.underscorify(),
