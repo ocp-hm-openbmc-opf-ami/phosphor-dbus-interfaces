@@ -209,6 +209,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('PortInfo')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/PortInfo__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/PortInfo.interface.yaml',  ],
+    output: [ 'PortInfo.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/PortInfo',
+    ],
+)
+
 subdir('Replaceable')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Decorator/Replaceable__markdown'.underscorify(),
