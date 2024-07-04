@@ -151,6 +151,32 @@ properties:
       type: string
       description: >
           IPv6 Static Router 2 Address of ethernet interface.
+    - name: DHCPv6DUIDStorageLength
+      type: byte
+      default: 10
+      flags:
+          - readonly
+      description: >
+          DHCPv6 DUID Storage Length.
+    - name: DHCPv6DUID
+      type: string
+      flags:
+          - readonly
+      description: >
+          DHCPv6 DUID - DHCP Unique Identifiers.
+    - name: DHCPv6TimingConfSupport
+      type: byte
+      default: 2
+      flags:
+          - readonly
+      description: >
+          IPv6 DHCPv6 Timing configuration Support.
+    - name: DHCPv6TimingConfParam
+      type: array[byte]
+      description: >
+          IPv6 DHCPv6 Timing configuration Parameters.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
 methods:
       - name: SetPHYConfiguration
