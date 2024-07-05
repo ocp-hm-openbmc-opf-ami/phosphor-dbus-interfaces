@@ -192,6 +192,12 @@ methods:
         returns:
             - name: result
               type: int16
+      - name: GetIPv6DynamicRouterInfo
+        description: >
+              Get IPv6 Dynamic Router Address, Prefix, Prefix Length, Gateway.
+        returns:
+            - name: result
+              type: array[struct[array[byte],array[byte],byte,array[byte]]]
 
 enumerations:
     - name: LinkLocalConf
@@ -225,13 +231,3 @@ enumerations:
       values:
           - name: half
           - name: full
-
-methods:
-      - name: GetIPv6DynamicRouterInfo
-        description: >
-              Get IPv6 Dynamic Router Address, Prefix, Prefix Length, Gateway.
-        returns:
-            - name: result
-              type: array[struct[array[byte],array[byte],byte,array[byte]]]
-
-
