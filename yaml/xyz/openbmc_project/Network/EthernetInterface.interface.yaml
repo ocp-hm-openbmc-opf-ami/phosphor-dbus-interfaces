@@ -177,6 +177,19 @@ properties:
           IPv6 DHCPv6 Timing configuration Parameters.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: IPv6SLAACTimingConfSupport
+      type: byte
+      default: 2
+      flags:
+          - readonly
+      description: >
+          IPv6 Neighbor Discovery / SLAAC Timing configuration Support.
+    - name: IPv6SLAACTimingConfParam
+      type: array[byte]
+      description: >
+          IPv6 Neighbor Discovery / SLAAC Timing configuration Parameters.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
 methods:
       - name: SetPHYConfiguration
