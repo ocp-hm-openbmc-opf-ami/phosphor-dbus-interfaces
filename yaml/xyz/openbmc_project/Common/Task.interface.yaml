@@ -13,9 +13,9 @@ properties:
           default should be completd during the implementation if no input is
           provided.
     - name: TaskId 
-      type: uint16 
+      type: array[uint16] 
       description: >
-          ID of the task created 
+          List (vector) of task ID created
     - name: TaskName
       type: string
       description: >
