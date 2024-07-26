@@ -131,6 +131,24 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.NotAllowed
+    - name: BackupGateway
+      type: string
+      description: >
+          Backup IPv4 gateway of the ethernet interface.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.NotAllowed
+    - name: BackupGatewayMACAddress
+      type: string
+      flags:
+          - readonly
+      description: >
+          MAC address of the backup gateway in six groups of two hexadecimal
+          digits separated by colons. Example: 01:23:45:67:89:AB
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.NotAllowed
     - name: IPv6Enable
       type: boolean
       description: >
