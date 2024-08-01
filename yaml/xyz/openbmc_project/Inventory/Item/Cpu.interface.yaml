@@ -74,10 +74,6 @@ properties:
       type: string
       description: >
           The type of the processor.
-    - name: ProcessorId
-      type: dict[string,string]
-      description: >
-          Processor Id information.
     - name: MaxSpeedMHZ
       type: uint16
       description: >
@@ -102,6 +98,14 @@ properties:
       type: dict[string,string]
       description: >
           The information of Additional firmware version.
+    - name: ProtectedIdentificationNumber
+      type: string
+      description: >
+          The Protected Processor Identification Number (PPIN) for this processor.
+    - name: VendorId
+      type: string
+      description: >
+          The vendor identification for this processor.
 
 enumerations:
     - name: Capability

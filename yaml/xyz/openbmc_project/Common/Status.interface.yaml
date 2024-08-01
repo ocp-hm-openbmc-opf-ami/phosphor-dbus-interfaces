@@ -1,0 +1,11 @@
+description: >
+    Implement to provide system Status
+properties:
+    - name: State
+      type: string
+      description: >
+        The status of the system
+    - name: Health
+      type: string
+      description: >
+          The Health of the system

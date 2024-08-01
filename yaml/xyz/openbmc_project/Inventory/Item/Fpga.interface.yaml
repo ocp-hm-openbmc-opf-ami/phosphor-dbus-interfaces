@@ -1,0 +1,35 @@
+properties:
+    - name: FirmwareId
+      type: string
+      description: >
+          FirmwareId of fpga.
+    - name: FirmwareManufacturer
+      type: string
+      description: >
+          FirmwareManufacturer
+    - name: FpgaType
+      type: string
+      description: >
+          FpgaType
+    - name: Model
+      type: string
+      description: >
+          Model
+    - name: PCIeVirtualFunctions
+      type: uint32
+      description: >
+          PCIeVirtualFunctions
+    - name: ProgrammableFromHost
+      type: boolean
+      description: >
+          ProgrammableFromHost
+    - name: ExternalInterfaces
+      type: array[dict[string,variant[dict[string,variant[uint16,string]],dict[string,string]]]]
+    - name: HostInterface
+      type: dict[string,string]
+      description: >
+          HostInterface
+    - name: ReconfigurationSlots
+      type: dict[string,dict[string,variant[string,boolean]]]
+      description: >
+          ReconfigurationSlots
