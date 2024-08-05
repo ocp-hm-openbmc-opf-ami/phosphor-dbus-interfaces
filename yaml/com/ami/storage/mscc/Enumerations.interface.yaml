@@ -490,6 +490,37 @@ enumerations:
         - name: "LineSize256kb"
           description: >
             Line size with 256kb.
+    - name: BbuType
+      values:
+        - name: "Unknown"
+        - name: "None"
+        - name: "Capacitor"
+        - name: "Battery"
+        - name: "SmartBattery"
+    - name: BbuChargingStatus
+      values:
+        - name: "Unknown"
+        - name: "Failed"
+        - name: "NotPresent"
+        - name: "Charging"
+        - name: "Charged"
+    - name: BbuStatus
+      values:
+        - name: "Unknown"
+        - name: "Uninitialized"
+        - name: "Ready"
+        - name: "LearningCyle"
+        - name: "SubsystemFailed"
+        - name: "AboveMaxTemperature"
+        - name: "AboveWarningTemperature"
+        - name: "OverVoltage"
+        - name: "AboveMaxChargingCurrent"
+        - name: "LearningCyclePassed"
+        - name: "LearningCyleFailed"
+        - name: "SupercapacitorFailed"
+        - name: "SupercapacitorNearEOL"
+        - name: "SupercapacitorPassedEOL"
+        - name: "SupercapacitorMissing"
     - name: Health
       values:
         - name: "Good"

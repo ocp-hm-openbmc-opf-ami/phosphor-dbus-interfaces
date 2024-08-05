@@ -1,0 +1,64 @@
+description: >
+    This defines a BBU info interface.
+
+properties:
+    - name: Type
+      type: enum[com.ami.storage.mscc.Enumerations.BbuType]
+      flags:
+        - readonly
+      description: >
+        The BBU type.
+    - name: ChargingStatus
+      type: enum[com.ami.storage.mscc.Enumerations.BbuChargingStatus]
+      flags:
+        - readonly
+      description: >
+        The BBU type.
+    - name: PeakTemperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        Maximum temperature during BBU life time.
+    - name: PeakVoltage
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        Maximum voltage during BBU life time.
+    - name: Temperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+    - name: Voltage
+      type: struct[int32, string]
+      flags:
+        - readonly
+    - name: Current
+      type: struct[int32, string]
+      flags:
+        - readonly
+    - name: TemperatureThreshold
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        Maximum allowable temperature .
+    - name: HealthPercentage
+      type: byte
+      flags:
+        - readonly
+      description: >
+        BBU health percentage.
+    - name: ChargingPercentage
+      type: byte
+      flags:
+        - readonly
+      description: >
+        Charging percentage.
+    - name: Status
+      type: array[enum[com.ami.storage.mscc.Enumerations.BbuStatus]]
+      flags:
+        - readonly
+      description: >
+        The BBU status list.

@@ -1,0 +1,10 @@
+description: >
+    This defines a BBU count interface.
+
+properties:
+    - name: Count
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of BBU installed.
