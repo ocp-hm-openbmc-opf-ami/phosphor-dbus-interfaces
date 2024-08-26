@@ -529,6 +529,7 @@ enumerations:
     - name: ErrorCode
       values:
         - name: "Success"
+        - name: "Progress"
         - name: "Timeout"
         - name: "InternalFailure"
         - name: "InvalidArgument"
