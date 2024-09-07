@@ -1,7 +1,7 @@
 description: >
     This defines the network endpoint. Application which wants to keep the
     network endpoint info can use this interface. e.g: Network endpoint could be
-    SNMP mangers or LDAP servers etc.
+    SNMP managers or LDAP servers etc.
 properties:
     - name: Address
       type: string
@@ -52,6 +52,14 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: TransportProtocol
+      type: enum[self.TransportProtocol]
+      description: >
+          The value of this property is the network IP protocol.
+      default: TCP
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
 enumerations:
     - name: TransportProtocol
       description: >
