@@ -149,8 +149,6 @@ methods:
       returns:
           - name: paths
             type: array[string]
-<<<<<<< HEAD
-=======
             description: >
                 An array of paths.
       errors:

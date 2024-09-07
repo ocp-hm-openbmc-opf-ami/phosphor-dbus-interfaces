@@ -52,13 +52,6 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
-    - name: TransportProtocol
-      type: enum[self.TransportProtocol]
-      description: >
-          The value of this property is the network IP protocol.
-      default: TCP
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
 
 enumerations:
     - name: TransportProtocol
