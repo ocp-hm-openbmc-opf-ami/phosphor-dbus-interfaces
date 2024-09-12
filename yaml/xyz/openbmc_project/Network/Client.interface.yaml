@@ -52,6 +52,20 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: Readonlypermission
+      type: boolean
+      description: >
+          Read-0 or write-1 permission for the particular user name this field need to be provided only for v3 other cases this should be blank
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: Password
+      type: string
+      description: >
+          Password for the paticular specific SNMP user this field need to be provided only for v3 other cases this should be blank
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
 
 enumerations:
     - name: TransportProtocol
