@@ -20,6 +20,22 @@ methods:
             type: string
             description: >
                 SNMP V3 User.
+          - name: Readonlypermission
+            type: boolean
+            description: >
+                Read-0 or write-1 permission for the particular user name this field need to be provided only for v3 other cases this should be blank.
+          - name: Password
+            type: string
+            description: >
+                Password for the paticular specific SNMP user this field need to be provided only for v3 other cases this should be blank
+          - name: Algorithm
+            type: string
+            description: >
+                The value of this property is the SNMP V3 algorithm SHA256, SHA384, SHA512. leave blank for v1,v2c
+          - name: Encryption
+            type: string
+            description: >
+                The value of this property is the SNMP V3 Encryption AES128. leave blank for v1,v2c
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
       returns:
