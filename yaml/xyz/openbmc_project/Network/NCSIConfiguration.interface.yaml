@@ -29,12 +29,15 @@ methods:
         returns:
             - name: Result
               type: int16
+        erorrs:
+            - xyz.openbmc_project.Common.Error.NotAllowed
 
 properties:
     - name: Mode
       type: enum[self.Mode]
       errors:
             - xyz.openbmc_project.Common.Error.InvalidArgument
+            - xyz.openbmc_project.Common.Error.NotAllowed
     - name: Channel
       type: byte
       flags:
