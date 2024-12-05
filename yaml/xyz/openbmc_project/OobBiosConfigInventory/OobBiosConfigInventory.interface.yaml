@@ -48,6 +48,12 @@ methods:
           and should take care of deleting the file to free up /tmp space.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: copyBiosRegistryFileToTmp
+      description: >
+          Decompress and copy the compressed bios registry file to /tmp as
+          biosattributeregistry.json if its available.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
 
 properties:
     - name: InventoryStatus
