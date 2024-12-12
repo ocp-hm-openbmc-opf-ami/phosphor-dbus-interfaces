@@ -49,6 +49,22 @@ methods:
             description: >
                 Specifies the attribute name that contains the username in the
                 LDAP server.
+          - name: EnableKerberos
+            type: boolean
+            description: >
+                Enabled or disabled Kerberos state.
+          - name: SASLMech
+            type: string
+            description: >
+                The value of this property shall be the SASL mechanism value
+          - name: SASLRealm
+            type: string
+            description: >
+                The value of this property shall be the SASl realm value
+          - name: KRB5CCName
+            type: string
+            description: >
+                The value of this property shall be the Kerberos CC name
       returns:
           - name: path
             type: string

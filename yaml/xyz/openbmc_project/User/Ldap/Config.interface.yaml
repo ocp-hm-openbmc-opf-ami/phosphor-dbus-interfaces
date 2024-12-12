@@ -67,6 +67,24 @@ properties:
       description: >
           The value of this property shall be the attribute name that contains
           the username in the LDAP server.
+    - name: EnableKerberos
+      type: boolean
+      description: >
+          Enabled or disabled Kerberos state.
+    - name: SASLMech
+      type: string
+      default: "sasl_mech GSSAPI"
+      description: >
+          The value of this property shall be the SASL mechanism value
+    - name: SASLRealm
+      type: string
+      description: >
+          The value of this property shall be the SASl realm value
+    - name: KRB5CCName
+      type: string
+      default: "/tmp/krb5cc_0"
+      description: >
+          The value of this property shall be the Kerberos CC name
 enumerations:
     - name: SearchScope
       description: >
