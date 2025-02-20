@@ -35,3 +35,15 @@ properties:
       type: string
       description: >
           Backup Flags
+    - name: BackupRestoreStatus
+      flags:
+            - readonly
+      type: struct[string,boolean,string,array[string]]
+      description: >
+          Indicate the status of pervious backup and restore operations
+    - name: ModuleSupported
+      type: array[struct[string, string]]
+      flags:
+            - readonly
+      description: >
+          Shows the Backup & Restore supported Modules and their flags 
