@@ -14,3 +14,12 @@ properties:
           strings that represent the persistent boot order for this 
           computer system.  For UEFI systems, this is the UEFI 
           Specification-defined UEFI BootOrder.
+    - name: BootSourceOverrideEnabled
+      type: string
+      description: >
+          This property shall contain `Once` for a one-time boot override, 
+          and `Continuous` for a remain-active-until-cancelled override.  
+          If set to `Once`, the value is reset to `Disabled` after the 
+          BootSourceOverrideTarget actions have completed successfully.  
+          Changes to this property do not alter the BIOS persistent 
+          boot order configuration.
