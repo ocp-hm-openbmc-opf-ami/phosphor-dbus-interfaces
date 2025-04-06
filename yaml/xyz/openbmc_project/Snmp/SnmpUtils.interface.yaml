@@ -10,31 +10,9 @@ methods:
             type: boolean
             description: >
                 Indicates if successful or not
-    - name: ListSNMPCommunityProfile
-      description: >
-          List SNMP Community Profile
-      errors:
-          - xyz.openbmc_project.Common.Error.NotAllowed
-      returns:
-          - name: communityProfiles
-            type: array[string]
-            description: >
-                List of SNMP community profiles
 
 properties:
     - name: SnmpTrapStatus
-      type: boolean
-      description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
-    - name: EnableSNMPV1
-      type: boolean
-      description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
-    - name: EnableSNMPV2
-      type: boolean
-      description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
-    - name: EnableSNMPV3
       type: boolean
       description: >
             if true SnmpTrap is enable else SnmpTrap is disable
