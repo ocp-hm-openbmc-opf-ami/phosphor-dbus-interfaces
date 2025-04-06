@@ -4,22 +4,18 @@ methods:
       description: >
           Create network client endpoint.
       parameters:
-          - name: Address
+          - name: CommunityString
             type: string
             description: >
-                IP Address/Hostname
-          - name: Port
-            type: uint16
-            description: >
-                Network port.
-          - name: Version
+                The value of this property is the SNMP V1 and v2 community string name
+          - name: ReadWritePermission
             type: string
             description: >
-                SNMP Version.
-          - name: User
+                Read write permission for the specific community string
+          - name: CommunityProfile
             type: string
             description: >
-                SNMP V3 User.
+                SNMP community profile to give specific permission.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
       returns:
