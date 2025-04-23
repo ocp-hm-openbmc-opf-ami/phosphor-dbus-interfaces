@@ -18,3 +18,6 @@ enumerations:
           - name: Manual
             description: >
                 Sync time manually.
+          - name: NTPSec
+            description: >
+                Sync by using the Secure Network Time Protocol.
