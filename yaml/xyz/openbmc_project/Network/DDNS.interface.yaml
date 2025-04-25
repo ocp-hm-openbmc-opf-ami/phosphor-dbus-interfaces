@@ -65,6 +65,7 @@ methods:
               type: int16
         errors:
             - xyz.openbmc_project.Common.Error.InvalidArgument
+            - xyz.openbmc_project.Common.Error.UnsupportedRequest
       - name: SetDNSServer
         description: >
               DNS Configuration
