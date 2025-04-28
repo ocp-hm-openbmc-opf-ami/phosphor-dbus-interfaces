@@ -150,5 +150,6 @@ generated_others += custom_target(
 )
 
 subdir('TwoFactorAuthentication')
+subdir('USB')
 subdir('User')
 subdir('VirtualMedia')
