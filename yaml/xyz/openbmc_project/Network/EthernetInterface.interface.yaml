@@ -223,6 +223,8 @@ methods:
         returns:
             - name: result
               type: int16
+        errors:
+            - xyz.openbmc_project.Common.Error.UnsupportedRequest
       - name: GetIPv6DynamicRouterInfo
         description: >
               Get IPv6 Dynamic Router Address, Prefix, Prefix Length, Gateway.
