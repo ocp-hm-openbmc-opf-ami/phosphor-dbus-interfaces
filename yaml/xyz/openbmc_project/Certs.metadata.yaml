@@ -2,3 +2,43 @@
   meta:
       - str: "REASON=%s"
         type: string
+- name: CertificateExists
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: PrivateKeyNotFound
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: CertificateFileExpired
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: CertificateFileUntrusted
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: PrivateKeyFileEncrypted
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: PrivateKeyCertificateFileNotMatch
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: VerifyCertificateFileFailed
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: CertificateFileSizeExceeded
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: PrivateFileSizeExceeded
+  meta:
+      - str: "REASON=%s"
+        type: string
+- name: CertificateKeyLengthTooSmall
+  meta:
+      - str: "REASON=%s"
+        type: string

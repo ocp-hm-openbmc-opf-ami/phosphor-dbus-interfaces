@@ -15,3 +15,13 @@ methods:
           - xyz.openbmc_project.Common.Error.InternalFailure
           - xyz.openbmc_project.Certs.Error.InvalidCertificate
           - xyz.openbmc_project.Common.Error.NotAllowed
+          - xyz.openbmc_project.Certs.Error.PrivateKeyNotFound
+          - xyz.openbmc_project.Certs.Error.CertificateExists
+          - xyz.openbmc_project.Certs.Error.CertificateFileExpired
+          - xyz.openbmc_project.Certs.Error.CertificateFileUntrusted
+          - xyz.openbmc_project.Certs.Error.PrivateKeyFileEncrypted
+          - xyz.openbmc_project.Certs.Error.PrivateKeyCertificateFileNotMatch
+          - xyz.openbmc_project.Certs.Error.VerifyCertificateFileFailed
+          - xyz.openbmc_project.Certs.Error.CertificateFileSizeExceeded
+          - xyz.openbmc_project.Certs.Error.PrivateFileSizeExceeded
+          - xyz.openbmc_project.Certs.Error.CertificateKeyLengthTooSmall
