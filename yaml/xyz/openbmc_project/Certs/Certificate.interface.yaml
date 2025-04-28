@@ -6,6 +6,15 @@ description: >
     xyz.openbmc_project.Object.Delete to allow the deletion of individual
     certificate objects.
 properties:
+    - name: CertificateType
+      type: enum[self.Type]
+      description: >
+           Enum will hold the certificate type, type could be a
+           Single pem, Chain pem or PKCS type.
+    - name: ChainCertString
+      type: string
+      description: >
+           String will hold the chain certificate data.
     - name: CertificateString
       type: string
       description: >
@@ -119,3 +128,17 @@ associations:
       reverse_name: responder_identified_by
       required_endpoint_interfaces:
           - xyz.openbmc_project.Attestation.IdentityAuthentication
+enumerations:
+    - name: Type
+      description: >
+          Certificate types.
+      values:
+          - name: PEM
+            description: >
+                Single pem certificate.
+          - name: PEMchain
+            description: >
+                PEM Chain certificate.
+          - name: PKC11
+            description: >
+                PKC11 implemetation not available.

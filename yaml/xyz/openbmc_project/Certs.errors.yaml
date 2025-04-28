@@ -1,3 +1,23 @@
 # xyz.openbmc_project.Certs.Error.InvalidCertificate
 - name: InvalidCertificate
   description: Invalid certificate file.
+- name: CertificateExists
+  description: Certificate already exist.
+- name: PrivateKeyNotFound
+  description: Private key file is not found.
+- name: CertificateFileExpired
+  description: Certificate file is expired.
+- name: CertificateFileUntrusted
+  description: Untrusted certificate file.
+- name: PrivateKeyFileEncrypted
+  description: Private key is encrypted/failed to read the private key.
+- name: PrivateKeyCertificateFileNotMatch
+  description: Public/Private Key Certificate File Not Match.
+- name: VerifyCertificateFileFailed
+  description: ASN1 validation failed.
+- name: CertificateFileSizeExceeded
+  description:  certificate key file size (should be < 4096 bytes).
+- name: PrivateFileSizeExceeded
+  description:  private/public key file size (should be < 4096 bytes).
+- name: CertificateKeyLengthTooSmall
+  description: certificate file is less than minimum allowable size (2048) for https.
