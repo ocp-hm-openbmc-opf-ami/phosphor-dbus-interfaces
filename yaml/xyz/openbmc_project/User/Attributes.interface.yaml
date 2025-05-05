@@ -64,3 +64,11 @@ properties:
           Enabled or disabled 2FA state of the user.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: SNMPAccessEnableStatus
+      type: boolean
+      default: true
+      description: >
+          Enabled or disabled SNMP access state of the user.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
