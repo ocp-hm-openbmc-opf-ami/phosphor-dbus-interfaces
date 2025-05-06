@@ -1,0 +1,18 @@
+interfaces:
+  - name: xyz.openbmc_project.Software.FirmwareUpdateTarget
+
+description: >
+  To perform Firmware update get the Push URI target and Busy status
+
+properties:
+    - name: HttpPushUriTargetsBusy
+      type: boolean
+      default: false
+      access: readwrite
+      description: >
+        This property indicates the status of the target
+    - name: HttpPushUriTargets
+      type: array[string]
+      access: readwrite
+      description: >
+        This property indicates the FirmwareUpdate URI target
