@@ -52,6 +52,11 @@ methods:
       description: >
           Decompress and copy the compressed bios registry file to /tmp as
           biosattributeregistry.json if its available.
+      parameters:
+          - name: registryZipPath
+            type: string
+            description: >
+                Path of BiosAttributeRegistry zipped file saved in BMC
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
 
@@ -95,6 +100,11 @@ properties:
       type: array[string]
       description: >
           Information regarding the modules deleted during inventory processing.
+
+    - name: LanguageInfo
+      type: array[string]
+      description: >
+          Information about the languages supported in Bios.
 
 enumerations:
     - name: InventoryProgress
