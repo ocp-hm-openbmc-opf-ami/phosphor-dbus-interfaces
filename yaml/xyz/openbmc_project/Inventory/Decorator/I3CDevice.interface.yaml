@@ -1,0 +1,15 @@
+description: >
+    Implement this interface to expose an I3C device as an inventory item.
+    Properties include the I3C bus number and the device address.
+
+properties:
+    - name: Bus
+      type: size
+      description: >
+          The I3C adapter number as defined in the Linux kernel's I3C dev
+          interface document.
+
+    - name: Address
+      type: uint64
+      description: >
+          I3C address of the device as defined in the Linux kernel documents.
