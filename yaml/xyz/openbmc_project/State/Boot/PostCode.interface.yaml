@@ -46,6 +46,8 @@ methods:
             type: array[struct[uint64,array[byte]]]
             description: >
                 An array of post codes of one boot cycle.
+      errors:
+         - xyz.openbmc_project.Common.Error.InvalidArgument
 
 paths:
     - namespace: /xyz/openbmc_project/State/Boot
