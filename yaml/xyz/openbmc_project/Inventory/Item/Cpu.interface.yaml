@@ -78,10 +78,10 @@ properties:
       type: uint16
       description: >
           MaxSpeedMHZ information.
-    - name: MaxTDPaWtts
+    - name: MaxTDPWatts
       type: uint16
       description: >
-          MaxTDPaWtts information.
+          MaxTDPWatts information.
     - name: TDPWatts
       type: uint16
       description: >
