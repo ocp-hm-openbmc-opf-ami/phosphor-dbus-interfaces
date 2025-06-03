@@ -123,6 +123,8 @@ properties:
         type: boolean
         description: >
             Enable mDNS or not (Default Enabled)
+        errors:
+            - xyz.openbmc_project.Common.Error.UnsupportedRequest
       - name: SendNsupdateEnabled
         type: boolean
         default: true
