@@ -1,0 +1,15 @@
+description: >
+    Implement to support requesting service partition scan.
+
+properties:
+    - name: RequestScan
+      type: boolean
+      default: false
+      description: >
+          Request BIOS to scan for specified service partition.
+    - name: PartitionDiscovered
+      type: boolean
+      default: false
+      description: >
+          BIOS discovered the partition.
+

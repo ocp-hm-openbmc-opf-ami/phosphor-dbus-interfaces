@@ -1,0 +1,8 @@
+description: >
+    Implement to set service partition.
+
+properties:
+    - name: ServicePartition
+      type: byte
+      description: >
+          Service partition BIOS should boot using.
