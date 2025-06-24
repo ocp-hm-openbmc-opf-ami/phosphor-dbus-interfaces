@@ -38,6 +38,20 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
+    - name: RotateCount
+      type: boolean
+      default: true
+      description: >
+          write 0-1 to rotate the log files
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: FileSize
+      type: uint16
+      default: 50000
+      description: >
+          Syslog file maximum size currently supported is 65535
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
 enumerations:
     - name: TransportProtocol
