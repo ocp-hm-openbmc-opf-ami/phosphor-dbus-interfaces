@@ -1,0 +1,24 @@
+description: >
+  Implement to provide operations on a collection of objects.
+
+methods:
+  - name: DeleteLogType
+    description: >
+      Delete a specific entry or all entries for the provided logType.
+      If 'entryId' is provided, only that entry is deleted.
+      If 'entryId' is not provided, all entries of the given logType are deleted.
+    parameters:
+      - name: logType
+        type: string
+        description: >
+          Type of log to delete (e.g., "IPMI", "RAID", "REDFISH").
+      - name: entryId
+        type: uint32
+        description: >
+          ID of the specific log entry to delete.
+        optional: true
+    errors:
+      - xyz.openbmc_project.Common.Error.NotAllowed
+      - xyz.openbmc_project.Common.Error.Unavailable
+      - xyz.openbmc_project.Common.Error.InvalidArgument
+

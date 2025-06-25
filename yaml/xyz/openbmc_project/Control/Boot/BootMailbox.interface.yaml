@@ -1,0 +1,48 @@
+description: >
+    Implement to support boot initiator mailbox.
+
+properties:
+    - name: BlockSelector
+      type: byte
+      description:
+          Set operation block.
+    - name: Mailbox0L
+      type: uint64
+      description: >
+          Mailbox block 0 lower
+    - name: Mailbox0U
+      type: uint64
+      description: >
+          Mailbox block 0 upper
+    - name: Mailbox1L
+      type: uint64
+      description: >
+          Mailbox block 1 lower
+    - name: Mailbox1U
+      type: uint64
+      description: >
+          Mailbox block 1 upper
+    - name: Mailbox2L
+      type: uint64
+      description: >
+          Mailbox block 2 lower
+    - name: Mailbox2U
+      type: uint64
+      description: >
+          Mailbox block 2 upper
+    - name: Mailbox3L
+      type: uint64
+      description: >
+          Mailbox block 3 lower
+    - name: Mailbox3U
+      type: uint64
+      description: >
+          Mailbox block 3 upper
+    - name: Mailbox4L
+      type: uint64
+      description: >
+          Mailbox block 4 lower
+    - name: Mailbox4U
+      type: uint64
+      description: >
+          Mailbox block 4 upper

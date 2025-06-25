@@ -119,6 +119,20 @@ generated_others += custom_target(
     ],
 )
 
+subdir('I3CDevice')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/I3CDevice__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/I3CDevice.interface.yaml',  ],
+    output: [ 'I3CDevice.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/I3CDevice',
+    ],
+)
+
 subdir('LocationCode')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Decorator/LocationCode__markdown'.underscorify(),

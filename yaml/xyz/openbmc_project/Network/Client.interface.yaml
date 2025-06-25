@@ -38,34 +38,20 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
-    - name: Algorithm
-      type: string
-      description: >
-          The value of this property is the SNMP V3 algorithm SHA256, SHA384, SHA512. leave blank for v1,v2c
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
-          - xyz.openbmc_project.Common.Error.InvalidArgument
-    - name: Encryption
-      type: string
-      description: >
-          The value of this property is the SNMP V3 Encryption AES128. leave blank for v1,v2c
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
-          - xyz.openbmc_project.Common.Error.InternalFailure
-    - name: Readonlypermission
+    - name: RotateCount
       type: boolean
+      default: true
       description: >
-          Read-0 or write-1 permission for the particular user name this field need to be provided only for v3 other cases this should be blank
+          write 0-1 to rotate the log files
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
-          - xyz.openbmc_project.Common.Error.InternalFailure
-    - name: Password
-      type: string
+    - name: FileSize
+      type: uint16
+      default: 50000
       description: >
-          Password for the paticular specific SNMP user this field need to be provided only for v3 other cases this should be blank
+          Syslog file maximum size currently supported is 65535
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
-          - xyz.openbmc_project.Common.Error.InternalFailure
 
 enumerations:
     - name: TransportProtocol

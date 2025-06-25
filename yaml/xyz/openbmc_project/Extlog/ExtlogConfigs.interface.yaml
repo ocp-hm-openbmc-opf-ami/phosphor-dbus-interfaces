@@ -1,0 +1,22 @@
+description: >
+  This interface provides methods and properties for managing license keys.
+
+properties:
+    - name: EnableExtlog
+      type: boolean
+      description: >
+          Indicates if Extlog is enabled or not
+    - name: LogLevel
+      type: byte
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+      default: 0
+      description: >
+          Indicated Log level of commands (0 - Log All Commands, 1 - Log Individual Commands)
+    - name: ReqResLogLevel
+      type: byte
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+      default: 0
+      description: >
+          Indicates the Log level of Request and Response (0 - Both, 1 - Request data, 2 - Response data)

@@ -1,0 +1,7 @@
+description: >
+    Implement to provide ACBoot
+properties:
+    - name: ACBoot
+      type: string
+      description: >
+          whether the BMC boot from AC.

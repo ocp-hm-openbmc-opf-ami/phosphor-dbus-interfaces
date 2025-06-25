@@ -55,6 +55,7 @@ subdir('Console')
 subdir('Control')
 subdir('Debug')
 subdir('Dump')
+subdir('Extlog')
 subdir('HardwareIsolation')
 generated_others += custom_target(
     'xyz/openbmc_project/HardwareIsolation__markdown'.underscorify(),

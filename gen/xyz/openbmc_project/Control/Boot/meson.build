@@ -89,3 +89,87 @@ generated_others += custom_target(
     ],
 )
 
+subdir('HttpBootUri')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Boot/HttpBootUri__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Boot/HttpBootUri.interface.yaml',  ],
+    output: [ 'HttpBootUri.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Boot/HttpBootUri',
+    ],
+)
+
+subdir('DeviceInstance')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Boot/DeviceInstance__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Boot/DeviceInstance.interface.yaml',  ],
+    output: [ 'DeviceInstance.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Boot/DeviceInstance',
+    ],
+)
+
+subdir('ServicePartitionScan')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Boot/ServicePartitionScan__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Boot/ServicePartitionScan.interface.yaml',  ],
+    output: [ 'ServicePartitionScan.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Boot/ServicePartitionScan',
+    ],
+)
+
+subdir('ServicePartitionSelect')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Boot/ServicePartitionSelect__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Boot/ServicePartitionSelect.interface.yaml',  ],
+    output: [ 'ServicePartitionSelect.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Boot/ServicePartitionSelect',
+    ],
+)
+
+subdir('BootInitiatorInfo')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Boot/BootInitiatorInfo__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Boot/BootInitiatorInfo.interface.yaml',  ],
+    output: [ 'BootInitiatorInfo.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Boot/BootInitiatorInfo',
+    ],
+)
+
+subdir('BootMailbox')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Boot/BootMailbox__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Control/Boot/BootMailbox.interface.yaml',  ],
+    output: [ 'BootMailbox.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Control/Boot/BootMailbox',
+    ],
+)

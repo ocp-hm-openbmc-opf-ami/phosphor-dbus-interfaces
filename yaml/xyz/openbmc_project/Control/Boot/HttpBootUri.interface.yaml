@@ -1,0 +1,13 @@
+description: >
+    This property shall contain the URI to perform an HTTP or 
+    HTTPS boot when `BootSourceOverrideTarget` is set to 
+    `UefiHttp`.If this property is not configured or supported,
+    the URI shall be provided by a DHCP server as specified by
+    the UEFI Specification.
+
+properties:
+    - name: HttpBootUri
+      type: string
+      description: >
+          The URI to boot from when `BootSourceOverrideTarget`
+          is set to `UefiHttp`.

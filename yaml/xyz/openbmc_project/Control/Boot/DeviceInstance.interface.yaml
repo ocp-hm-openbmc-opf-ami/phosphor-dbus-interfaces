@@ -1,0 +1,8 @@
+description: >
+    Implement to designate the boot Device Instance Selector.
+
+properties:
+    - name: DeviceInstance
+      type: uint32
+      description: >
+          The Device Instance Selector.

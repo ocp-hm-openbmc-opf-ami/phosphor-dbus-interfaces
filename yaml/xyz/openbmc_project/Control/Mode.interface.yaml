@@ -15,3 +15,7 @@ properties:
       type: boolean
       description: >
           Whether the object is in fail-safe mode or not.
+    - name: ForceFailSafe
+      type: boolean
+      description: >
+          Whether the object is in force fail-safe mode or not.

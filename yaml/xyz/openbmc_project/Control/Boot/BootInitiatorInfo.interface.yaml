@@ -1,0 +1,20 @@
+description: >
+    Implement to support boot initiator info.
+
+properties:
+    - name: Channel
+      type: byte
+      default: 0
+      description: >
+          Channel delivering the boot command.
+    - name: SessionID
+      type: uint32
+      default: 0
+      description: >
+          Session ID delivering the boot command.
+    - name: Timestamp
+      type: uint32
+      default: 0
+      description: >
+          Boot info timestamp.
+
