@@ -58,6 +58,8 @@ methods:
               type: string
             - name: Stop
               type: string
+            - name: IPver
+              type: enum[self.IP]
         returns:
             - name: result
               type: int16
@@ -85,6 +87,8 @@ methods:
               type: string
             - name: StopTime
               type: string
+            - name: IPver
+              type: enum[self.IP]
         returns:
             - name: Result
               type: int16
