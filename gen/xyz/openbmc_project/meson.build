@@ -93,6 +93,8 @@ subdir('Logging')
 subdir('MCTP')
 subdir('Memory')
 subdir('Metric')
+subdir('Metrics')
+subdir('NSM')
 subdir('Network')
 subdir('Nvme')
 subdir('Object')
@@ -112,8 +114,10 @@ generated_others += custom_target(
 )
 
 subdir('OobBiosConfigInventory')
+subdir('PCIe')
 subdir('PFR')
 subdir('PLDM')
+subdir('SPDM')
 subdir('ScheduledTime')
 generated_others += custom_target(
     'xyz/openbmc_project/ScheduledTime__markdown'.underscorify(),
@@ -129,6 +133,7 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Security')
 subdir('Sensor')
 subdir('Smbios')
 subdir('Snmp')

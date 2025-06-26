@@ -1,4 +1,19 @@
 # Generated file; do not modify.
+subdir('Area')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/Area__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/Area.interface.yaml',  ],
+    output: [ 'Area.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/Area',
+    ],
+)
+
 subdir('Asset')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Decorator/Asset__markdown'.underscorify(),
@@ -104,6 +119,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('FpgaType')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/FpgaType__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/FpgaType.interface.yaml',  ],
+    output: [ 'FpgaType.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/FpgaType',
+    ],
+)
+
 subdir('I2CDevice')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Decorator/I2CDevice__markdown'.underscorify(),
@@ -116,6 +146,36 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Decorator/I2CDevice',
+    ],
+)
+
+subdir('Instance')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/Instance__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/Instance.interface.yaml',  ],
+    output: [ 'Instance.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/Instance',
+    ],
+)
+
+subdir('Location')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/Location__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/Location.interface.yaml',  ],
+    output: [ 'Location.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/Location',
     ],
 )
 
@@ -190,6 +250,81 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Decorator/MeetsMinimumShipLevel',
+    ],
+)
+
+subdir('PCIeRefClock')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/PCIeRefClock__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/PCIeRefClock.interface.yaml',  ],
+    output: [ 'PCIeRefClock.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/PCIeRefClock',
+    ],
+)
+
+subdir('PortInfo')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/PortInfo__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/PortInfo.interface.yaml',  ],
+    output: [ 'PortInfo.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/PortInfo',
+    ],
+)
+
+subdir('PortState')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/PortState__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/PortState.interface.yaml',  ],
+    output: [ 'PortState.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/PortState',
+    ],
+)
+
+subdir('PortWidth')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/PortWidth__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/PortWidth.interface.yaml',  ],
+    output: [ 'PortWidth.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/PortWidth',
+    ],
+)
+
+subdir('PowerLimit')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Decorator/PowerLimit__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Decorator/PowerLimit.interface.yaml',  ],
+    output: [ 'PowerLimit.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Decorator/PowerLimit',
     ],
 )
 

@@ -14,6 +14,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Health')
+generated_others += custom_target(
+    'xyz/openbmc_project/State/Decorator/Health__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/State/Decorator/Health.interface.yaml',  ],
+    output: [ 'Health.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/State/Decorator/Health',
+    ],
+)
+
 subdir('OperationalStatus')
 generated_others += custom_target(
     'xyz/openbmc_project/State/Decorator/OperationalStatus__markdown'.underscorify(),
@@ -26,6 +41,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/State/Decorator/OperationalStatus',
+    ],
+)
+
+subdir('Persistence')
+generated_others += custom_target(
+    'xyz/openbmc_project/State/Decorator/Persistence__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/State/Decorator/Persistence.interface.yaml',  ],
+    output: [ 'Persistence.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/State/Decorator/Persistence',
     ],
 )
 
@@ -56,6 +86,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/State/Decorator/PowerSystemInputs',
+    ],
+)
+
+subdir('SecureState')
+generated_others += custom_target(
+    'xyz/openbmc_project/State/Decorator/SecureState__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/State/Decorator/SecureState.interface.yaml',  ],
+    output: [ 'SecureState.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/State/Decorator/SecureState',
     ],
 )
 

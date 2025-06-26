@@ -1,0 +1,18 @@
+description: >
+    Implement this special interface to provide current workload power profile of gpus
+
+properties:
+    - name: SupportedProfileMask
+      type: array[byte]
+      description: >
+          Mask of supported pre-set profiles. Each set bit indicates if the pre-set profile at that index is supported.
+
+    - name: RequestedProfileMask
+      type: array[byte]
+      description: >
+          Mask of requested pre-set profiles. Each set bit indicates if the pre-set profile at that index is requested/enabled by the client.
+
+    - name: EnforcedProfileMask
+      type: array[byte]
+      description: >
+          Mask of enforced pre-set profiles. Each set bit indicates if the pre-set profile at that index is actively enforced.
