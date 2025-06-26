@@ -1,0 +1,86 @@
+description: >
+  Implement if service supports clearing information from flash on device.
+
+properties:
+  - name: EraseTraceStatus
+    type: struct[enum[self.OperationStatus], enum[self.EraseStatus]]
+    description: >
+      Contains operation status and erase status after EraseTrace method call.
+  - name: EraseDebugInfoStatus
+    type: struct[enum[self.OperationStatus], enum[self.EraseStatus]]
+    description: >
+      Contains operation status and erase status after EraseDebugInfo method call.
+
+methods:
+  - name: EraseTrace
+    description: >
+      Send erase call to device to clear the contents from the flash.
+      Expects no input parameter.
+    errors:
+        # Indicate that mathod call can't be made due to previous inprogess call.
+        - xyz.openbmc_project.Common.Error.Unavailable
+  - name: EraseDebugInfo
+    description: >
+      Send erase call to device to clear the debug content from the flash.
+      Expects one input parameter.
+    parameters:
+      - name: InfoType
+        type: enum[self.EraseInfoType]
+        description: >
+          The type of debug informatio to be erased from device flash.
+    errors:
+        # Indicate that mathod call can't be made due to previous inprogess call.
+        - xyz.openbmc_project.Common.Error.Unavailable
+        
+enumerations:
+  - name: EraseStatus
+    description: >
+      Possible status values after erase method call.
+    values:
+      - name: NoDataErased
+        description: >
+          No data erased.
+      - name: DataErased
+        description: >
+          Data is erased.
+      - name: DataEraseInProgress
+        description: >
+          Data erase in progress.
+      - name: Unknown
+        description: >
+          Status is not known.
+
+  - name: EraseInfoType
+    description: >
+      Possible info type to be erased.
+    values:
+      - name: FWSavedDumpInfo
+        description: >
+          Device FW saved dump information.
+      - name: Other
+        description: >
+          Others.
+  
+  - name: OperationStatus
+    description: >
+      The status of the asynchronous method call operations
+    values:
+      - name: "InProgress"
+        description: >
+          The Operation is in progress.
+      - name: "Success"
+        description: >
+          The Operation completed successfully.
+      - name: "Timeout"
+        description: >
+          The Operation timed out.
+      - name: "InternalFailure"
+        description: >
+          The Operation failed internally.
+      - name: "Unavailable"
+        description: >
+          The Object on which the operation is being performed is
+          temporarily unavailable.
+      - name: "UnsupportedRequest"
+        description: >
+          The Operation is not supported for the object.

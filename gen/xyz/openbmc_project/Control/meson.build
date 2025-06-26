@@ -182,6 +182,36 @@ generated_others += custom_target(
 )
 
 subdir('Processor')
+subdir('Reset')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/Reset__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Control/Reset.interface.yaml',  ],
+    output: [ 'Reset.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Control/Reset',
+    ],
+)
+
+subdir('ResetAsync')
+generated_others += custom_target(
+    'xyz/openbmc_project/Control/ResetAsync__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Control/ResetAsync.interface.yaml',  ],
+    output: [ 'ResetAsync.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Control/ResetAsync',
+    ],
+)
+
 subdir('Security')
 subdir('Service')
 subdir('TPM')

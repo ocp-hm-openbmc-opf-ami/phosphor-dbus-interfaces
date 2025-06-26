@@ -1,0 +1,49 @@
+description: >
+    Processor power configuration settings.
+properties:
+    - name: AppliedProfilePath
+      type: object_path
+      description: Path to currently applied power profile config
+
+    - name: AdminProfilePath
+      type: object_path
+      description: Path to currently applied power profile config
+
+    - name: TMPFloorPercent
+      type: double
+      default: NaN
+      description: >
+          TmpFloor Setting in percentage
+    - name: RampUpRate
+      type: double
+      default: NaN
+      description: >
+          Ramp-up rate in milliwatts  per second. 
+    - name: RampDownRate
+      type: double
+      default: NaN
+      description: >
+          Ramp-down rate in milliwatts  per second.
+    - name: RampDownHysteresis
+      type: double
+      default: NaN
+      description: >
+          Ramp-down hysteresis value  in milliseconds
+
+    - name: RampUpRateApplied
+      type: boolean
+      description: >
+          Indicates active runtime admin override for RampUpRateApplied
+    - name: RampDownRateApplied
+      type: boolean
+      description: >
+          Indicates active runtime admin override for RampDownRate
+    - name: TMPFloorPercentApplied
+      type: boolean
+      description: >
+          Indicates active runtime admin override for TMPFloorPercent
+    - name: RampDownHysteresisApplied
+      type: boolean
+      description: >
+          Indicates active runtime admin override for RampDownHysteresis
+
