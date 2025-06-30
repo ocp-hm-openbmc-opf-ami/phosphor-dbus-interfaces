@@ -29,7 +29,7 @@ properties:
           The last BMC reboot cause
 
     - name: TimeOut
-      type: uint16
+      type: uint64
       default: 0
       description: >
           The differnce timeout value.
