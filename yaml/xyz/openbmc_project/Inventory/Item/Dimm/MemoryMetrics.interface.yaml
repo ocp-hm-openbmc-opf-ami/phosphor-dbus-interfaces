@@ -131,4 +131,8 @@ properties:
       type: uint64
       description: >
           Operating speed of memory in MHz or MT/s as appropriate..
-
+    - name: CapacityUtilizationPercent 
+      type: byte
+      description: memory capacity utilization over all memory as a percentage.
+      flags:
+          - readonly

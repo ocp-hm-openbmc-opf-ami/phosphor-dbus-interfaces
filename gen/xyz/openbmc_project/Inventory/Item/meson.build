@@ -223,6 +223,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Endpoint')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Endpoint__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Endpoint.interface.yaml',  ],
+    output: [ 'Endpoint.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Endpoint',
+    ],
+)
+
 subdir('Ethernet')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/Ethernet__markdown'.underscorify(),
@@ -235,6 +250,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Ethernet',
+    ],
+)
+
+subdir('Fabric')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Fabric__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fabric.interface.yaml',  ],
+    output: [ 'Fabric.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Fabric',
     ],
 )
 
@@ -298,6 +328,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('ManagementService')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/ManagementService__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/ManagementService.interface.yaml',  ],
+    output: [ 'ManagementService.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/ManagementService',
+    ],
+)
+
 subdir('NetworkInterface')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/NetworkInterface__markdown'.underscorify(),
@@ -310,6 +355,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/NetworkInterface',
+    ],
+)
+
+subdir('NvSwitch')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NvSwitch__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NvSwitch.interface.yaml',  ],
+    output: [ 'NvSwitch.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/NvSwitch',
     ],
 )
 
@@ -388,6 +448,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Port')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Port__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Port.interface.yaml',  ],
+    output: [ 'Port.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Port',
+    ],
+)
+
 subdir('PowerSupply')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/PowerSupply__markdown'.underscorify(),
@@ -415,6 +490,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Rotor',
+    ],
+)
+
+subdir('SPDMResponder')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/SPDMResponder__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/SPDMResponder.interface.yaml',  ],
+    output: [ 'SPDMResponder.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/SPDMResponder',
     ],
 )
 
@@ -448,6 +538,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Switch')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Switch__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Switch.interface.yaml',  ],
+    output: [ 'Switch.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Switch',
+    ],
+)
+
 subdir('System')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/System__markdown'.underscorify(),
@@ -460,6 +565,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/System',
+    ],
+)
+
+subdir('Zone')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Zone__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Zone.interface.yaml',  ],
+    output: [ 'Zone.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Zone',
     ],
 )
 

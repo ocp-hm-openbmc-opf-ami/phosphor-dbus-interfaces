@@ -1,0 +1,58 @@
+description: >
+    Implement to provide memory Row ReMapping Counts.
+properties:
+    - name: ceRowRemappingCount
+      type: uint32
+      description: >
+          Contains correctable Row Mapping Count.
+      flags:
+          - readonly
+    - name: ueRowRemappingCount
+      type: uint32
+      description: >
+          Contains uncorrectable Row Mapping Count.
+      flags:
+          - readonly
+    - name: RowRemappingFailureState
+      type: boolean
+      description: >
+          Represents RowRemapping Failure state.
+      flags:
+          - readonly
+    - name: RowRemappingPendingState
+      type: boolean
+      description: >
+          Represents RowRemapping Pending state.
+      flags:
+          - readonly
+    - name: MaxRemappingAvailablityBankCount
+      type: uint16
+      description: >
+          This property shall contain the number of banks with the maximum remapping availability.
+      flags:
+          - readonly
+    - name: HighRemappingAvailablityBankCount
+      type: uint16
+      description: >
+          This property shall contain the number of banks with high remapping availability.
+      flags:
+          - readonly
+    - name: LowRemappingAvailablityBankCount
+      type: uint16
+      description: >
+          This property shall contain the number of banks with Low remapping availability.
+      flags:
+          - readonly
+    - name: PartialRemappingAvailablityBankCount
+      type: uint16
+      description: >
+          This property shall contain the number of banks with partial remapping availability.
+      flags:
+          - readonly
+    - name: NoRemappingAvailablityBankCount
+      type: uint16
+      description: >
+          This property shall contain the number of banks with no remapping availability.
+      flags:
+          - readonly
+

@@ -21,6 +21,10 @@ properties:
       type: string
       description: >
           Additional detail on Memory, such as Synchronous, Static column, etc.
+    - name: Utilization
+      type: double
+      description: >
+          The memory bandwidth utilization as a percentage.
     - name: MaxMemorySpeedInMhz
       type: uint16
       description: >

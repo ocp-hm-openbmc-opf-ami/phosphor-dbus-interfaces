@@ -15,6 +15,10 @@ properties:
       type: boolean
       description: >
           Whether or not the item is present.
+    - name: Description
+      type: string
+      description: >
+          The string provided to give general information of the item.
 
 associations:
     - name: containing

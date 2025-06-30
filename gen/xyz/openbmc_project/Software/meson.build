@@ -74,6 +74,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('BuildType')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/BuildType__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/BuildType.interface.yaml',  ],
+    output: [ 'BuildType.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/BuildType',
+    ],
+)
+
 subdir('ExtendedVersion')
 generated_others += custom_target(
     'xyz/openbmc_project/Software/ExtendedVersion__markdown'.underscorify(),
@@ -104,6 +119,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('MinSecVersionConfig')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/MinSecVersionConfig__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/MinSecVersionConfig.interface.yaml',  ],
+    output: [ 'MinSecVersionConfig.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/MinSecVersionConfig',
+    ],
+)
+
 subdir('MinimumVersion')
 generated_others += custom_target(
     'xyz/openbmc_project/Software/MinimumVersion__markdown'.underscorify(),
@@ -116,6 +146,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/Software/MinimumVersion',
+    ],
+)
+
+subdir('PackageInformation')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/PackageInformation__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/PackageInformation.interface.yaml',  ],
+    output: [ 'PackageInformation.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/PackageInformation',
     ],
 )
 
@@ -149,6 +194,51 @@ generated_others += custom_target(
     ],
 )
 
+subdir('SecurityCommon')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/SecurityCommon__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/SecurityCommon.interface.yaml',  ],
+    output: [ 'SecurityCommon.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/SecurityCommon',
+    ],
+)
+
+subdir('SecurityConfig')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/SecurityConfig__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/SecurityConfig.interface.yaml',  ],
+    output: [ 'SecurityConfig.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/SecurityConfig',
+    ],
+)
+
+subdir('SecurityVersion')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/SecurityVersion__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/SecurityVersion.interface.yaml',  ],
+    output: [ 'SecurityVersion.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/SecurityVersion',
+    ],
+)
+
 subdir('Settings')
 generated_others += custom_target(
     'xyz/openbmc_project/Software/Settings__markdown'.underscorify(),
@@ -161,6 +251,51 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/Software/Settings',
+    ],
+)
+
+subdir('Signing')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/Signing__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/Signing.interface.yaml',  ],
+    output: [ 'Signing.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/Signing',
+    ],
+)
+
+subdir('Slot')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/Slot__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/Slot.interface.yaml',  ],
+    output: [ 'Slot.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/Slot',
+    ],
+)
+
+subdir('State')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/State__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/State.interface.yaml',  ],
+    output: [ 'State.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/State',
     ],
 )
 
@@ -179,6 +314,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('UpdatePolicy')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/UpdatePolicy__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/UpdatePolicy.interface.yaml',  ],
+    output: [ 'UpdatePolicy.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/UpdatePolicy',
+    ],
+)
+
 subdir('Version')
 generated_others += custom_target(
     'xyz/openbmc_project/Software/Version__markdown'.underscorify(),
@@ -191,6 +341,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/Software/Version',
+    ],
+)
+
+subdir('VersionComparison')
+generated_others += custom_target(
+    'xyz/openbmc_project/Software/VersionComparison__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Software/VersionComparison.interface.yaml',  ],
+    output: [ 'VersionComparison.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Software/VersionComparison',
     ],
 )
 

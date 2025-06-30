@@ -19,6 +19,18 @@ properties:
       description: >
           The maximum PCIe generation supported by the device.
 
+    - name: PCIeType
+      type: enum[self.PCIeTypes]
+      default: 'Unknown'
+      description: >
+          The PCIe interface generation in use by the device.
+
+    - name: MaxPCIeType
+      type: enum[self.PCIeTypes]
+      default: 'Unknown'
+      description: >
+          The maximum PCIe generation supported by the device.
+
     - name: Function0ClassCode
       type: string
       description: >
@@ -297,6 +309,39 @@ properties:
           maxint is to accommodate the situation where the value of this
           property is not known due to some unknown reason, like hardware
           failure. The value of 0 indicates that the link is not active.
+
+enumerations:
+    - name: PCIeTypes
+      description: >
+          Possible PCIe generations
+      values:
+        - name: 'Gen1'
+          description: >
+              PCIe v1.0 device
+
+        - name: 'Gen2'
+          description: >
+              PCIe v2.0 device
+
+        - name: 'Gen3'
+          description: >
+              PCIe v3.0 device
+
+        - name: 'Gen4'
+          description: >
+              PCIe v4.0 device
+
+        - name: 'Gen5'
+          description: >
+              PCIe v5.0 device
+
+        - name: 'Gen6'
+          description: >
+              PCIe v6.0 device
+
+        - name: 'Unknown'
+          description: >
+              Version of the PCIe device is unknown
 
 associations:
     - name: upstream_pcie_slot
