@@ -44,6 +44,11 @@ properties:
       description: >
           The BMC generates the selected interrupt before the timer expires.
       default: "None"
+    - name: PreTimeoutInterval
+      type: byte
+      description: >
+          Pre Time interval to arm the watchdog, in milli-second.
+      default: 0
     - name: Interval
       type: uint64
       description: >
