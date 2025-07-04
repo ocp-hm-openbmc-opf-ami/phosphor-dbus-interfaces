@@ -1,6 +1,5 @@
 description: >
     This interface provides methods for sending and receiving raw NSM commands.
-
 methods:
   - name: SendRequest
     description: >
@@ -10,6 +9,10 @@ methods:
         type: byte
         description: >
             NSM device type according to the NSM base specification
+      - name: DeviceRole
+        type: byte
+        description: >
+            NSM device role in a specific device type
       - name: InstanceId
         type: byte
         description: >

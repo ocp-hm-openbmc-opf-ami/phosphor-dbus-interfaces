@@ -9,6 +9,7 @@ properties:
           user. Value of 0 indicates that account lockout feature is disabled.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
     - name: AccountUnlockTimeout
       type: uint32
@@ -17,6 +18,7 @@ properties:
           lockout. Value of 0 indicates that account must be unlocked manually.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
     - name: MinPasswordLength
       type: byte
