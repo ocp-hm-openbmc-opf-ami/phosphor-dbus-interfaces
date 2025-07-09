@@ -107,6 +107,26 @@ properties:
           The UEFI signature owner for this certificate as UEFI signature as
           defined by the UEFI Specification.
 
+    - name: CertificateVersion
+      type: string
+      description: >
+          Specifies the version of the certificates.
+
+    - name: SerialNumber
+      type: string
+      description: >
+          A unique number assigned by the Certificate Authority (CA) to identify the certificate.
+
+    - name: SignatureAlgorithm
+      type: string
+      description: >
+          Indicates the algorithm used by the CA to sign the certificate
+
+    - name: PublicKey
+      type: uint16
+      description: >
+          Determines the current certificate public key size.
+
 
 associations:
     - name: identifying_requester
