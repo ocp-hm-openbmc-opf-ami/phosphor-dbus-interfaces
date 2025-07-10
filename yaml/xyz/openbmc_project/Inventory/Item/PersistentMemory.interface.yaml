@@ -36,6 +36,10 @@ properties:
       type: uint64
       description: >
           Total size of the non-volatile portion memory in kibibytes (KiB).
+    - name: LogicalSizeInKiB
+      type: uint64
+      description: >
+          Total size of the logical portion memory in kibibytes (KiB).
     - name: CacheSizeInKiB
       type: uint64
       description: >
