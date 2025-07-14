@@ -92,6 +92,9 @@ enumerations:
           - name: Debug
             description: >
                 Information useful to developers for debugging the application.
+          - name: NotApplicable
+            description: >
+                Severity not applicable fo events such as discrete sensors.
 
     - name: Notify
       description: >
