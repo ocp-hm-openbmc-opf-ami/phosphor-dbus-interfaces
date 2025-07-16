@@ -50,7 +50,7 @@ properties:
           strobe signal are presented to the memory module and the time at which
           the corresponding data is made available by the memory module.
     - name: RevisionCode
-      type: uint16
+      type: string
       description: >
           Revision code provided by the individual manufacturer.
     - name: FormFactor

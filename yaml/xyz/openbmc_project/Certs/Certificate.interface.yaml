@@ -106,6 +106,7 @@ properties:
       description: >
           The UEFI signature owner for this certificate as UEFI signature as
           defined by the UEFI Specification.
+
     - name: CertificateVersion
       type: string
       description: >
@@ -125,7 +126,6 @@ properties:
       type: uint16
       description: >
           Determines the current certificate public key size.
-
 
 
 associations:

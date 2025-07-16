@@ -208,6 +208,21 @@ properties:
           IPv6 Neighbor Discovery / SLAAC Timing configuration Parameters.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: SNMPCommunityString
+      type: string
+      description: SNMP Community String used to fill in the Community String field in a PET Trap.
+    - name: NumofDestination
+      type: byte
+      description: Number of Lan Destination supported on this Channel.
+    - name: DestinationType
+      type: byte
+      description: Lan Destination type select to send Email or SNMP Trap.
+    - name: DestinationAddrIPv4
+      type: string
+      description: Destination Addresses of IPv4 address.
+    - name: DestinationAddrIPv6
+      type: string
+      description: Destination Addresses of IPv6 address.
 
 methods:
       - name: SetPHYConfiguration
