@@ -16,9 +16,6 @@ enumerations:
             - name: ALL
               description: >
                     Define the rules over TCP, UDP and ICMP
-            - name: UNSPECIFIED
-              description: >
-                    Define the rules without network protocol
       - name: Target
         values:
             - name: ACCEPT

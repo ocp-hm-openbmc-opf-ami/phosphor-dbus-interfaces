@@ -5,11 +5,17 @@ properties:
       type: boolean
       description: >
           if true then the ARP Response Message send to received ARP requests Message
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
     - name: GratuitousARP
       type: boolean
       description: >
           if true then the gratuitous ARP service start to broadcast gratuitous ARP Message
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
     - name: GratuitousARPInterval
       type: uint64
       description: >
           Controls the interval between two gratuitous ARP Messages.By default the value is 2000 milliseconds
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
