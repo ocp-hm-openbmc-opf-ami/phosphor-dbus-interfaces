@@ -21,7 +21,7 @@ properties:
       type: enum[self.TransportProtocol]
       description: >
           The value of this property is the network IP protocol.
-      default: TCP
+      default: UDP
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
     - name: Version
