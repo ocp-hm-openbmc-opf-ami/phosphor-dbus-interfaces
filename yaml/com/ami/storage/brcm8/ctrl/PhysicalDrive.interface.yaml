@@ -1,0 +1,186 @@
+description: >
+    This defines a physical drive info interface.
+
+properties:
+    - name: Id
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The Device Id of the drive.
+    - name: Slot
+      type: string
+      flags:
+        - readonly
+      description: >
+        The slot number of the drive.
+    - name: MediaType
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveMediaType]
+      flags:
+        - readonly
+      description: >
+        The media type of the drive.
+    - name: InterfaceType
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveInterfaceType]
+      flags:
+        - readonly
+      description: >
+        The interface type of the drive.
+    - name: MaxLinkSpeed
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveMaxSpeed]
+      flags:
+        - readonly
+      description: >
+        The maximum supported speed of the drive.
+    - name: RotationalSpeed
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The rotational speed (RPM) of the drive.
+    - name: BlockCount
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The raw capacity of the drive in bytes.
+    - name: State
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveState]
+      flags:
+        - readonly
+      description: >
+        The current physical drive state.
+    - name: AuStatus
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveAuStatus]
+      flags:
+        - readonly
+      description: >
+        The autoconfiguration status of the drive.
+    - name: PowerState
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDrivePowerState]
+      flags:
+        - readonly
+      description: >
+        The power state of the drive.
+    - name: Ddf
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The Device Configuration Format (DDF) identifier.
+    - name: Temperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The current temperature of the drive in degrees Celsius.
+    - name: ShieldCounter
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The current shield counter value of the drive.
+    - name: SsdPowerOnHours
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The total power-on hours recorded for the SSD.
+    - name: SsdPercentUsed
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The percentage of write endurance used on the SSD.
+    - name: LastPredFailEventSeqNum
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The sequence number of the last predictive failure event.
+    - name: MediaErrCount
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The total number of media errors encountered.
+    - name: OtherErrCount
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The total number of non-media errors encountered.
+    - name: FailurePredicted
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The count of predictive failure events triggered.
+    - name: Capabilities
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The capability flags for the drive.
+    - name: ElapsedSecs
+      type: struct[uint32, string]
+      flags:
+        - readonly
+      description: >
+        The number of seconds elapsed since last status update.
+    - name: Progress
+      type: struct[byte, string]
+      flags:
+        - readonly
+      description: >
+        The current progress status (percentage) of an ongoing operation.
+    - name: AuOperation
+      type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveAuOperation]
+      flags:
+        - readonly
+      description: >
+        The current autoconfiguration operation code.
+    - name: ProductId
+      type: string
+      flags:
+        - readonly
+      description: >
+        The model name of physical device.
+    - name: SerialNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        The serial name of physical device.
+    - name: Revision
+      type: string
+      flags:
+        - readonly
+      description: >
+        The revision level of physical device.
+    - name: Manufacturer
+      type: string
+      flags:
+        - readonly
+      description: >
+        The vendor id of physical device.
+    - name: BlockSizeBytes
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The user data block size of physical device.
+    - name: CapacityBytes
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The total size in bytes of physical device.
+    - name: IsForeignDevice
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        Indicates whether the physical drive is detected as a foreign disk.
+
+    

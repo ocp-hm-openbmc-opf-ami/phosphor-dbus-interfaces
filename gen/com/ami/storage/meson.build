@@ -59,6 +59,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('RaidBrcm8')
+generated_others += custom_target(
+    'com/ami/storage/RaidBrcm8__markdown'.underscorify(),
+    input: [ '../../../../yaml/com/ami/storage/RaidBrcm8.interface.yaml',  ],
+    output: [ 'RaidBrcm8.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'com/ami/storage/RaidBrcm8',
+    ],
+)
+
 subdir('RaidMscc')
 generated_others += custom_target(
     'com/ami/storage/RaidMscc__markdown'.underscorify(),
@@ -74,5 +89,5 @@ generated_others += custom_target(
     ],
 )
 
-subdir('brcm')
+subdir('brcm8')
 subdir('mscc')

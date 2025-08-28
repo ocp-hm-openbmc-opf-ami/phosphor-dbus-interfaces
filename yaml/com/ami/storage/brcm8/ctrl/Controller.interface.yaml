@@ -1,0 +1,484 @@
+description: >
+    This defines a Broadcom RAID controller info
+
+properties:
+    - name: Id
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Controller ID.
+    - name: Model
+      type: string
+      flags:
+        - readonly
+      description: >
+        Controller model name.
+    - name: SerialNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        Controller serial number.
+    - name: PackageVersion
+      type: string
+      flags:
+        - readonly
+      description: >
+        Package version.
+    - name: PCI
+      type: array[struct[uint16, uint16]]
+      flags:
+        - readonly
+      description: >
+        The PCI vendor id and device id of this RAID controller.
+    - name: PCIBDF
+      type: struct[byte, byte, byte]
+      flags:
+        - readonly
+      description: >
+        The PCI bus, device and function number of this RAID controller.
+    - name: PCILinkSpeed
+      type: struct[double, string]
+      flags:
+        - readonly
+    - name: PCIPortWidth
+      type: byte
+      flags:
+        - readonly
+    - name: Temperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+    - name: BoardTemperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+    - name: Status
+      type: array[enum[com.ami.storage.brcm8.Enumerations.ControllerStatus]]
+      flags:
+        - readonly
+    - name: PhysicalDriveOperations
+      type: array[struct[enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveOperation], boolean]]
+      flags:
+        - readonly
+    - name: LogicalDriveOperations
+      type: array[struct[enum[com.ami.storage.brcm8.Enumerations.LogicalDriveOperation], boolean]]
+      flags:
+        - readonly
+    - name: CurrentPersonality
+      type: string
+      flags:
+        - readonly
+      description: >
+        Current personality ID.
+    - name: RequestedPersonality
+      type: string
+      flags:
+        - readonly
+      description: >
+        Requested personality ID.
+    - name: SupportedPersonality
+      type: array[string]
+      flags:
+        - readonly
+      description: >
+        Supported personality.
+    - name: SupportedStripSizeHDD
+      type: array[uint64]
+      flags:
+        - readonly
+      description: >
+        Supported strip sizes for HDD LDs in bytes.
+    - name: SupportedStripSizeSSD
+      type: array[uint64]
+      flags:
+        - readonly
+      description: >
+        Supported strip sizes for SSD LDs in bytes.
+    - name: SupportedStripSizeNVMe
+      type: array[uint64]
+      flags:
+        - readonly
+      description: >
+        Supported strip sizes for NVMe LDs in bytes.
+    - name: SupportMixedSizeWithinArrayHDD
+      type: boolean
+      flags:
+        - readonly
+      description: Whether HDD supports mixed strip size within a single array.
+    - name: SupportMixedSizeWithinArraySSD
+      type: boolean
+      flags:
+        - readonly
+      description: Whether SSD supports mixed strip size within a single array.
+    - name: SupportMixedSizeWithinArrayNVMe
+      type: boolean
+      flags:
+        - readonly
+      description: Whether NVMe supports mixed strip size within a single array.
+    - name: SupportedMaxPdCountOnRAIDType
+      type: array[struct[enum[com.ami.storage.brcm8.Enumerations.LogicalDriveRaidType], int32]]
+      flags:
+        - readonly
+      description: >
+        Supported maximum physical drive count on each RAID type.
+    - name: SupportedMinPdCountOnRAIDType
+      type: array[struct[enum[com.ami.storage.brcm8.Enumerations.LogicalDriveRaidType], int32]]
+      flags:
+        - readonly
+      description: >
+        Supported minimum physical drive count on each RAID type.
+    - name: MemoryCorrectableErrorCount
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Number of correctable memory errors - this is a running total (non-persistent)
+    - name: MemoryUncorrectableErrorCount
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Number of uncorrectable memory errors - this is a running total (persistent)
+    - name: SingleBitEccErrorBucketCount
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Number of single-bit ECC errors currently in the bucket
+    - name: Health
+      type: enum[com.ami.storage.brcm8.Enumerations.Health]
+      flags:
+        - readonly
+    - name: ModifiableProperties
+      type: array[string]
+      flags:
+        - readonly
+      description: >
+        List of modifiable properties for the controller.
+    - name: EnableAutoRebuild
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableEnergyPackWarning
+      type: boolean
+      flags:
+        - readonly
+    - name: ExposeEnclosureDevices
+      type: boolean
+      flags:
+        - readonly
+    - name: MaintainPdFailHistory
+      type: boolean
+      flags:
+        - readonly
+    - name: MaintainPdFailHistoryAdvHost
+      type: boolean
+      flags:
+        - readonly
+    - name: AbortCCOnError
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableCopyBack
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableCopyBackOnHDDSMARTer
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableCopyBackOnSSDSMARTer
+      type: boolean
+      flags:
+        - readonly
+    - name: PrCorrectUnconfiguredAreas
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableSSDPatrolRead
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableSpinDownUnconfigured
+      type: boolean
+      flags:
+        - readonly
+    - name: DisableAutoOnlineCtrlReset
+      type: boolean
+      flags:
+        - readonly
+    - name: DisableAllOnlineCtrlReset
+      type: boolean
+      flags:
+        - readonly
+    - name: AllowBootWithPreservedCache
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableSpinDownHS
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableDriveWCEforRebuild
+      type: boolean
+      flags:
+        - readonly
+    - name: UseGlobalSparesForEmergency
+      type: boolean
+      flags:
+        - readonly
+    - name: UseUnconfGoodForEmergency
+      type: boolean
+      flags:
+        - readonly
+    - name: UseEmergencySparesforSMARTer
+      type: boolean
+      flags:
+        - readonly
+    - name: FailRaidPdOnSMARTer
+      type: boolean
+      flags:
+        - readonly
+    - name: FailAdvHostPdOnSMARTer
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableAdvHostPdSesMgmt
+      type: boolean
+      flags:
+        - readonly
+    - name: SESVPDAssociationTypeInMultiPathCfg
+      type: boolean
+      flags:
+        - readonly
+    - name: BaseEnclLevel
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableSmartPollRaidPds
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableSMartPollAdvHostPds
+      type: boolean
+      flags:
+        - readonly
+    - name: EnablePdTempPoll
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableSafeStorOnAdvHostPD
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableHostSecurityOnAdvHostPD
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableDataLossWarning
+      type: boolean
+      flags:
+        - readonly
+    - name: HeadlessBootMode
+      type: boolean
+      flags:
+        - readonly
+    - name: DeviceReportingOrder
+      type: boolean
+      flags:
+        - readonly
+    - name: EnableHostATASecurityOnAdvHostPD
+      type: boolean
+      flags:
+        - readonly
+    - name: SmartPollIntervalExternal
+      type: uint16
+      flags:
+        - readonly
+    - name: SmartPollIntervalInternal
+      type: uint16
+      flags:
+        - readonly
+    - name: RebuildRate
+      type: byte
+      flags:
+        - readonly
+    - name: PatrolReadRate
+      type: byte
+      flags:
+        - readonly
+    - name: BgiRate
+      type: byte
+      flags:
+        - readonly
+    - name: CcRate
+      type: byte
+      flags:
+        - readonly
+    - name: OceRate
+      type: byte
+      flags:
+        - readonly
+    - name: CoercionMode
+      type: enum[com.ami.storage.brcm8.Enumerations.CoercionMode]
+      flags:
+        - readonly
+    - name: EccBucketLeakRate
+      type: uint16
+      flags:
+        - readonly
+    - name: EccBucketSize
+      type: byte
+      flags:
+        - readonly
+    - name: RebuildOperatingMode
+      type: enum[com.ami.storage.brcm8.Enumerations.RebuildOperatingMode]
+      flags:
+        - readonly
+    - name: SpinDownTimeInMinutes
+      type: uint16
+      flags:
+        - readonly
+    - name: SpinUpDriveCount
+      type: byte
+      flags:
+        - readonly
+    - name: SpinUpDelay
+      type: byte
+      flags:
+        - readonly
+    - name: SpinUpEnclDriveCount
+      type: byte
+      flags:
+        - readonly
+    - name: SpinUpEnclDelay
+      type: byte
+      flags:
+        - readonly
+    - name: LdDefaultHDDStripSize
+      type: uint64
+      flags:
+        - readonly
+    - name: LdDefaultHDDDiskCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.DiskWriteCachePolicy]
+      flags:
+        - readonly
+    - name: LdDefaultHDDCachePolicy
+      type: array[enum[com.ami.storage.brcm8.Enumerations.CachePolicy]]
+      flags:
+        - readonly
+    - name: LdDefaultHDDCacheBypassIOSize
+      type: uint64
+      flags:
+        - readonly
+    - name: LdDefaultHDDCacheBypassMode
+      type: enum[com.ami.storage.brcm8.Enumerations.CacheBypassMode]
+      flags:
+        - readonly
+    - name: LdDefaultSSDStripSize
+      type: uint64
+      flags:
+        - readonly
+    - name: LdDefaultSSDDiskCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.DiskWriteCachePolicy]
+      flags:
+        - readonly
+    - name: LdDefaultSSDCachePolicy
+      type: array[enum[com.ami.storage.brcm8.Enumerations.CachePolicy]]
+      flags:
+        - readonly
+    - name: LdDefaultSSDCacheBypassIOSize
+      type: uint64
+      flags:
+        - readonly
+    - name: LdDefaultSSDCacheBypassMode
+      type: enum[com.ami.storage.brcm8.Enumerations.CacheBypassMode]
+      flags:
+        - readonly
+    - name: LdDefaultNVMeStripSize
+      type: uint64
+      flags:
+        - readonly
+    - name: LdDefaultNVMeDiskCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.DiskWriteCachePolicy]
+      flags:
+        - readonly
+    - name: LdDefaultNVMeCachePolicy
+      type: array[enum[com.ami.storage.brcm8.Enumerations.CachePolicy]]
+      flags:
+        - readonly
+    - name: LdDefaultNVMeCacheBypassIOSize
+      type: uint64
+      flags:
+        - readonly
+    - name: LdDefaultNVMeCacheBypassMode
+      type: enum[com.ami.storage.brcm8.Enumerations.CacheBypassMode]
+      flags:
+        - readonly
+    - name: PdDegradedMediaDetectionType
+      type: enum[com.ami.storage.brcm8.Enumerations.DetectionType]
+      flags:
+        - readonly
+    - name: PdDegradedMediaCorrectiveAction
+      type: enum[com.ami.storage.brcm8.Enumerations.CorrectiveAction]
+      flags:
+        - readonly
+    - name: PdDegradedMediaErrorThreshold
+      type: enum[com.ami.storage.brcm8.Enumerations.PdDegradedMediaErrorThreshold]
+      flags:
+        - readonly
+    - name: BootMode
+      type: enum[com.ami.storage.brcm8.Enumerations.BootMode]
+      flags:
+        - readonly
+    - name: Name
+      type: string
+      flags:
+        - readonly
+    - name: CacheOffloadEncryptionType
+      type: enum[com.ami.storage.brcm8.Enumerations.CacheOffloadEncryptionType]
+      flags:
+        - readonly
+    - name: AV2Feature
+      type: byte
+      flags:
+        - readonly
+    - name: FirstDevicePersistentId
+      type: uint16
+      flags:
+        - readonly
+    - name: PCIeRefClkOverride
+      type: enum[com.ami.storage.brcm8.Enumerations.PCIeRefClkOverride]
+      flags:
+        - readonly
+    - name: PCIePERSTOverride
+      type: enum[com.ami.storage.brcm8.Enumerations.PCIePERSTOverride]
+      flags:
+        - readonly
+    - name: PatrolReadMode
+      type: enum[com.ami.storage.brcm8.Enumerations.PatrolReadMode]
+      flags:
+        - readonly
+      description: Patrol read scheduling mode. ("ON", "OFF", "Unknown")
+    - name: PatrolReadIncludeOption
+      type: enum[com.ami.storage.brcm8.Enumerations.PatrolReadIncludeOption]
+      flags:
+        - readonly
+      description: Patrol read option. ("IncludeSSD", "Default")
+    - name: PatrolReadMaxConcurrentPD
+      type: byte
+      flags:
+        - readonly
+      description: Max number of physical drives patrol read can run concurrently on.
+    - name: PatrolReadState
+      type: enum[com.ami.storage.brcm8.Enumerations.PatrolReadState]
+      flags:
+        - readonly
+      description: Patrol read runtime state. ("Stopped", "Ready", "Active", "Suspended", "Aborted", "Unknown")
+    - name: PatrolReadNumPdDone
+      type: uint16
+      flags:
+        - readonly
+      description: Number of physical drives that have completed Patrol Read in the current cycle.

@@ -1,0 +1,40 @@
+description: >
+    This defines a topology PHY interface.
+
+properties:
+    - name: Id
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          PHY ID.
+    - name: IsOnline
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Whether the PHY is online.
+    - name: IsVirtualPhy
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Whether this is a virtual PHY.
+    - name: AttachedDeviceType
+      type: enum[com.ami.storage.brcm8.Enumerations.AttachedDeviceType]
+      flags:
+          - readonly
+      description: >
+          Type of attached device (SAS/SATA, Expander, NVMe, Switch, Virtual, etc.).
+    - name: PhyDisabledSASSATA
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Whether SAS/SATA PHY is disabled.
+    - name: PhyDisabledNVMe
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Whether NVMe PHY is disabled.
