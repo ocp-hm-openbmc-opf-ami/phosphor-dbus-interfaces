@@ -523,7 +523,7 @@ enumerations:
         - name: "SupercapacitorMissing"
     - name: Health
       values:
-        - name: "Good"
+        - name: "OK"
         - name: "Warning"
         - name: "Critical"
     - name: ErrorCode
