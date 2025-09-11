@@ -18,9 +18,13 @@ methods:
             description: >
                 List of groups to which the user has to be added.
           - name: Privilege
-            type: string
+            type: array[string]
             description: >
                 Privilege of the user to be added.
+          - name: UserChannelAccess
+            type: array[byte]
+            description: >
+                User channel access to be added.
           - name: Enabled
             type: boolean
             description: >
@@ -96,6 +100,10 @@ methods:
             type: string
             description: >
                 User name whose properties have to be returned.
+          - name: IpAddress
+            type: string
+            description: >
+                Ip address on which user is tring to login or get privilege
       returns:
           - name: UserInfo
             type: dict[string,variant[string,array[string],boolean]]

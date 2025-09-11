@@ -68,3 +68,9 @@ methods:
             - name: PamOrder
               type: array[byte]
 
+      - name: GetChannelInterfaceMap
+        description: >
+              Returns all available IPMI channels and their corresponding interfaces that use LAN-802.3 as the medium.
+        returns:
+            - name: ChannelInterfaceMap
+              type: dict[byte, string]
