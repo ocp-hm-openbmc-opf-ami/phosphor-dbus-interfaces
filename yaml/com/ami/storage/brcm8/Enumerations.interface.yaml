@@ -64,6 +64,14 @@ enumerations:
         - name: SuppportChangeDiskCachePolicy
         - name: SupportChangeWritePolicy
         - name: SupportChangeReadPolicy
+    - name: LogicalDriveCurrentOperation
+      values:
+        - name: None
+        - name: ConsistencyCheck
+        - name: BackgroundInitialization
+        - name: ForegroundInitialization
+        - name: OnlineCapacityExpansion
+        - name: SecureErase
     - name: BBUEnergyPackType
       values:
         - name: "NoPack"

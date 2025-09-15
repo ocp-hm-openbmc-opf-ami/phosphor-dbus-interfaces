@@ -116,3 +116,21 @@ properties:
         - readonly
       description: >
         The total size in bytes of logical device.
+    - name: Operation
+      type: enum[com.ami.storage.brcm8.Enumerations.LogicalDriveCurrentOperation]
+      flags:
+        - readonly
+      description: >
+        The current operation being performed on the logical drive.
+    - name: OperationProgress
+      type: struct[byte, string]
+      flags:
+        - readonly
+      description: >
+        The progress percentage of the current operation (0-100).
+    - name: OperationElapsedSeconds
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The elapsed time in seconds for the current operation.
