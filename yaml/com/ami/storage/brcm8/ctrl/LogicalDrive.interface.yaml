@@ -134,3 +134,11 @@ properties:
         - readonly
       description: >
         The elapsed time in seconds for the current operation.
+    - name: DiskWriteCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.DiskWriteCachePolicy]
+      flags:
+        - readonly
+    - name: EnableBgi
+      type: boolean
+      flags:
+        - readonly

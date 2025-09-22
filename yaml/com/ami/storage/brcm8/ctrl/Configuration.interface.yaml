@@ -162,6 +162,52 @@ methods:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure
       - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StartPhysicalDriveCopyback
+    parameters:
+    - name: DestPdId
+      type: uint16
+    - name: SourcePdId
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopPhysicalDriveCopyback
+    parameters:
+    - name: DestPdId
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StartPhysicalDriveClear
+    parameters:
+    - name: PdId
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopPhysicalDriveClear
+    parameters:
+    - name: PdId
+      type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
   - name: StartPatrolRead
     returns:
       - name: MessageId
@@ -415,6 +461,92 @@ methods:
     parameters:
       - name: PdId
         type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: SetPhysicalDriveState
+    parameters:
+      - name: PdId
+        type: uint16
+      - name: PdState
+        type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveState]
+      - name: AuStatus
+        type: enum[com.ami.storage.brcm8.Enumerations.PhysicalDriveAuStatus]
+      - name: ForceOption
+        type: boolean
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StartRebuild
+    parameters:
+      - name: PdId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopRebuild
+    parameters:
+      - name: PdId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: PreparePhysicalDriveForRemoval
+    parameters:
+      - name: PdId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: UndoPreparePhysicalDriveForRemoval
+    parameters:
+      - name: PdId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: RefreshControllerCache
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: SetLogicalDriveProperties
+    parameters:
+      - name: LdId
+        type: uint16
+      - name: Name
+        type: string
+      - name: DiskWriteCachePolicy
+        type: enum[com.ami.storage.brcm8.Enumerations.DiskWriteCachePolicy]
+      - name: EnableBgi
+        type: boolean
     returns:
       - name: MessageId
         type: uint64
