@@ -1,4 +1,34 @@
 # Generated file; do not modify.
+subdir('AD')
+generated_others += custom_target(
+    'com/ami/storage/brcm8/ctrl/AD__markdown'.underscorify(),
+    input: [ '../../../../../../yaml/com/ami/storage/brcm8/ctrl/AD.interface.yaml',  ],
+    output: [ 'AD.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        'com/ami/storage/brcm8/ctrl/AD',
+    ],
+)
+
+subdir('ArrayDrive')
+generated_others += custom_target(
+    'com/ami/storage/brcm8/ctrl/ArrayDrive__markdown'.underscorify(),
+    input: [ '../../../../../../yaml/com/ami/storage/brcm8/ctrl/ArrayDrive.interface.yaml',  ],
+    output: [ 'ArrayDrive.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        'com/ami/storage/brcm8/ctrl/ArrayDrive',
+    ],
+)
+
 subdir('BBU')
 generated_others += custom_target(
     'com/ami/storage/brcm8/ctrl/BBU__markdown'.underscorify(),

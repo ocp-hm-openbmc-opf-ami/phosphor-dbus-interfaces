@@ -1,0 +1,28 @@
+description: >
+    This defines an array drive info interface.
+
+properties:
+    - name: Id
+      type: uint16
+      flags:
+        - readonly
+    - name: StripSize
+      type: uint64
+      flags:
+        - readonly
+    - name: BlockSizeBytes
+      type: uint64
+      flags:
+        - readonly
+    - name: BlockCount
+      type: uint64
+      flags:
+        - readonly
+    - name: DataPdList
+      type: array[uint16]
+      flags:
+        - readonly
+    - name: SparePdList
+      type: array[uint16]
+      flags:
+        - readonly
