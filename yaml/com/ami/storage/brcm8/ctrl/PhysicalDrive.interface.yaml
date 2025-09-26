@@ -182,5 +182,7 @@ properties:
         - readonly
       description: >
         Indicates whether the physical drive is detected as a foreign disk.
-
-    
+    - name: SpareType
+      type: enum[com.ami.storage.brcm8.Enumerations.SpareType]
+      flags:
+        - readonly

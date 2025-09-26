@@ -337,3 +337,8 @@ enumerations:
       values:
       - name: FastMode
       - name: FullMode
+    - name: SpareType
+      values:
+      - name: "None"
+      - name: "Global"
+      - name: "Dedicated"
