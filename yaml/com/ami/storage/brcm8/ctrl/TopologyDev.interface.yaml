@@ -9,12 +9,12 @@ properties:
       description: >
           Device type.
     - name: DeviceId
-      type: uint32
+      type: uint16
       flags:
           - readonly
       description: >
           Persistent ID of the attached device.
-    - name: DeviceSasAddr
+    - name: SasAddress
       type: string
       flags:
           - readonly
@@ -26,12 +26,6 @@ properties:
           - readonly
       description: >
           WWID of the attached device.
-    - name: DevicePortNum
-      type: byte
-      flags:
-          - readonly
-      description: >
-          Port number of the attached device (for NVMe devices).
     - name: ProtocolRole
       type: array[enum[com.ami.storage.brcm8.Enumerations.ProtocolRole]]
       flags:
