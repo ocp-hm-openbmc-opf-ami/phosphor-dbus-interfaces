@@ -482,3 +482,7 @@ properties:
       flags:
         - readonly
       description: Number of physical drives that have completed Patrol Read in the current cycle.
+    - name: SupportedRAIDTypes
+      type: array[enum[com.ami.storage.brcm8.Enumerations.LogicalDriveRaidType]]
+      flags:
+        - readonly
