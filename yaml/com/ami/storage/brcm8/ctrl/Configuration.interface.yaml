@@ -71,8 +71,8 @@ methods:
       type: string
     - name: DiskArray
       type: array[array[uint16]]
-    - name: StripeSize
-      type: byte
+    - name: StripSize
+      type: uint64
     - name: UsagePercent
       type: byte
     - name: DiskWriteCachePolicy

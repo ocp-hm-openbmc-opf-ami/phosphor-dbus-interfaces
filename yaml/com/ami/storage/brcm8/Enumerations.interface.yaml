@@ -315,7 +315,6 @@ enumerations:
         - name: "Suspended"
         - name: "Aborted"
         - name: "Unknown"
-
     - name: AttachedDeviceType
       values:
       - name: NoDevice
