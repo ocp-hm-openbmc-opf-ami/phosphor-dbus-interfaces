@@ -61,6 +61,12 @@ methods:
           - xyz.openbmc_project.Common.Error.InternalFailure
 
 properties:
+    - name: HostBootStatus
+      type: enum[self.HostBootProgress]
+      default: Unknown
+      description: > 
+          Returns Host Booting Status.
+
     - name: InventoryStatus
       type: enum[self.InventoryProgress]
       default: Unknown
@@ -107,6 +113,23 @@ properties:
           Information about the languages supported in Bios.
 
 enumerations:
+    - name: HostBootProgress
+      description: >
+          Host Boot Progress Type.
+      values:
+          - name: InProgress
+            description: >
+                Host is Booting.
+          - name: Completed
+            description: >
+                Host Boot is Completed.
+          - name: Failed
+            description: >
+                Host Boot is Failed.
+          - name: Unknown
+            description: >
+                Host Boot is Unknown.
+
     - name: InventoryProgress
       description: >
           Inventory progress Type.
