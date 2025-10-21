@@ -31,3 +31,6 @@ signals:
           type: string
           description: >
             The details about the error.
+    - name: CacheChangedSignal
+      description: >
+        The cached data changed signal.
