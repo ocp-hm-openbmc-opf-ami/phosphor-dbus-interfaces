@@ -80,3 +80,11 @@ properties:
           - const
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+    
+    - name: UserName
+      type: string
+      description: Display the username for the mounted remote Image.
+      flags: 
+          - const
+      error:
+          - xyz.openbmc_project.Common.Error.InternalFailure
