@@ -1,0 +1,17 @@
+description: >
+  Interface for setting various host modes, including single-host, multi-host, and other configurations.
+
+properties:
+  - name: Mode
+    type: uint16
+    description: >
+      Indicates the user supplied boot mode configuration (e.g., SingleHost, MultiHost, etc.).
+    access: readwrite
+    default: 0
+
+  - name: CurrentMode
+    type: uint16
+    description: >
+      Indicates the current boot mode configuration (e.g., SingleHost, MultiHost, etc.).
+    access: readwrite
+    default: 0
