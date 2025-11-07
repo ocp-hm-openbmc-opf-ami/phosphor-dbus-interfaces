@@ -1,0 +1,118 @@
+description: >
+    Implement to provide PLDM Type 6 (RDE) device information.
+properties:
+    - name: RdeObjPath
+      type: string
+      description: >
+            rde device object path.
+    - name: EID
+      type: byte
+      description: >
+            A mctp endpoint id.
+    - name: DeviceConcurrencySupport
+      type: byte
+      description: >
+            Device concurrency support.
+            The maximum number of concurrent outstanding Operations the RDE Device can support. Must be 
+            > 0; a value of 1 indicates no support for concurrency.
+    - name: DeviceCapabilities
+      type: byte
+      description: >
+            Bitmask representing device capabilities.
+            [0] - atomic_resource_read
+            [1] - expand_support
+            [2] - bej_1_1_support
+            [7:3] - reserved
+    - name: DeviceFeatureSupport
+      type: uint16
+      description: >
+            Bitmask representing device feature support.
+            [0] - head_supported
+            [1] - read_supported
+            [2] - create_supported
+            [3] - delete_supported
+            [4] - update_supported
+            [5] - replace_supported
+            [6] - action_supported
+            [7] - events_supported
+            [15:8] - reserved
+    - name: DeviceProviderName
+      type: string
+      description: >
+            Name of the device provider.
+    - name: DeviceMaximumTransferBytes
+      type: uint32
+      description: >
+            Maximum transfer size in bytes the device can handle.
+    - name: URIMap
+      type: array[string]
+      description: >
+            Map of URIs supported by the device.
+    - name: ETag
+      type: string
+      description: >
+            Global digest of all resource-based data within the RDE device.
+    - name: UUID
+      type: string
+      description: >
+          UUID of object to which the interface is bound. It is in canonical
+          8-4-4-4-12 format as per RFC 4122.
+signals:
+    - name: TestOperation
+      description: >
+            PLDM using this signal to test RDE operations.
+      properties:
+        - name: HttpMethod
+          type: byte
+          description: >
+                Operation type.
+                0 - HEAD
+                1 - GET (READ)
+                2 - CREATE (POST)
+                3 - DELETE
+                4 - UPDATE (PATCH)
+                5 - REPLACE (PUT)
+                6 - ACTION (POST)
+        - name: ReqUri
+          type: string
+          description: >
+            Request resource/action URI.
+        - name: If_Match
+          type: array[string]
+          description: >
+            If-Match shall be supported on PUT and PATCH requests for
+            resources for which the RDE Device returns ETags, to ensure
+            clients are updating the resource from a known state.
+        - name: If_None_Match
+          type: array[string]
+          description: >
+            If this HTTP header is present, the RDE Device will only return
+            the requested resource if the current ETag of that resource
+            does not match the ETag sent in this header. If the ETag
+            specified in this header matches the resource's current ETag,
+            the status code returned from the GET will be 304.
+        - name: ReqBody
+          type: string
+          description: >
+            Request body.
+        - name: ReqBodyLen
+          type: byte
+          description: >
+            Request body length.
+    - name: OpCompleted
+      description: >
+            PLDM using this signal to notify RDE operation is completed.
+      properties:
+        - name: OpStatus
+          type: byte
+          description: >
+                Operation status.
+                Folowing are standard PLDM completion codes.
+        - name: RespObjPath
+          type: string
+          description: >
+                Redfish using this object path to get the response information.
+        - name: ReqObjPath
+          type: string
+          description: >
+                RDE device request object path from Redfish.
