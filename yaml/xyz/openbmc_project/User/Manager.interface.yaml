@@ -61,6 +61,48 @@ methods:
           - xyz.openbmc_project.User.Common.Error.UserNamePrivFail
           - xyz.openbmc_project.User.Common.Error.NoResource
 
+    - name: OTPGeneration
+      description: >
+          Sends OTP data to the configured user's email address.
+      parameters:
+          - name: UserName
+            type: string
+            description: >
+                Username of the account whose password needs to be updated.
+      returns:
+          - name: Result
+            type: boolean
+            description: >
+                Return value for OTPGeneration: true for success, false for failure.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+
+    - name: OTPValidationPasswordUpdate
+      description: >
+          Validates the OTP and updates the password for an existing user.
+      parameters:
+          - name: UserName
+            type: string
+            description: >
+                The username of the account whose password needs to be updated.
+          - name: OTP
+            type: string
+            description: >
+                One-time password sent to the user's registered email address.
+          - name: Password
+            type: string
+            description: >
+                New password to be set for the user.
+      returns:
+          - name: Result
+            type: boolean
+            description: >
+                Return value for OTPValidationPasswordUpdate: true for success, false for failure.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+
     - name: SetPasswordExpired
       description: >
           Sets if the user's password has expired or not.

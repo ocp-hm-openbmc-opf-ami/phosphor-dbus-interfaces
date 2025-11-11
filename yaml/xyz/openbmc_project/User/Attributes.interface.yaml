@@ -37,6 +37,15 @@ properties:
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
 
+    - name: SMTPMailID
+      type: string
+      description: >
+          SMTP mail ID for the user.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.NotAllowed
+
     - name: UserLockedForFailedAttempt
       type: boolean
       description: >
