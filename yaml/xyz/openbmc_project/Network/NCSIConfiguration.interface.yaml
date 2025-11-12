@@ -29,7 +29,12 @@ methods:
         returns:
             - name: Result
               type: int16
-        erorrs:
+        errors:
+            - xyz.openbmc_project.Common.Error.NotAllowed
+      - name: ManualDetection
+        description: >
+              Trigger NCSI detection manually
+        errors:
             - xyz.openbmc_project.Common.Error.NotAllowed
 
 properties:
