@@ -1,0 +1,112 @@
+description: >
+    This defines a BBU info interface.
+
+properties:
+    - name: DeviceChemistry
+      type: string
+      flags:
+        - readonly
+      description: >
+        The BBU DeviceChemistry.
+    - name: MfgName
+      type: string
+      flags:
+        - readonly
+      description: >
+        The BBU MfgName.
+    - name: PcbAssemblyNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        The BBU PcbAssemblyNumber.
+    - name: PackAssemblyNumber
+      type: string
+      flags:
+        - readonly
+      description: >
+        The BBU PackAssemblyNumber.
+    - name: PcbVersionNumber
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The BBU PcbVersionNumber.
+    - name: PackVersionNumber
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The BBU PackVersionNumber.
+    - name: EnergyPackSerialNunber
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The BBU energy-pack serial number.
+    - name: DesignCapacity
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU DesignCapacity.
+    - name: DesignVoltage
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU DesignVoltage.
+    - name: CriticalTemperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU CriticalTemperature.
+    - name: MaxTemperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU MaxTemperature.
+    - name: BatterySerialNumber
+      type: uint16
+      flags:
+      - readonly
+      description: >
+        The BBU BatterySerialNumber.
+    - name: EnergyPackType
+      type: enum[com.ami.storage.brcm8.Enumerations.BBUEnergyPackType]
+      flags:
+        - readonly
+      description: >
+        The BBU EnergyPackType.
+    - name: EnergyPackSubType
+      type: enum[com.ami.storage.brcm8.Enumerations.BBUEnergyPackSubType]
+      flags:
+        - readonly
+      description: >
+        The BBU EnergyPackSubType.
+    - name: Voltage
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU Voltage.
+    - name: Current
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU Current.
+    - name: Temperature
+      type: struct[int32, string]
+      flags:
+        - readonly
+      description: >
+        The BBU Temperature.
+    - name: FwStatus
+      type: array[enum[com.ami.storage.brcm8.Enumerations.BBUFwStatus]]
+      flags:
+        - readonly
+      description: >
+        The BBU FwStatus.

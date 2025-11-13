@@ -1,0 +1,35 @@
+description: >
+    Topology device interface under a PHY.
+
+properties:
+    - name: Type
+      type: enum[com.ami.storage.brcm8.Enumerations.AttachedDeviceType]
+      flags:
+          - readonly
+      description: >
+          Device type.
+    - name: DeviceId
+      type: uint16
+      flags:
+          - readonly
+      description: >
+          Persistent ID of the attached device.
+    - name: SasAddress
+      type: string
+      flags:
+          - readonly
+      description: >
+          SAS address of the attached device (string formatted).
+    - name: DeviceWWID
+      type: string
+      flags:
+          - readonly
+      description: >
+          WWID of the attached device.
+    - name: ProtocolRole
+      type: array[enum[com.ami.storage.brcm8.Enumerations.ProtocolRole]]
+      flags:
+          - readonly
+      description: >
+          SAS/SATA protocol roles. Include entries only when the corresponding
+          capability is present. 

@@ -1,5 +1,5 @@
 description: >
-    This defines a physical drive count interface.
+    This defines a BBU count interface.
 
 properties:
     - name: Count
@@ -7,4 +7,4 @@ properties:
       flags:
           - readonly
       description: >
-          Number of Physical drive installed.
+          Number of BBU installed.

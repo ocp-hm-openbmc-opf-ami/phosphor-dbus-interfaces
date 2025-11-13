@@ -463,6 +463,21 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Ports')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Ports__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Ports.interface.yaml',  ],
+    output: [ 'Ports.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Ports',
+    ],
+)
+
 subdir('PowerSupply')
 generated_others += custom_target(
     'xyz/openbmc_project/Inventory/Item/PowerSupply__markdown'.underscorify(),
@@ -568,20 +583,6 @@ generated_others += custom_target(
     ],
 )
 
-subdir('Zone')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/Zone__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Zone.interface.yaml',  ],
-    output: [ 'Zone.md' ],
-    depend_files: sdbusplusplus_depfiles,
-    command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
-        'xyz/openbmc_project/Inventory/Item/Zone',
-    ],
-)
 
 subdir('Tpm')
 generated_others += custom_target(
@@ -610,6 +611,21 @@ generated_others += custom_target(
         '--tool', sdbusplusplus_prog,
         '--directory', meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/TrustedComponent',
+    ],
+)
+
+subdir('USBController')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/USBController__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/USBController.interface.yaml',  ],
+    output: [ 'USBController.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/USBController',
     ],
 )
 
@@ -643,3 +659,17 @@ generated_others += custom_target(
     ],
 )
 
+subdir('Zone')
+generated_others += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Zone__markdown'.underscorify(),
+    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Zone.interface.yaml',  ],
+    output: [ 'Zone.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Zone',
+    ],
+)

@@ -15,6 +15,21 @@ generated_others += custom_target(
 )
 
 subdir('FWU')
+subdir('Logger')
+generated_others += custom_target(
+    'xyz/openbmc_project/PLDM/Logger__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/PLDM/Logger.interface.yaml',  ],
+    output: [ 'Logger.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/PLDM/Logger',
+    ],
+)
+
 subdir('PDR')
 generated_others += custom_target(
     'xyz/openbmc_project/PLDM/PDR__markdown'.underscorify(),
@@ -31,6 +46,36 @@ generated_others += custom_target(
 )
 
 subdir('Provider')
+subdir('RDE')
+generated_others += custom_target(
+    'xyz/openbmc_project/PLDM/RDE__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/PLDM/RDE.interface.yaml',  ],
+    output: [ 'RDE.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/PLDM/RDE',
+    ],
+)
+
+subdir('RdeResponse')
+generated_others += custom_target(
+    'xyz/openbmc_project/PLDM/RdeResponse__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/PLDM/RdeResponse.interface.yaml',  ],
+    output: [ 'RdeResponse.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/PLDM/RdeResponse',
+    ],
+)
+
 subdir('Requester')
 generated_others += custom_target(
     'xyz/openbmc_project/PLDM/Requester__markdown'.underscorify(),

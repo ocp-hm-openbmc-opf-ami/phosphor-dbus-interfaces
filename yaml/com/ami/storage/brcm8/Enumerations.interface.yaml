@@ -1,0 +1,343 @@
+description: >
+  This defines Broadcom RAID Enumerations
+
+enumerations:
+    - name: ErrorCode
+      values:
+        - name: "Success"
+        - name: "Progress"
+        - name: "Timeout"
+        - name: "InternalFailure"
+        - name: "InvalidArgument"
+        - name: "NotAllowed"
+        - name: "Unavailable"
+        - name: "UnsupportedRequest"
+        - name: "DeviceOrResourceBusy"
+    - name: ControllerStatus
+      values:
+        - name: "ControllerResetRequired"
+        - name: "LockKeyRekeyPending"
+        - name: "PersonalityChangePending"
+        - name: "PremiumFeatureKeyTrialDetected"
+        - name: "SystemShutdownRequired"
+        - name: "SystemRebootRequired"
+        - name: "SafeModeBoot"
+        - name: "LockKeyRebootRequired"
+        - name: "CachePreserved"
+        - name: "BiosNotDetected"
+        - name: "LockKeyFailed"
+        - name: "LockKeyAssigned"
+    - name: PhysicalDriveOperation
+      values:
+        - name: "SupportManualSpinDown"
+        - name: "SupportManualSpinUp"
+        - name: "SupportSSDWearGauge"
+        - name: "SupportPrepareForRemoval"
+        - name: "SupportReplaceMissing"
+        - name: "SupportMarkMissing"
+        - name: "SupportSecureErase"
+        - name: "SupportDegradedMediaDetect"
+        - name: "SupportWriteCacheEnable"
+        - name: "SupportTemperatureMonitor"
+        - name: "SupportT10PowerState"
+        - name: "SupportSpinDownConfigured"
+        - name: "SupportSpinDownHotSpare"
+        - name: "SupportSpinDownUnconfigured"
+        - name: "SupportMakeFailed"
+        - name: "SupportMakeOffline"
+        - name: "SupportForceOnline"
+    - name: LogicalDriveOperation
+      values:
+        - name: SupportSecureErase
+        - name: SupportT10Atomicity
+        - name: SupportWSUnmapForRAID5RAID6
+        - name: SupportWriteSameUnmapForRAID1
+        - name: SupportWriteSameUnmapForRAID0
+        - name: SupportWriteSameUnmapForSingleDriveRAID0
+        - name: SupportUnmapForRAID5RAID6
+        - name: SupportUnmapForRAID1
+        - name: SupportUnmapForRAID0
+        - name: SupportUnmapSingleDriveForRAID0
+        - name: SupportBadBlockManagement
+        - name: SupportOnlineCapacityExpansionWithNewDrive
+        - name: SupportOnlineCapacityExpansionWithinArray
+        - name: SuppportChangeDiskCachePolicy
+        - name: SupportChangeWritePolicy
+        - name: SupportChangeReadPolicy
+    - name: LogicalDriveCurrentOperation
+      values:
+        - name: None
+        - name: ConsistencyCheck
+        - name: BackgroundInitialization
+        - name: ForegroundInitialization
+        - name: OnlineCapacityExpansion
+        - name: SecureErase
+    - name: BBUEnergyPackType
+      values:
+        - name: "NoPack"
+        - name: "SuperCap"
+        - name: "Battery"
+    - name: BBUEnergyPackSubType
+      values:
+        - name: "None"
+        - name: "BroadcomSuperCapFBU345"
+        - name: "BroadcomSuperCapFBU03"
+        - name: "OEMBattery"
+    - name: PhysicalDriveMediaType
+      values:
+        - name: "Unknown"
+        - name: "HDD"
+        - name: "SSD"
+    - name: PhysicalDriveInterfaceType
+      values:
+        - name: "Unknown"
+        - name: "SAS"
+        - name: "SATA"
+        - name: "NVME"
+    - name: PhysicalDriveMaxSpeed
+      values:
+        - name: "Unknown"
+        - name: "Speed1p5G"
+        - name: "Speed3G"
+        - name: "Speed6G"
+        - name: "Speed12G"
+        - name: "Speed22p5G"
+        - name: "SpeedPCIE2p5GT"
+        - name: "SpeedPCIE5GT"
+        - name: "SpeedPCIE8GT"
+        - name: "SpeedPCIE16GT"
+        - name: "SpeedPCIE32GT"
+    - name: PhysicalDriveState
+      values:
+        - name: "Unknown"
+        - name: "Unconfigured"
+        - name: "RaidConfigured"
+        - name: "RaidHotSpare"
+        - name: "Host"
+        - name: "AdvHost"
+        - name: "Unusable"
+        - name: "ShieldMask"
+        - name: "SanitizeMask"
+        - name: "DegradedMask"
+        - name: "FormatMask"
+    - name: PhysicalDrivePowerState
+      values:
+        - name: "Active"
+        - name: "Stop"
+        - name: "Transitioning"
+    - name: PhysicalDriveAuStatus
+      values:
+        - name: "Unknown"
+        - name: "Unusable"
+        - name: "Missing"
+        - name: "Good"
+        - name: "Bad"
+        - name: "RaidRebuild"
+        - name: "RaidCopyback"
+        - name: "RaidOffline"
+        - name: "RaidFailed"
+        - name: "RaidOnline"
+    - name: PhysicalDriveAuOperation
+      values:
+        - name: "None"
+        - name: "Rebuild"
+        - name: "PatrolRead"
+        - name: "Clear"
+        - name: "Copyback"
+        - name: "Erase"
+        - name: "Sanitize"
+        - name: "NvmeReconfigure"
+    - name: LogicalDriveState
+      values:
+        - name: "Offline"
+        - name: "PartiallyDegraded"
+        - name: "Degraded"
+        - name: "Optimal"
+    - name: LogicalDriveEncryptionType
+      values:
+        - name: "None"
+        - name: "SED"
+    - name: LogicalDriveAccessOptions
+      values:
+        - name: "ReadWrite"
+        - name: "ReadOnly"
+        - name: "Blocked"
+    - name: LogicalDriveRaidType
+      values:
+        - name: "RAID00"
+        - name: "RAID0"
+        - name: "RAID1"
+        - name: "RAID10"
+        - name: "RAID5"
+        - name: "RAID50"
+        - name: "RAID6"
+        - name: "RAID60"
+        - name: "RAID1E"
+        - name: "RAID1ERLQ0"
+        - name: "RAID1E0RLQ0"
+    - name: PowerSavingPolicy
+      values:
+        - name: "None"
+        - name: "ControllerDefault"
+        - name: "T10"
+    - name: CachePolicy
+      values:
+        - name: "WriteBack"
+        - name: "WriteCacheAlways"
+        - name: "ReadAhead"
+    - name: AccessPolicyStatus
+      values:
+        - name: "Ok"
+        - name: "PreservedCache"
+        - name: "TrialKeyExpired"
+        - name: "LdOffline"
+        - name: "CtrlSafeMode"
+    - name: BBUFwStatus
+      values:
+        - name: "None"
+        - name: "CacheOffloadNotReady"
+        - name: "PackMissing"
+        - name: "VoltageLow"
+        - name: "TemperatureHigh"
+        - name: "ChargeActive"
+        - name: "DischargeActive"
+        - name: "LearnCycleRequested"
+        - name: "LearnCycleActive"
+        - name: "LearnCycleFailed"
+        - name: "LearnCycleTimeout"
+        - name: "I2cErrorsDetected"
+        - name: "ReplacePack"
+        - name: "RemainingCapacityLow"
+        - name: "PeriodicLearnRequired"
+        - name: "NonTransparentLearn"
+        - name: "NoSpace"
+        - name: "PredictiveFailure"
+        - name: "MicrocodeUpdateReqd"
+        - name: "CableFailure"
+    - name: DiskWriteCachePolicy
+      values:
+        - name: "Unchanged"
+        - name: "Enable"
+        - name: "Disable"
+    - name: LdReadCachePolicy
+      values:
+        - name: "ReadAhead"
+        - name: "ReadAheadNone"
+    - name: LdWriteCachePolicy
+      values:
+        - name: "WriteThrough"
+        - name: "WriteBack"
+        - name: "WriteCacheAlways"
+    - name: EncryptType
+      values:
+        - name: "None"
+        - name: "SED"
+    - name: Health
+      values:
+        - name: "OK"
+        - name: "Warning"
+        - name: "Critical"
+    - name: EraseType
+      values:
+        - name: "Simple"
+        - name: "Normal"
+        - name: "Thorough"
+        - name: "CryptographicErase"
+        - name: "SanitizeOverwrtie"
+        - name: "SanitizeBlockErase"
+        - name: "SanitizeFreezeLock"
+        - name: "SanitizeAntifreezeLock"
+    - name: CoercionMode
+      values:
+        - name: "None"
+        - name: "Boundary128MiB"
+        - name: "Boundary1GiB"
+    - name: RebuildOperatingMode
+      values:
+        - name: "Unknown"
+        - name: "PriorityRebuild"
+        - name: "PriorityIOPS"
+    - name: CacheBypassMode
+      values:
+        - name: "None"
+        - name: "Size"
+        - name: "All"
+    - name: DetectionType
+      values:
+        - name: "Disabled"
+        - name: "Enabled"
+        - name: "Aggressive"
+        - name: "RecoveryTimeLimitAndWriteRetryCount"
+    - name: CorrectiveAction
+      values:
+      - name: "LogOnly"
+      - name: "LogAndTakeCorrectiveAction"
+    - name: PdDegradedMediaErrorThreshold
+      values:
+      - name: "Every8Hours"
+      - name: "Every1Hour"
+      - name: "Every15Minutes"
+      - name: "Every5Minutes"
+    - name: BootMode
+      values:
+      - name: "ContinueOnError"
+      - name: "SafeModeOnError"
+    - name: CacheOffloadEncryptionType
+      values:
+      - name: "None"
+      - name: "AESXTS256"
+    - name: PCIeRefClkOverride
+      values:
+      - name: "NoOverride"
+      - name: "Enabled"
+      - name: "Disabled"
+      - name: "BackplaneError"
+    - name: PCIePERSTOverride
+      values:
+      - name: "NoOverride"
+      - name: "Deasserted"
+      - name: "Assertedd"
+      - name: "BackplaneError"
+    - name: PatrolReadMode
+      values:
+        - name: "On"
+        - name: "Off"
+        - name: "Unknown"
+    - name: PatrolReadIncludeOption
+      values:
+        - name: "IncludeSSD"
+        - name: "Default"
+    - name: PatrolReadState
+      values:
+        - name: "Stopped"
+        - name: "Ready"
+        - name: "Active"
+        - name: "Suspended"
+        - name: "Aborted"
+        - name: "Unknown"
+    - name: AttachedDeviceType
+      values:
+      - name: NoDevice
+      - name: Controller
+      - name: SasSata
+      - name: Expander
+      - name: NVMe
+      - name: PCIeSwitch
+      - name: Virtual
+    - name: ProtocolRole
+      values:
+      - name: SMPInitiator
+      - name: SMPTarget
+      - name: SSPInitiator
+      - name: SSPTarget
+      - name: STPInitiator
+      - name: STPSATATarget
+    - name: InitializationMode
+      values:
+      - name: FastMode
+      - name: FullMode
+    - name: SpareType
+      values:
+      - name: "None"
+      - name: "Global"
+      - name: "Dedicated"

@@ -12,13 +12,23 @@ properties:
           - xyz.openbmc_project.Common.Error.InternalFailure
 
     - name: UserPrivilege
-      type: string
+      type: array[string]
       description: >
           Privilege of the user. Acceptable values of the system are listed
           under AllPrivileges property under User.Manager interface.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
           - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.NotAllowed
+
+    - name: UserChannelAccess
+      type: array[byte]
+      description: >
+          User channel access of the user.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.NotAllowed
 
     - name: UserEnabled
       type: boolean
@@ -26,6 +36,15 @@ properties:
           Enabled or disabled state of the user.
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: SMTPMailID
+      type: string
+      description: >
+          SMTP mail ID for the user.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.NotAllowed
 
     - name: UserLockedForFailedAttempt
       type: boolean

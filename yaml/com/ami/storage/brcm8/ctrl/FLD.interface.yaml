@@ -1,5 +1,5 @@
 description: >
-    This defines a logical drive count interface.
+    This defines a foreign logical drive count interface.
 
 properties:
     - name: Count
@@ -7,4 +7,4 @@ properties:
       flags:
           - readonly
       description: >
-          Number of logical drive.
+          Number of foreign logical drive.

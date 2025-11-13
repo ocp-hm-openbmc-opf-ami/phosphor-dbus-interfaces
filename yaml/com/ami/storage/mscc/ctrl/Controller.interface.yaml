@@ -33,7 +33,7 @@ properties:
       description: >
         The PCI vendor id and device id of this RAID controller.
     - name: Temperature
-      type: byte
+      type: struct[int32, string]
       flags:
         - readonly
       description: >
@@ -98,7 +98,7 @@ properties:
         - readonly
       description: >
         The vendor ID of this RAID controller.
-    - name: SupportedRaidLevel
+    - name: SupportedRAIDTypes
       type: array[enum[com.ami.storage.mscc.Enumerations.RaidType]]
       flags:
         - readonly

@@ -1,0 +1,18 @@
+description: >
+    This defines a logical drive count interface.
+
+properties:
+    - name: Count
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of logical drive.
+    - name: DegradedCount
+      type: uint32
+      flags:
+          - readonly
+    - name: OfflineCount
+      type: uint32
+      flags:
+          - readonly

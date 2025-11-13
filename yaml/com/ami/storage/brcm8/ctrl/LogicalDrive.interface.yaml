@@ -1,0 +1,144 @@
+description: >
+    This defines a logical drive info interface.
+
+properties:
+    - name: Id
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The logical drive ID.
+    - name: Name
+      type: string
+      flags:
+        - readonly
+      description: >
+        The logical drive name.
+    - name: State
+      type: enum[com.ami.storage.brcm8.Enumerations.LogicalDriveState]
+      flags:
+        - readonly
+      description: >
+        The logical drive state.
+    - name: PRL
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The logical drive PRL value.
+    - name: RLQ
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The logical drive RLQ value.
+    - name: SRL
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The logical drive SRL value.
+    - name: StripSizeBytes
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The logical drive strip size.
+    - name: MediaSpanCount
+      type: uint16
+      flags:
+        - readonly
+      description: >
+        The number of drives per span for the logical drive.
+    - name: SpanDepth
+      type: byte
+      flags:
+        - readonly
+      description: >
+        The span depth of the logical drive.
+    - name: EncryptionType
+      type: enum[com.ami.storage.brcm8.Enumerations.LogicalDriveEncryptionType]
+      flags:
+        - readonly
+      description: >
+        The encryption type of the logical drive.
+    - name: PowerSavingOptions
+      type: array[enum[com.ami.storage.brcm8.Enumerations.PowerSavingPolicy]]
+      flags:
+        - readonly
+      description: >
+        The power‐saving options for the logical drive.
+    - name: CachePolicy
+      type: array[enum[com.ami.storage.brcm8.Enumerations.CachePolicy]]
+      flags:
+        - readonly
+      description: >
+        The current cache policy for the logical drive.
+    - name: PowerSavingPolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.PowerSavingPolicy]
+      flags:
+        - readonly
+      description: >
+        The current power‐saving policy for the logical drive.
+    - name: AccessPolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.LogicalDriveAccessOptions]
+      flags:
+        - readonly
+      description: >
+        The current access policy for the logical drive.
+    - name: AccessPolicyStatus
+      type: array[enum[com.ami.storage.brcm8.Enumerations.AccessPolicyStatus]]
+      flags:
+        - readonly
+      description: >
+        The access policy status for the logical drive.
+    - name: DataPdList
+      type: array[uint16]
+      flags:
+        - readonly
+      description: >
+        The array of pd IDs for the logical drive.
+    - name: RAIDType
+      type: enum[com.ami.storage.brcm8.Enumerations.LogicalDriveRaidType]
+      flags:
+        - readonly
+      description: >
+        Keep tracking the RAID type of this volume.
+    - name: BlockSizeBytes
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The user data block size of logical device.
+    - name: CapacityBytes
+      type: uint64
+      flags:
+        - readonly
+      description: >
+        The total size in bytes of logical device.
+    - name: Operation
+      type: enum[com.ami.storage.brcm8.Enumerations.LogicalDriveCurrentOperation]
+      flags:
+        - readonly
+      description: >
+        The current operation being performed on the logical drive.
+    - name: OperationProgress
+      type: struct[byte, string]
+      flags:
+        - readonly
+      description: >
+        The progress percentage of the current operation (0-100).
+    - name: OperationElapsedSeconds
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        The elapsed time in seconds for the current operation.
+    - name: DiskWriteCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.DiskWriteCachePolicy]
+      flags:
+        - readonly
+    - name: EnableBgi
+      type: boolean
+      flags:
+        - readonly

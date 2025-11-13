@@ -39,12 +39,12 @@ properties:
       description: >
         The location information of the physical drive (slot).
     - name: Temperature
-      type: byte
+      type: struct[int32, string]
       flags:
         - readonly
       description: >
         The temperature of this physical drive.
-    - name: PdType
+    - name: MediaType
       type: enum[com.ami.storage.mscc.Enumerations.PdTypeInfo]
       flags:
         - readonly

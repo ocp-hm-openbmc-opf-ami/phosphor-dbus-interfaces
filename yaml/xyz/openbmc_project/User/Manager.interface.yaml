@@ -18,9 +18,13 @@ methods:
             description: >
                 List of groups to which the user has to be added.
           - name: Privilege
-            type: string
+            type: array[string]
             description: >
                 Privilege of the user to be added.
+          - name: UserChannelAccess
+            type: array[byte]
+            description: >
+                User channel access to be added.
           - name: Enabled
             type: boolean
             description: >
@@ -56,6 +60,48 @@ methods:
           - xyz.openbmc_project.User.Common.Error.UserNameGroupFail
           - xyz.openbmc_project.User.Common.Error.UserNamePrivFail
           - xyz.openbmc_project.User.Common.Error.NoResource
+
+    - name: OTPGeneration
+      description: >
+          Sends OTP data to the configured user's email address.
+      parameters:
+          - name: UserName
+            type: string
+            description: >
+                Username of the account whose password needs to be updated.
+      returns:
+          - name: Result
+            type: boolean
+            description: >
+                Return value for OTPGeneration: true for success, false for failure.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+
+    - name: OTPValidationPasswordUpdate
+      description: >
+          Validates the OTP and updates the password for an existing user.
+      parameters:
+          - name: UserName
+            type: string
+            description: >
+                The username of the account whose password needs to be updated.
+          - name: OTP
+            type: string
+            description: >
+                One-time password sent to the user's registered email address.
+          - name: Password
+            type: string
+            description: >
+                New password to be set for the user.
+      returns:
+          - name: Result
+            type: boolean
+            description: >
+                Return value for OTPValidationPasswordUpdate: true for success, false for failure.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
     - name: SetPasswordExpired
       description: >
@@ -96,6 +142,10 @@ methods:
             type: string
             description: >
                 User name whose properties have to be returned.
+          - name: IpAddress
+            type: string
+            description: >
+                Ip address on which user is tring to login or get privilege
       returns:
           - name: UserInfo
             type: dict[string,variant[string,array[string],boolean]]
