@@ -153,10 +153,14 @@ properties:
       type: boolean
       description: >
           This is Enable/Disable IPv6. Default value is true.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
     - name: IPv4Enable
       type: boolean
       description: >
           This is Enable/Disable IPv4. Default value is true.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
     - name: IPv6EnableStaticRtr
       type: boolean
       description: >
