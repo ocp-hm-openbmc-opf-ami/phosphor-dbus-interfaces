@@ -186,3 +186,7 @@ properties:
       type: enum[com.ami.storage.brcm8.Enumerations.SpareType]
       flags:
         - readonly
+    - name: SupportedEraseTypes
+      type: array[enum[com.ami.storage.brcm8.Enumerations.EraseType]]
+      flags:
+        - readonly
