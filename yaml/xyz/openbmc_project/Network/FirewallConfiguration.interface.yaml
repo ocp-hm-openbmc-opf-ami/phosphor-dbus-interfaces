@@ -107,3 +107,14 @@ methods:
         returns:
             - name: Rules
               type: array[struct[boolean, enum[self.Target], byte, enum[self.Protocol], string, string, uint16, uint16, string, string, string]]
+      - name: ReorderRules
+        description: >
+              Reorder the rules
+        parameters:
+            - name: IP
+              type: enum[self.IP]
+            - name: rules
+              type: array[struct[boolean, enum[self.Target], byte, enum[self.Protocol], string, string, uint16, uint16, string, string, string]]
+        returns:
+            - name: result
+              type: int16
