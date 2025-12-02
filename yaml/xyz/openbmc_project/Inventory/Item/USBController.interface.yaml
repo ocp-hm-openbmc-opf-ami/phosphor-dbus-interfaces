@@ -27,7 +27,7 @@ properties:
       description: >
           The manufacturer of this USB controller.
     - name: Model
-      type: uint16
+      type: string
       flags:
           - readonly
       description: >
