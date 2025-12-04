@@ -1,0 +1,46 @@
+description: >
+    Implement to provide SimpleStorage attributes.
+properties:
+    - name: Name
+      type: string
+      flags:
+          - readonly
+      description: >
+          The name of the resource or array member.
+    - name: Id
+      type: string
+      flags:
+          - readonly
+      description: >
+          The unique identifier for this resource within the 
+          collection of similar resources.
+    - name: Description
+      type: string
+      flags:
+          - readonly
+      description: >
+          Implementation form for the SimpleStorage.
+    - name: UefiDevicePath
+      type: string
+      flags:
+          - readonly
+      description: >
+          The UEFI device path to access this storage controller.
+    - name: Status
+      type: dict[string,string]
+      flags:
+          - readonly
+      description: >
+          The status of the resource
+    - name: Devices
+      type: array[dict[string,variant[string,uint64,dict[string,string]]]]
+      flags:
+          - readonly
+      description: >
+          The storage devices.
+    - name: Links
+      type: string
+      flags:
+          - readonly
+      description: >
+          Links for the Storage

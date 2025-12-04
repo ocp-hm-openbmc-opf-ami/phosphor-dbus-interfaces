@@ -1,0 +1,222 @@
+description: >
+    Implement to provide Drives attributes.
+properties:
+    - name: Name
+      type: string
+      flags:
+          - readonly
+      description: >
+          The name of the resource or array member.
+    - name: Id
+      type: string
+      flags:
+          - readonly
+      description: >
+          The unique identifier for this resource within the 
+          collection of similar resources.
+    - name: Description
+      type: string
+      flags:
+          - readonly
+      description: >
+          Implementation form for the Drives..
+    - name: Links
+      type: string
+      flags:
+          - readonly
+      description: >
+          Links for the Volumes
+    - name: State
+      type: string
+      flags:
+          - readonly
+      description: >
+          The State of the Storage Device.
+    - name: Health
+      type: string
+      flags:
+          - readonly
+      description: >
+          Health of the Storage Device.
+    - name: StatusIndicator
+      type: string
+      flags:
+          - readonly
+      description: >
+          The state of the status indicator, which communicates status information about this drive.
+    
+    - name: IndicatorLed
+      type: string
+      flags:
+          - readonly
+      description: >
+          The state of the indicator LED, that identifies the drive.
+    
+    - name: Model
+      type: string
+      flags:
+          - readonly
+      description: >
+          The model number for the drive.
+
+    - name: Revision
+      type: string
+      flags:
+          - readonly
+      description: >
+          The revision of a SCSI-based drive, as returned from the 'Inquiry' command, which can be the firmware or hardware version
+
+    - name: CapacityBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The size, in bytes, of this drive.
+          
+    - name: FailurePredicted
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          An indication of whether this drive currently predicts a failure in the near future.
+          
+    - name: Protocol
+      type: string
+      flags:
+          - readonly
+      description: >
+          The protocol that this drive currently uses to communicate to the storage controller.
+          
+    - name: MediaType
+      type: string
+      flags:
+          - readonly
+      description: >
+          The type of media contained in this drive.
+          
+    - name: Manufacturer
+      type: string
+      flags:
+          - readonly
+      description: >
+          The manufacturer of this drive.
+          
+    - name: SerialNumber
+      type: string
+      flags:
+          - readonly
+      description: >
+          The serial number for this drive.
+          
+    - name: SKU
+      type: string
+      flags:
+          - readonly
+      description: >
+          The SKU for this drive.
+          
+    - name: PartNumber
+      type: string
+      flags:
+          - readonly
+      description: >
+          The part number for this drive
+          
+    - name: AssetTag
+      type: string
+      flags:
+          - readonly
+      description: >
+          The user-assigned asset tag for this drive.
+          
+    - name: HotspareType
+      type: string
+      flags:
+          - readonly
+      description: >
+          The type of hot spare that this drive serves as.
+          
+    - name: EncryptionAbility
+      type: string
+      flags:
+          - readonly
+      description: >
+          The encryption ability of this drive.
+          
+    - name: EncryptionStatus
+      type: string
+      flags:
+          - readonly
+      description: >
+          The status of the encryption of this drive.
+          
+    - name: RotationSpeedRPM
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The rotation speed of this drive
+          
+    - name: BlockSizeBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The size, in bytes, of the smallest addressable unit, or block
+          
+    - name: CapableSpeedGbs
+      type: double
+      flags:
+          - readonly
+      description: >
+          The speed, in gigabits per second (Gbit/s) units
+          
+    - name: NegotiatedSpeedGbs
+      type: double
+      flags:
+          - readonly
+      description: >
+          The speed, in gigabits per second (Gbit/s) units
+          
+    - name: PredictedMediaLifeLeftPercent
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The percentage of reads and writes that are predicted to be available for the media.
+          
+    - name: HotspareReplacementMode
+      type: string
+      flags:
+          - readonly
+      description: >
+          The replacement mode for the hot spare drive.
+          
+    - name: Identifiers
+      type: array[dict[string,string]]
+      flags:
+          - readonly
+      description: >
+          Any additional identifiers for a resource.
+          
+    - name: WriteCacheEnabled
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          An indication of whether the drive write cache is enabled.
+          
+    - name: LocationIndicatorActive
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          An indicator allowing an operator to physically locate this resource.
+          
+    - name: ReadyToRemove
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          An indication of whether the drive is prepared by the system for removal.
+    

@@ -1,0 +1,251 @@
+description: >
+    Implement to provide Volumes attributes.
+properties:
+    - name: Name
+      type: string
+      flags:
+          - readonly
+      description: >
+          The name of the resource or array member.
+    - name: Id
+      type: string
+      flags:
+          - readonly
+      description: >
+          The unique identifier for this resource within the 
+          collection of similar resources.
+    - name: Description
+      type: string
+      flags:
+          - readonly
+      description: >
+          Implementation form for the Volumes..
+    - name: Links
+      type: string
+      flags:
+          - readonly
+      description: >
+          Links for the SimpleStorage and Enclosures..
+    - name: State
+      type: string
+      flags:
+          - readonly
+      description: >
+          The State of the Storage Device.
+    - name: Health
+      type: string
+      flags:
+          - readonly
+      description: >
+          Health of the Storage Device.
+    - name: VolumeUsage
+      type: string
+      flags:
+          - readonly
+      description: >
+          Indicates the Volume usage type setting for the Volume.
+    
+    - name: StripSizeBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The number of blocks (bytes) in a strip in a disk array that uses striped data mapping.
+    
+    - name: Compressed
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Indicator of whether or not the Volume has compression enabled.
+
+    - name: Deduplicated
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Indicator of whether or not the Volume has deduplication enabled.
+
+    - name: DisplayName
+      type: string
+      flags:
+          - readonly
+      description: >
+          A user-configurable string to name the volume.
+          
+    - name: LogicalUnitNumber
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          Indicates the host-visible LogicalUnitNumber assigned to this Volume.
+          
+    - name: Manufacturer
+      type: string
+      flags:
+          - readonly
+      description: >
+          The manufacturer or OEM of this storage volume.
+          
+    - name: Model
+      type: string
+      flags:
+          - readonly
+      description: >
+          The model number for this storage volume.
+          
+    - name: MediaSpanCount
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          Indicates the number of media elements used per span in the secondary RAID for a hierarchical RAID type.
+          
+    - name: ProvisioningPolicy
+      type: string
+      flags:
+          - readonly
+      description: >
+          The serial number for this drive.
+          
+    - name: RAIDType
+      type: string
+      flags:
+          - readonly
+      description: >
+          The SKU for this drive.
+          
+    - name: ReadCachePolicy
+      type: string
+      flags:
+          - readonly
+      description: >
+          The part number for this drive
+          
+    - name: RemainingCapacityPercent
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The percentage of the capacity remaining in the Volume
+          
+    - name: WriteHoleProtectionPolicy
+      type: string
+      flags:
+          - readonly
+      description: >
+          The policy that the RAID volume is using to address the write hole issue.
+          
+    - name: WriteCacheState
+      type: string
+      flags:
+          - readonly
+      description: >
+          Indicates the WriteCacheState policy setting for the Volume
+          
+    - name: WriteCachePolicy
+      type: string
+      flags:
+          - readonly
+      description: >
+          Indicates the write cache policy setting for the Volume.
+          
+    - name: MaxBlockSizeBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          Max Block size in bytes.
+          
+    - name: RecoverableCapacitySourceCount
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          Current number of capacity source resources that are available as replacements.
+          
+    - name: CapacityBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The size in bytes of this Volume.
+          
+    - name: VolumeType
+      type: string
+      flags:
+          - readonly
+      description: >
+          The speed, in gigabits per second (Gbit/s) units
+          
+    - name: Encrypted
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Is this Volume encrypted.
+          
+    - name: EncryptionTypes
+      type: array[string]
+      flags:
+          - readonly
+      description: >
+          The types of encryption used by this Volume.
+          
+    - name: Identifiers
+      type: array[dict[string,string]]
+      flags:
+          - readonly
+      description: >
+          Any additional identifiers for a resource.
+          
+    - name: BlockSizeBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The size of the smallest addressable unit (Block) of this volume in bytes.
+          
+    - name: OptimumIOSizeBytes
+      type: uint64
+      flags:
+          - readonly
+      description: >
+          The size in bytes of this Volume's optimum IO size.
+                    
+    - name: AccessCapabilities
+      type: array[string]
+      flags:
+          - readonly
+      description: >
+          Values of StorageAccessCapability describe abilities to read or write storage.
+                    
+    - name: NVMeNamespaceProperties
+      type: dict[string,variant[string,uint64,boolean]]
+      flags:
+          - readonly
+      description: >
+          This property contains properties to use when Volume is used to describe an NVMe Namespace.
+                    
+    - name: ReplicaInfo
+      type: dict[string,variant[boolean,string,uint64]]
+      flags:
+          - readonly
+      description: >
+          This property shall describe the replica relationship between this storage volume and a corresponding source volume
+                                        
+    - name: LowSpaceWarningThresholdPercents
+      type: array[uint64]
+      flags:
+          - readonly
+      description: >
+          Low space warning
+    
+    - name: Capacity
+      type: dict[string,variant[dict[string,uint64],boolean]]
+      flags:
+          - readonly
+      description: >
+          Information about the utilization of capacity allocated to this storage volume.
+
+    
