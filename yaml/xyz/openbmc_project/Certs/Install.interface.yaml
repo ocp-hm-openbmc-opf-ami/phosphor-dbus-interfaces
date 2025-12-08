@@ -24,3 +24,4 @@ methods:
           - xyz.openbmc_project.Common.Error.NotAllowed
           - xyz.openbmc_project.Certs.Error.InvalidCertificate
           - xyz.openbmc_project.Certs.Error.CertificateExists
+          - xyz.openbmc_project.Certs.Error.CertificateFileExpired
