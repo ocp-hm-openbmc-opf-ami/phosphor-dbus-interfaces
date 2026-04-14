@@ -16,3 +16,9 @@ properties:
       type: uint32
       flags:
           - readonly
+    - name: HotSparesCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of hot spare physical drives.
