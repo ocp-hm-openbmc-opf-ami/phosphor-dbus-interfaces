@@ -13,5 +13,7 @@ properties:
           VLAN Identifier.
     - name: Priority
       type: uint32
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
       description: >
           VLAN Priority
