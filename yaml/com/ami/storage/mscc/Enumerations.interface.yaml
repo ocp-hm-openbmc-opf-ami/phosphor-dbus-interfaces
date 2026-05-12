@@ -23,8 +23,8 @@ enumerations:
         - name: "Unknown"
         - name: "Low"
         - name: "Medium"
-        - name: "MediumHight"
-        - name: "Hight"
+        - name: "MediumHigh"
+        - name: "High"
     - name: InconsistencyRepairPolicy
       values:
         - name: "Unknown"
@@ -286,15 +286,9 @@ enumerations:
         - name: "RAID1Triple"
           description: >
             RAID1 triple.
-        - name: "RAID1ADM"
-          description: >
-            RAID1 ADM.
         - name: "RAID10Triple"
           description: >
             RAID10 triple.
-        - name: "RAID10ADM"
-          description: >
-            RAID10 ADM.
     - name: LdTypeInfo
       description: >
         List spare PD member of LD.
