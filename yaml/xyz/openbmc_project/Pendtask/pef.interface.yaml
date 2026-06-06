@@ -1,0 +1,36 @@
+description: >
+  Interface for PEF (Platform Event Filtering) retry alert operations.
+  This interface provides methods to handle alert retry mechanisms for
+  SMTP and SNMP.
+
+methods:
+  - name: retryAlert
+    description: >
+      Retry sending an alert based on the alert type and event message.
+    parameters:
+      - name: AlertType
+        type: string
+        description: >
+          Type of alert to retry (e.g., "smtp", "snmp").
+      - name: Identifier
+        type: string
+        description: >
+          Generic identifier for the alert.
+          For SMTP, the subject line of the email.
+          For SNMP, the recordId or trap identifier.
+      - name: Payload
+        type: string
+        description: >
+          Generic payload for the alert.
+          For SMTP, the email body text.
+          For SNMP, a serialized payload (JSON or delimited string)
+          containing trap fields such as timeStamp, severity, eventDataMsg,
+          sensorName, direction, eventSubjectSN, addData, and hostName.
+    returns:
+      - name: Success
+        type: boolean
+        description: >
+          Returns true if retry was successful or queued.
+    errors:
+      - xyz.openbmc_project.Common.Error.InternalFailure
+      - xyz.openbmc_project.Common.Error.InvalidArgument

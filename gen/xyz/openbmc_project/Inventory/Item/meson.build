@@ -1,690 +1,1390 @@
 # Generated file; do not modify.
+subdir('Accelerator')
+subdir('Assembly')
+subdir('Battery')
+subdir('Bios')
+subdir('Bmc')
+subdir('Board')
+subdir('Cable')
+subdir('Chassis')
+subdir('Connector')
+subdir('Cpu')
+subdir('CpuCore')
+subdir('Dimm')
+subdir('DiskBackplane')
+subdir('Drive')
+subdir('Endpoint')
+subdir('Ethernet')
+subdir('Fabric')
+subdir('FabricAdapter')
+subdir('Fan')
+subdir('Fpga')
+subdir('Global')
+subdir('ManagementService')
+subdir('NetworkInterface')
+subdir('NvSwitch')
+subdir('PCIeDevice')
+subdir('PCIeFunction')
+subdir('PCIeSlot')
+subdir('PCIeSwitch')
+subdir('Panel')
+subdir('PersistentMemory')
+subdir('Port')
+subdir('Ports')
+subdir('PowerSupply')
+subdir('Rotor')
+subdir('SPDMResponder')
+subdir('SimpleStorage')
+subdir('Storage')
+subdir('StorageController')
+subdir('Switch')
+subdir('System')
+subdir('Tpm')
+subdir('TrustedComponent')
+subdir('USBController')
+subdir('Valve')
+subdir('Volume')
+subdir('Vrm')
+subdir('Zone')
+subdir('NetworkAdapter')
+subdir('NetworkController')
+subdir('NetworkDeviceFunction')
+subdir('NetworkPort')
+subdir('InterleaveSet')
+subdir('MemoryChunk')
+subdir('MemoryDomain')
+
+sdbusplus_current_path = 'xyz/openbmc_project/Inventory/Item'
+
 generated_sources += custom_target(
     'xyz/openbmc_project/Inventory/Item__cpp'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item.interface.yaml',  ],
-    output: [ 'common.hpp', 'server.cpp', 'server.hpp', 'aserver.hpp', 'client.hpp',  ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item.interface.yaml',
+    ],
+    output: [
+        'common.hpp',
+        'server.hpp',
+        'server.cpp',
+        'aserver.hpp',
+        'client.hpp',
+    ],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'cpp',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'cpp',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item',
     ],
+    install: should_generate_cpp,
+    install_dir: [
+        get_option('includedir') / sdbusplus_current_path,
+        get_option('includedir') / sdbusplus_current_path,
+        false,
+        get_option('includedir') / sdbusplus_current_path,
+        get_option('includedir') / sdbusplus_current_path,
+    ],
+    build_by_default: should_generate_cpp,
 )
 
-subdir('Accelerator')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Accelerator__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Accelerator.interface.yaml',  ],
-    output: [ 'Accelerator.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Accelerator.interface.yaml',
+    ],
+    output: ['Accelerator.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Accelerator',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Assembly')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Assembly__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Assembly.interface.yaml',  ],
-    output: [ 'Assembly.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Assembly.interface.yaml',
+    ],
+    output: ['Assembly.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Assembly',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Battery')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Battery__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Battery.interface.yaml',  ],
-    output: [ 'Battery.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Battery.interface.yaml',
+    ],
+    output: ['Battery.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Battery',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Bios')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Bios__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Bios.interface.yaml',  ],
-    output: [ 'Bios.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Bios.interface.yaml',
+    ],
+    output: ['Bios.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Bios',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Bmc')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Bmc__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Bmc.interface.yaml',  ],
-    output: [ 'Bmc.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Bmc.interface.yaml',
+    ],
+    output: ['Bmc.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Bmc',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Board')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Board__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Board.interface.yaml',  ],
-    output: [ 'Board.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Board.interface.yaml',
+    ],
+    output: ['Board.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Board',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Cable')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Cable__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Cable.interface.yaml',  ],
-    output: [ 'Cable.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Cable.interface.yaml',
+    ],
+    output: ['Cable.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Cable',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Chassis')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Chassis__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Chassis.interface.yaml',  ],
-    output: [ 'Chassis.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Chassis.interface.yaml',
+    ],
+    output: ['Chassis.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Chassis',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Connector')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Connector__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Connector.interface.yaml',  ],
-    output: [ 'Connector.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Connector.interface.yaml',
+    ],
+    output: ['Connector.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Connector',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Cpu')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Cpu__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Cpu.interface.yaml',  ],
-    output: [ 'Cpu.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Cpu.interface.yaml',
+    ],
+    output: ['Cpu.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Cpu',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('CpuCore')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/CpuCore__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/CpuCore.interface.yaml',  ],
-    output: [ 'CpuCore.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/CpuCore.interface.yaml',
+    ],
+    output: ['CpuCore.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/CpuCore',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Dimm')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Dimm__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Dimm.interface.yaml',  ],
-    output: [ 'Dimm.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Dimm.interface.yaml',
+    ],
+    output: ['Dimm.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Dimm',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('DiskBackplane')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/DiskBackplane__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/DiskBackplane.interface.yaml',  ],
-    output: [ 'DiskBackplane.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/DiskBackplane.interface.yaml',
+    ],
+    output: ['DiskBackplane.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/DiskBackplane',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Drive')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Drive__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Drive.interface.yaml',  ],
-    output: [ 'Drive.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Drive.interface.yaml',
+    ],
+    output: ['Drive.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Drive',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Endpoint')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Endpoint__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Endpoint.interface.yaml',  ],
-    output: [ 'Endpoint.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Endpoint.interface.yaml',
+    ],
+    output: ['Endpoint.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Endpoint',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Ethernet')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Ethernet__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Ethernet.interface.yaml',  ],
-    output: [ 'Ethernet.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Ethernet.interface.yaml',
+    ],
+    output: ['Ethernet.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Ethernet',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Fabric')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Fabric__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fabric.interface.yaml',  ],
-    output: [ 'Fabric.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fabric.interface.yaml',
+    ],
+    output: ['Fabric.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Fabric',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('FabricAdapter')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/FabricAdapter__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/FabricAdapter.interface.yaml',  ],
-    output: [ 'FabricAdapter.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/FabricAdapter.interface.yaml',
+    ],
+    output: ['FabricAdapter.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/FabricAdapter',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Fan')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Fan__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fan.interface.yaml',  ],
-    output: [ 'Fan.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fan.interface.yaml',
+    ],
+    output: ['Fan.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Fan',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Fpga')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Fpga__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fpga.interface.yaml',  ],
-    output: [ 'Fpga.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Fpga.interface.yaml',
+    ],
+    output: ['Fpga.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Fpga',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Global')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Global__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Global.interface.yaml',  ],
-    output: [ 'Global.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Global.interface.yaml',
+    ],
+    output: ['Global.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Global',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('ManagementService')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/ManagementService__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/ManagementService.interface.yaml',  ],
-    output: [ 'ManagementService.md' ],
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/InterleaveSet__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/InterleaveSet.interface.yaml',
+    ],
+    output: ['InterleaveSet.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/InterleaveSet',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/ManagementService__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/ManagementService.interface.yaml',
+    ],
+    output: ['ManagementService.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/ManagementService',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('NetworkInterface')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/NetworkInterface__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NetworkInterface.interface.yaml',  ],
-    output: [ 'NetworkInterface.md' ],
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/MemoryChunk__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/MemoryChunk.interface.yaml',
+    ],
+    output: ['MemoryChunk.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/MemoryChunk',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/MemoryDomain__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/MemoryDomain.interface.yaml',
+    ],
+    output: ['MemoryDomain.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/MemoryDomain',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NetworkAdapter__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NetworkAdapter.interface.yaml',
+    ],
+    output: ['NetworkAdapter.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/NetworkAdapter',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NetworkController__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NetworkController.interface.yaml',
+    ],
+    output: ['NetworkController.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/NetworkController',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NetworkDeviceFunction__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NetworkDeviceFunction.interface.yaml',
+    ],
+    output: ['NetworkDeviceFunction.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/NetworkDeviceFunction',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NetworkInterface__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NetworkInterface.interface.yaml',
+    ],
+    output: ['NetworkInterface.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/NetworkInterface',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('NvSwitch')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/NvSwitch__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NvSwitch.interface.yaml',  ],
-    output: [ 'NvSwitch.md' ],
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NetworkPort__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NetworkPort.interface.yaml',
+    ],
+    output: ['NetworkPort.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/NetworkPort',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/NvSwitch__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/NvSwitch.interface.yaml',
+    ],
+    output: ['NvSwitch.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/NvSwitch',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('PCIeDevice')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/PCIeDevice__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeDevice.interface.yaml',  ],
-    output: [ 'PCIeDevice.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeDevice.interface.yaml',
+    ],
+    output: ['PCIeDevice.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/PCIeDevice',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('PCIeSlot')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/PCIeSlot__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeSlot.interface.yaml',  ],
-    output: [ 'PCIeSlot.md' ],
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/PCIeFunction__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeFunction.interface.yaml',
+    ],
+    output: ['PCIeFunction.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/PCIeFunction',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/PCIeSlot__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeSlot.interface.yaml',
+    ],
+    output: ['PCIeSlot.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/PCIeSlot',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('PCIeSwitch')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/PCIeSwitch__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeSwitch.interface.yaml',  ],
-    output: [ 'PCIeSwitch.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PCIeSwitch.interface.yaml',
+    ],
+    output: ['PCIeSwitch.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/PCIeSwitch',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Panel')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Panel__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Panel.interface.yaml',  ],
-    output: [ 'Panel.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Panel.interface.yaml',
+    ],
+    output: ['Panel.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Panel',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('PersistentMemory')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/PersistentMemory__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PersistentMemory.interface.yaml',  ],
-    output: [ 'PersistentMemory.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PersistentMemory.interface.yaml',
+    ],
+    output: ['PersistentMemory.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/PersistentMemory',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Port')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Port__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Port.interface.yaml',  ],
-    output: [ 'Port.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Port.interface.yaml',
+    ],
+    output: ['Port.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Port',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Ports')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Ports__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Ports.interface.yaml',  ],
-    output: [ 'Ports.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Ports.interface.yaml',
+    ],
+    output: ['Ports.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Ports',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('PowerSupply')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/PowerSupply__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PowerSupply.interface.yaml',  ],
-    output: [ 'PowerSupply.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/PowerSupply.interface.yaml',
+    ],
+    output: ['PowerSupply.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/PowerSupply',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Rotor')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Rotor__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Rotor.interface.yaml',  ],
-    output: [ 'Rotor.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Rotor.interface.yaml',
+    ],
+    output: ['Rotor.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Rotor',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('SPDMResponder')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/SPDMResponder__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/SPDMResponder.interface.yaml',  ],
-    output: [ 'SPDMResponder.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/SPDMResponder.interface.yaml',
+    ],
+    output: ['SPDMResponder.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/SPDMResponder',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('SimpleStorage')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/SimpleStorage__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/SimpleStorage.interface.yaml',  ],
-    output: [ 'SimpleStorage.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/SimpleStorage.interface.yaml',
+    ],
+    output: ['SimpleStorage.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/SimpleStorage',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Storage')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Storage__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Storage.interface.yaml',  ],
-    output: [ 'Storage.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Storage.interface.yaml',
+    ],
+    output: ['Storage.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Storage',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('StorageController')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/StorageController__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/StorageController.interface.yaml',  ],
-    output: [ 'StorageController.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/StorageController.interface.yaml',
+    ],
+    output: ['StorageController.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/StorageController',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Switch')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Switch__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Switch.interface.yaml',  ],
-    output: [ 'Switch.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Switch.interface.yaml',
+    ],
+    output: ['Switch.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Switch',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('System')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/System__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/System.interface.yaml',  ],
-    output: [ 'System.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/System.interface.yaml',
+    ],
+    output: ['System.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/System',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-
-subdir('Tpm')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Tpm__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Tpm.interface.yaml',  ],
-    output: [ 'Tpm.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Tpm.interface.yaml',
+    ],
+    output: ['Tpm.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Tpm',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('TrustedComponent')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/TrustedComponent__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/TrustedComponent.interface.yaml',  ],
-    output: [ 'TrustedComponent.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/TrustedComponent.interface.yaml',
+    ],
+    output: ['TrustedComponent.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/TrustedComponent',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('USBController')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/USBController__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/USBController.interface.yaml',  ],
-    output: [ 'USBController.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/USBController.interface.yaml',
+    ],
+    output: ['USBController.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/USBController',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Volume')
-generated_others += custom_target(
-    'xyz/openbmc_project/Inventory/Item/Volume__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Volume.interface.yaml',  ],
-    output: [ 'Volume.md' ],
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Valve__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Valve.interface.yaml',
+    ],
+    output: ['Valve.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
+        'xyz/openbmc_project/Inventory/Item/Valve',
+    ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
+)
+
+generated_markdown += custom_target(
+    'xyz/openbmc_project/Inventory/Item/Volume__markdown'.underscorify(),
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Volume.interface.yaml',
+    ],
+    output: ['Volume.md'],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Volume',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Vrm')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Vrm__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Vrm.interface.yaml',  ],
-    output: [ 'Vrm.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Vrm.interface.yaml',
+    ],
+    output: ['Vrm.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Vrm',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('Zone')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Inventory/Item/Zone__markdown'.underscorify(),
-    input: [ '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Zone.interface.yaml',  ],
-    output: [ 'Zone.md' ],
+    input: [
+        '../../../../../yaml/xyz/openbmc_project/Inventory/Item/Zone.interface.yaml',
+    ],
+    output: ['Zone.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../yaml',
         'xyz/openbmc_project/Inventory/Item/Zone',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
+

@@ -9,17 +9,21 @@ description: >
       fan_tach
       frequency
       humidity
+      liquidflow
       power
       pressure
       temperature
       utilization
+      valve
       voltage
       counter
 
     Any service implementing Sensor.Value on one or more objects must implement
     org.freedesktop.DBus.ObjectManager on /xyz/openbmc_project/sensors.
 
-    All Sensor.Value properties are read-only.
+    All Sensor.Value properties are read-only, unless the
+    xyz.openbmc_project.Sensor.ValueMutability interface is present on the same
+    object path. In that case, refer to the docs for ValueMutability interface.
 
 properties:
     - name: Value
@@ -63,6 +67,16 @@ properties:
           For objects in the utilization namespace, Unit must be "Percent"
           For objects in the voltage namespace, Unit must be "Volts".
           For objects in the counter namespace, Unit must be "Counts".
+    - name: SensorNumber
+      type: uint16
+      default: 65534   # 0xFFFE indicates uninitialized sensor number
+      description: >
+          The sensor number. Defaults to 65534 (0xFFFE) indicating an uninitialized sensor number.
+    - name: LUN
+      type: byte
+      default: 0
+      description: >
+          Sensor Owner LUN.
 
 enumerations:
     - name: Unit
@@ -80,10 +94,13 @@ enumerations:
                 Temperature as degrees Celsius.
           - name: Hertz
             description: >
-                Frequency as Hertz.
+                Frequency in Hertz
           - name: Joules
             description: >
                 Energy transfer as Joules.
+          - name: LPM
+            description: >
+                To calculate the liquid flow in Liters Per Minute.
           - name: Meters
             description: >
                 Length as meters.
@@ -101,7 +118,7 @@ enumerations:
                 Frequency of rotation as revolutions per minute.
           - name: Volts
             description: >
-                Electomotive force as volts.
+                Electromotive force as volts.
           - name: Watts
             description: >
                 Rate of energy transfer as Watts.
@@ -115,16 +132,14 @@ associations:
       description: >
           Sensors may implement an 'inventory' to 'sensors' association with the
           inventory item related to it.
-      reverse_names:
-          - sensors
+      reverse_name: sensors
       required_endpoint_interfaces:
           - xyz.openbmc_project.Inventory.Item
     - name: monitoring
       description: >
           Sensors may monitor the BMC's resource utilization and implement an
           association to the Bmc item.
-      reverse_names:
-          - monitored_by
+      reverse_name: monitored_by
       required_endpoint_interfaces:
           - xyz.openbmc_project.Inventory.Item.Bmc
 
@@ -141,8 +156,12 @@ paths:
             value: energy
           - name: FanTach
             value: fan_tach
+          - name: Frequency
+            value: frequency
           - name: Humidity
             value: humidity
+          - name: Liquidflow
+            value: liquidflow
           - name: Power
             value: power
           - name: Pressure
@@ -151,5 +170,10 @@ paths:
             value: temperature
           - name: Utilization
             value: utilization
+          - name: Valve
+            value: valve
+            description: >
+                This path segment implements the value interface for the valve,
+                representing its open status.
           - name: Voltage
             value: voltage

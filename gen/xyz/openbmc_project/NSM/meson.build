@@ -1,31 +1,54 @@
 # Generated file; do not modify.
 subdir('NSMRawCommand')
-generated_others += custom_target(
+subdir('NSMRawCommandStatus')
+
+sdbusplus_current_path = 'xyz/openbmc_project/NSM'
+
+generated_markdown += custom_target(
     'xyz/openbmc_project/NSM/NSMRawCommand__markdown'.underscorify(),
-    input: [ '../../../../yaml/xyz/openbmc_project/NSM/NSMRawCommand.interface.yaml',  ],
-    output: [ 'NSMRawCommand.md' ],
+    input: [
+        '../../../../yaml/xyz/openbmc_project/NSM/NSMRawCommand.interface.yaml',
+    ],
+    output: ['NSMRawCommand.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/NSM/NSMRawCommand',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
-subdir('NSMRawCommandStatus')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/NSM/NSMRawCommandStatus__markdown'.underscorify(),
-    input: [ '../../../../yaml/xyz/openbmc_project/NSM/NSMRawCommandStatus.interface.yaml',  ],
-    output: [ 'NSMRawCommandStatus.md' ],
+    input: [
+        '../../../../yaml/xyz/openbmc_project/NSM/NSMRawCommandStatus.interface.yaml',
+    ],
+    output: ['NSMRawCommandStatus.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/NSM/NSMRawCommandStatus',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 

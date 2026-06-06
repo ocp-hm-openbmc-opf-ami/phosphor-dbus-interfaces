@@ -1,0 +1,86 @@
+description: >
+    Implement to provide network port attributes. A network port represents
+    a physical or logical port on a network adapter or controller.
+
+properties:
+    - name: PortId
+      type: string
+      default: ""
+      description: >
+          The port identifier assigned by the controller.
+      flags:
+          - readonly
+
+    - name: Name
+      type: string
+      default: ""
+      description: >
+          The name of the network port.
+      flags:
+          - readonly
+
+    - name: PortProtocol
+      type: string
+      default: ""
+      description: >
+          The protocol being sent over this port.
+      default: Ethernet
+
+    - name: LinkStatus
+      type: string
+      default: ""
+      description: >
+          The link status of the network port.
+      default: LinkDown
+
+    - name: LinkState
+      type: string
+      default: ""
+      description: >
+          The desired link state of the network port.
+      default: Disabled
+
+    - name: LinkNetworkTechnology
+      type: string
+      default: ""
+      description: >
+          The link network technology of this port (e.g., Ethernet, InfiniBand).
+      flags:
+          - readonly
+
+    - name: SignalDetected
+      type: boolean
+      default: false
+      description: >
+          Whether or not a signal is detected on this port.
+      flags:
+          - readonly
+
+    - name: InterfaceEnabled
+      type: boolean
+      description: >
+          Whether the interface is enabled.
+      default: false
+
+    - name: MACAddress
+      type: string
+      default: ""
+      description: >
+          The MAC address of the port.
+
+associations:
+    - name: parent_controller
+      description: >
+          Network port implements the 'parent_controller' association to 
+          provide a link to the parent network controller.
+      reverse_name: ports
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkController
+
+    - name: parent_adapter
+      description: >
+          Network port implements the 'parent_adapter' association to 
+          provide a link to the parent network adapter.
+      reverse_name: ports
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkAdapter

@@ -62,19 +62,19 @@ properties:
         - readonly
       description: >
         Keeps tracking the support RAID mode, HBA mode and Mixed mode.
-    - name: SupportedMaxPdCount
+    - name: MaxPhysicalDevicesCount
       type: uint16
       flags:
         - readonly
       description: >
         The max number of physical drives of the controller can support.
-    - name: SupportedMaxLdCount
+    - name: MaxLogicalDevicesCount
       type: uint16
       flags:
         - readonly
       description: >
         The max number of logical drives of the controller can support.
-    - name: SupportedMaxPdPerLdCount
+    - name: MaxPhysicalDevicesCountPerLogicalDevices
       type: uint16
       flags:
         - readonly

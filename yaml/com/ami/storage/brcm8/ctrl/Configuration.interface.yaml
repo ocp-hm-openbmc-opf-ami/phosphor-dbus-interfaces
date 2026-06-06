@@ -457,6 +457,17 @@ methods:
       - com.ami.storage.Common.Error.InvalidArgument
       - com.ami.storage.Common.Error.InternalFailure
       - com.ami.storage.Common.Error.DeviceOrResourceBusy
+  - name: StopLogicalDriveBackgroundInitialization
+    parameters:
+      - name: LdId
+        type: uint16
+    returns:
+      - name: MessageId
+        type: uint64
+    errors:
+      - com.ami.storage.Common.Error.InvalidArgument
+      - com.ami.storage.Common.Error.InternalFailure
+      - com.ami.storage.Common.Error.DeviceOrResourceBusy
   - name: DeleteHotspare
     parameters:
       - name: PdId

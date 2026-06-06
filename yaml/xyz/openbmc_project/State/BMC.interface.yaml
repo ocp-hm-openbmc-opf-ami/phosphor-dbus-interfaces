@@ -10,9 +10,12 @@ properties:
       default: "None"
       description: >
           The desired BMC transition
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
 
     - name: CurrentBMCState
       type: enum[self.BMCState]
+      default: "NotReady"
       description: >
           The current state of the BMC and is a read-only property.
 
@@ -33,7 +36,6 @@ properties:
       default: 0
       description: >
           The differnce timeout value.
- 
 
 enumerations:
     - name: Transition
@@ -87,6 +89,9 @@ enumerations:
           - name: "Watchdog"
             description: >
                 Last reboot is caused by Watchdog
+          - name: "Software"
+            description: >
+                Last reboot is caused by Software
           - name: "Unknown"
             description: >
                 Last reboot is caused by Unknown

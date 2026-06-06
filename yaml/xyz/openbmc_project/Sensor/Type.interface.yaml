@@ -1,13 +1,49 @@
 description: >
-    Implement to provide sensor implementation type properties.
+    Implement to provide detail on type of the sensor. Each property in the
+    interface maps to a distinct group of sensor subtypes.
+
+    Objects implementing Sensor.Type shall also implement Sensor.Value.
 
 properties:
+    - name: ReadingBasis
+      type: enum[self.ReadingBasisType]
+      default: Unknown
+      flags:
+          - readonly
+      description: >
+          Defines the type of the sensor based on how the sensor reading is
+          determined.
+
     - name: Implementation
       type: enum[self.ImplementationType]
       description: >
           The implementation of the resource like sensor.
 
 enumerations:
+    - name: ReadingBasisType
+      description: >
+          Types of the sensors based on how their reading is determined.
+      values:
+          - name: Unknown
+            description: >
+                Indicates that the how sensor reading is determined is not
+                known.
+          - name: Zero
+            description: >
+                A zero-based reading. This value shall indicate a reading with
+                zero as its reference point.
+          - name: Delta
+            description: >
+                A reading that reports the difference between two measurements.
+                This value shall indicate a reading that reports the difference
+                between two measurements.
+          - name: Headroom
+            description: >
+                Indicates that the reading decreases in value as it approaches
+                the reference point. If the value crosses the reference point,
+                the value may be reported as a negative number, or may report a
+                value of zero.
+
     - name: ImplementationType
       description: >
         Implementation types for a resource.

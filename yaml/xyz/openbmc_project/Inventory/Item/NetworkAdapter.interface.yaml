@@ -1,0 +1,78 @@
+description: >
+    Implement to provide network adapter attributes. A network adapter is a 
+    physical device that provides network connectivity, typically containing 
+    one or more controllers, ports, and device functions.
+
+properties:
+    - name: Name
+      type: string
+      default: ""
+      description: >
+          The name of the network adapter.
+      flags:
+          - readonly
+
+    - name: Manufacturer
+      type: string
+      default: ""
+      description: >
+          The manufacturer of this network adapter.
+      flags:
+          - readonly
+
+    - name: Model
+      type: string
+      default: ""
+      description: >
+          The model number of the network adapter.
+      flags:
+          - readonly
+
+    - name: PartNumber
+      type: string
+      default: ""
+      description: >
+          The part number of the network adapter.
+      flags:
+          - readonly
+
+    - name: SerialNumber
+      type: string
+      default: ""
+      description: >
+          The serial number of the network adapter.
+      flags:
+          - readonly
+
+associations:
+    - name: controllers
+      description: >
+          Network adapter can optionally implement the 'controllers' 
+          association to provide links to one or more network controllers.
+      reverse_name: parent_adapter
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkController
+
+    - name: ports
+      description: >
+          Network adapter can optionally implement the 'ports' association 
+          to provide links to one or more network ports.
+      reverse_name: parent_adapter
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkPort
+
+    - name: device_functions
+      description: >
+          Network adapter can optionally implement the 'device_functions' 
+          association to provide links to one or more network device functions.
+      reverse_name: parent_adapter
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkDeviceFunction
+
+    - name: pcie_device
+      description: >
+          Network adapter can optionally implement the 'pcie_device' 
+          association to provide a link to the PCIe device.
+      reverse_name: network_adapter
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.PCIeDevice

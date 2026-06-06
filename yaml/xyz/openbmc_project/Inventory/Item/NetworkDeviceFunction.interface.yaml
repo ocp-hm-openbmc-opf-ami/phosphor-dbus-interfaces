@@ -1,0 +1,97 @@
+description: >
+    Implement to provide network device function attributes. A network device
+    function represents a logical function on a network controller, such as
+    a virtual function (VF) or physical function (PF).
+
+properties:
+    - name: Name
+      type: string
+      default: ""
+      description: >
+          The name of the network device function.
+      flags:
+          - readonly
+
+    - name: NetDevFuncType
+      type: string
+      default: ""
+      description: >
+          The type of network device function.
+      default: Ethernet
+
+    - name: VirtualFunctionsEnabled
+      type: boolean
+      description: >
+          Whether Single Root I/O Virtualization (SR-IOV) virtual functions 
+          are enabled.
+      default: false
+
+    - name: MaxVirtualFunctions
+      type: uint32
+      default: 0
+      description: >
+          The maximum number of virtual functions (VFs) supported by this function.
+      flags:
+          - readonly
+
+    - name: MACAddress
+      type: string
+      default: ""
+      description: >
+          The MAC address of the network device function.
+
+    - name: PermanentMACAddress
+      type: string
+      default: ""
+      description: >
+          The permanent MAC address assigned to this function.
+      flags:
+          - readonly
+
+    - name: MTUSize
+      type: uint32
+      description: >
+          The Maximum Transmission Unit (MTU) configured for this function.
+      default: 1500
+
+associations:
+    - name: parent_controller
+      description: >
+          Network device function implements the 'parent_controller' 
+          association to provide a link to the parent network controller.
+      reverse_name: device_functions
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkController
+
+    - name: parent_adapter
+      description: >
+          Network device function implements the 'parent_adapter' association 
+          to provide a link to the parent network adapter.
+      reverse_name: device_functions
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkAdapter
+
+    - name: physical_port
+      description: >
+          Network device function can optionally implement the 'physical_port' 
+          association to provide a link to the physical network port assigned.
+      reverse_name: device_functions
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkPort
+
+    - name: pcie_function
+      description: >
+          Network device function can optionally implement the 'pcie_function' 
+          association to provide a link to the PCIe function.
+      reverse_name: network_function
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.PCIeDevice
+
+    - name: ethernet_interfaces
+      description: >
+          Network device function can optionally implement the 
+          'ethernet_interfaces' association to provide links to logical 
+          ethernet interfaces.
+      reverse_name: device_function
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Network.EthernetInterface

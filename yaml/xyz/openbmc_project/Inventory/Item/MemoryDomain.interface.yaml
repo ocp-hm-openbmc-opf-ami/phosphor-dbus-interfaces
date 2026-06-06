@@ -1,0 +1,42 @@
+description: >
+    Implement to provide Memory Domain attributes for Redfish MemoryDomains.
+    This represents the memory domain and its memory chunks.
+
+properties:
+    - name: Name
+      type: string
+      description: >
+          The name of this memory domain.
+    - name: AllowsMemoryChunkCreation
+      type: boolean
+      description: >
+          An indication of whether this memory domain allows memory chunk creation.
+    - name: AllowsBlockProvisioning
+      type: boolean
+      description: >
+          An indication of whether this memory domain supports block provisioning.
+    - name: AllowsMirroring
+      type: boolean
+      description: >
+          An indication of whether this memory domain supports mirroring.
+    - name: AllowsSparing
+      type: boolean
+      description: >
+          An indication of whether this memory domain supports sparing.
+
+associations:
+    - name: memory_interleavable_sets
+      description: >
+          Memory domain can optionally implement the 'memory_interleavable_sets' 
+          association to provide links to one or more memory interleavable sets.
+      reverse_name: memory_domain
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.MemoryInterleavableSet
+
+    - name: memory_chunks
+      description: >
+          Memory domain can optionally implement the 'memory_chunks' association 
+          to provide links to one or more memory chunks.
+      reverse_name: memory_domain
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.MemoryChunk

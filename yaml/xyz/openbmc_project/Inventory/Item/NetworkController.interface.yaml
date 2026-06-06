@@ -1,0 +1,75 @@
+description: >
+    Implement to provide network controller attributes. A network controller
+    manages network ports and device functions on a network adapter.
+
+properties:
+    - name: Name
+      type: string
+      default: ""
+      description: >
+          The name of the network controller.
+      flags:
+          - readonly
+
+    - name: FirmwarePackageVersion
+      type: string
+      default: ""
+      description: >
+          The version of the firmware package installed on this controller.
+      flags:
+          - readonly
+
+    - name: NetworkPortCount
+      type: uint32
+      default: 0
+      description: >
+          The number of physical network ports on this controller.
+      flags:
+          - readonly
+
+    - name: NetworkDeviceFunctionCount
+      type: uint32
+      default: 0
+      description: >
+          The number of network device functions on this controller.
+      flags:
+          - readonly
+
+    - name: VirtualizationOffloadEnabled
+      type: boolean
+      description: >
+          Whether virtualization offload (e.g., SR-IOV) is enabled on this controller.
+      default: false
+
+associations:
+    - name: parent_adapter
+      description: >
+          Network controller implements the 'parent_adapter' association to 
+          provide a link to the parent network adapter.
+      reverse_name: controllers
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkAdapter
+
+    - name: ports
+      description: >
+          Network controller can optionally implement the 'ports' association 
+          to provide links to one or more network ports.
+      reverse_name: parent_controller
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkPort
+
+    - name: device_functions
+      description: >
+          Network controller can optionally implement the 'device_functions' 
+          association to provide links to network device functions.
+      reverse_name: parent_controller
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.NetworkDeviceFunction
+
+    - name: pcie_devices
+      description: >
+          Network controller can optionally implement the 'pcie_devices' 
+          association to provide links to PCIe devices.
+      reverse_name: network_controller
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.PCIeDevice

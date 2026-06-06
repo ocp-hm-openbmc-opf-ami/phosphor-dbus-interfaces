@@ -1,0 +1,42 @@
+description: >
+    Implement to provide Memory Chunk attributes for Redfish MemoryChunks.
+    This represents a contiguous or interleaved region of memory in a memory domain.
+
+properties:
+    - name: Name
+      type: string
+      description: >
+          The name of this memory chunk.
+    - name: MemoryChunkSizeMiB
+      type: uint64
+      description: >
+          Size of the memory chunk measured in mebibytes (MiB).
+    - name: AddressRangeType
+      type: string
+      description: >
+          Memory type of this memory chunk.
+    - name: IsMirrorEnabled
+      type: boolean
+      description: >
+          An indication of whether memory mirroring is enabled for this memory chunk.
+    - name: IsSpare
+      type: boolean
+      description: >
+          An indication of whether sparing is enabled for this memory chunk.
+
+associations:
+    - name: memory_domain
+      description: >
+          Memory chunk can optionally implement the 'memory_domain' association to provide a link to the memory domain
+          resource associated with this memory chunk.
+      reverse_name: memory_chunks
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.MemoryDomain
+
+    - name: interleave_set
+      description: >
+          Memory chunk can optionally implement the 'interleave_set' association to provide links to one or more
+          interleave sets associated with this memory chunk.
+      reverse_name: memory_chunk
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.InterleavableSet

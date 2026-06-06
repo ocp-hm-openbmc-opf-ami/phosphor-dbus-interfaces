@@ -182,8 +182,10 @@ enumerations:
         - name: "T10"
     - name: CachePolicy
       values:
-        - name: "WriteBack"
-        - name: "WriteCacheAlways"
+        - name: "WriteThrough"
+        - name: "ProtectedWriteBack"
+        - name: "UnprotectedWriteBack"
+        - name: "NoReadAhead"
         - name: "ReadAhead"
     - name: AccessPolicyStatus
       values:
@@ -221,13 +223,13 @@ enumerations:
         - name: "Disable"
     - name: LdReadCachePolicy
       values:
+        - name: "Off"
         - name: "ReadAhead"
-        - name: "ReadAheadNone"
     - name: LdWriteCachePolicy
       values:
         - name: "WriteThrough"
-        - name: "WriteBack"
-        - name: "WriteCacheAlways"
+        - name: "ProtectedWriteBack"
+        - name: "UnprotectedWriteBack"
     - name: EncryptType
       values:
         - name: "None"

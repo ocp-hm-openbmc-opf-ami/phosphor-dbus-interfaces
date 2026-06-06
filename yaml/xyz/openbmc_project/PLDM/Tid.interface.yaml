@@ -1,0 +1,29 @@
+description: >
+    To display the PLDM (Platform Level Data Management) TID (Terminus Identifier) information.
+
+properties:
+    - name: EID
+      type: byte
+      description: >
+          The Endpoint Identifier (EID) for the PLDM endpoint. This value should
+          be an 8-bit unsigned integer representing the unique identifier from MCTP layer.
+
+    - name: LocalEID
+      type: byte
+      description: >
+          The BMC Endpoint Identifier (EID) for the PLDM event receiving.
+
+    - name: NetworkId
+      type: uint32
+      description: >
+          The network identifier for the PLDM endpoint. This value should be a 32-bit unsigned integer representing the network to which the endpoint belongs.
+
+    - name: MediumType
+      type: string
+      description: >
+          The type of medium for the PLDM endpoint. This value should be a string representing the medium type, such as PCIe or SMBus.
+
+    - name: BindingType
+      type: string
+      description: >
+          The type of binding for the PLDM endpoint. This value should be a string representing the binding type, such as PCIe or SMBus.

@@ -2,14 +2,21 @@
 subdir('Base')
 generated_others += custom_target(
     'com/ami/storage/brcm/raid/Base__markdown'.underscorify(),
-    input: [ '../../../../../../yaml/com/ami/storage/brcm/raid/Base.interface.yaml',  ],
-    output: [ 'Base.md' ],
+    input: [
+        '../../../../../../yaml/com/ami/storage/brcm/raid/Base.interface.yaml',
+    ],
+    output: ['Base.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../../yaml',
         'com/ami/storage/brcm/raid/Base',
     ],
 )
@@ -17,14 +24,21 @@ generated_others += custom_target(
 subdir('Controller')
 generated_others += custom_target(
     'com/ami/storage/brcm/raid/Controller__markdown'.underscorify(),
-    input: [ '../../../../../../yaml/com/ami/storage/brcm/raid/Controller.interface.yaml',  ],
-    output: [ 'Controller.md' ],
+    input: [
+        '../../../../../../yaml/com/ami/storage/brcm/raid/Controller.interface.yaml',
+    ],
+    output: ['Controller.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../../yaml',
         'com/ami/storage/brcm/raid/Controller',
     ],
 )
@@ -32,14 +46,21 @@ generated_others += custom_target(
 subdir('LD')
 generated_others += custom_target(
     'com/ami/storage/brcm/raid/LD__markdown'.underscorify(),
-    input: [ '../../../../../../yaml/com/ami/storage/brcm/raid/LD.interface.yaml',  ],
-    output: [ 'LD.md' ],
+    input: [
+        '../../../../../../yaml/com/ami/storage/brcm/raid/LD.interface.yaml',
+    ],
+    output: ['LD.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../../yaml',
         'com/ami/storage/brcm/raid/LD',
     ],
 )
@@ -47,14 +68,21 @@ generated_others += custom_target(
 subdir('LogicalDrive')
 generated_others += custom_target(
     'com/ami/storage/brcm/raid/LogicalDrive__markdown'.underscorify(),
-    input: [ '../../../../../../yaml/com/ami/storage/brcm/raid/LogicalDrive.interface.yaml',  ],
-    output: [ 'LogicalDrive.md' ],
+    input: [
+        '../../../../../../yaml/com/ami/storage/brcm/raid/LogicalDrive.interface.yaml',
+    ],
+    output: ['LogicalDrive.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../../yaml',
         'com/ami/storage/brcm/raid/LogicalDrive',
     ],
 )
@@ -62,14 +90,21 @@ generated_others += custom_target(
 subdir('PD')
 generated_others += custom_target(
     'com/ami/storage/brcm/raid/PD__markdown'.underscorify(),
-    input: [ '../../../../../../yaml/com/ami/storage/brcm/raid/PD.interface.yaml',  ],
-    output: [ 'PD.md' ],
+    input: [
+        '../../../../../../yaml/com/ami/storage/brcm/raid/PD.interface.yaml',
+    ],
+    output: ['PD.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../../yaml',
         'com/ami/storage/brcm/raid/PD',
     ],
 )
@@ -77,14 +112,21 @@ generated_others += custom_target(
 subdir('PhysicalDrive')
 generated_others += custom_target(
     'com/ami/storage/brcm/raid/PhysicalDrive__markdown'.underscorify(),
-    input: [ '../../../../../../yaml/com/ami/storage/brcm/raid/PhysicalDrive.interface.yaml',  ],
-    output: [ 'PhysicalDrive.md' ],
+    input: [
+        '../../../../../../yaml/com/ami/storage/brcm/raid/PhysicalDrive.interface.yaml',
+    ],
+    output: ['PhysicalDrive.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../../../yaml',
         'com/ami/storage/brcm/raid/PhysicalDrive',
     ],
 )

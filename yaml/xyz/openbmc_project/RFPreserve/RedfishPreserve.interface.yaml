@@ -1,0 +1,120 @@
+description: >
+    Provides redfish task preserve related management.
+
+properties:
+    - name: Id
+      type: string
+      description: >
+          Task ID.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: Name
+      type: string
+      description: >
+          Task Name.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: TaskState
+      type: enum[self.State]
+      description: >
+          Task state enum
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: StartTime
+      type: string
+      description: >
+          Task start time.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: EndTime
+      type: string
+      description: >
+          Task End time.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: TaskStatus
+      type: enum[self.Health]
+      description: >
+          Task Status.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: Messages
+      type: string
+      description: >
+          Task log message.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+    - name: TaskMonitor
+      type: string
+      description: >
+        Task health.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+
+enumerations:
+    - name: State
+      description: >
+          Task state.
+      values:
+          - name: New
+            description: >
+                Task created.
+          - name: Starting
+            description: >
+                Task going to start.
+          - name: Running
+            description: >
+                Task running. 
+          - name: Suspended
+            description: >
+                Task in suspend state.
+          - name: Interrupted
+            description: >
+                Task interrupted.
+          - name: Pending
+            description: >
+                Task in pending state.
+          - name: Stopping
+            description: >
+                Task going to stop.
+          - name: Completed
+            description: >
+                Task completed.
+          - name: Killed
+            description: >
+                Task killed.
+          - name: Exception
+            description: >
+                Task exception state.
+          - name: Service
+            description: >
+                Task in service state.
+          - name: Cancelling
+            description: >
+                Task going to cancel.
+          - name: Cancelled
+            description: >
+                Task cancelled.
+
+    - name: Health
+      description: >
+          Task state.
+      values:
+          - name: OK
+            description: >
+                Task health is ok.
+          - name: Warning
+            description: >
+                Task in warning state.
+          - name: Critical
+            description: >
+                Task in critical state.
+

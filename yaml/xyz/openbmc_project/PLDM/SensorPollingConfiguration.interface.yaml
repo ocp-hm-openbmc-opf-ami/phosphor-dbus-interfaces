@@ -1,0 +1,16 @@
+description: >
+    Implement to configure the PLDM sensor polling interval.
+
+    Any OpenBMC implementation should implement the
+    xyz.openbmc_project.PLDM.SensorPollingConfiguration interface on
+    /xyz/openbmc_project/pldm/sensor_polling.
+
+properties:
+    - name: PollingInterval
+      type: uint64
+      description: >
+          Polling interval in microseconds used after each PLDM sensor polling
+          round.
+      default: 200000
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument

@@ -1,0 +1,85 @@
+description: >
+    This is to manipulate Doh
+
+enumerations:
+      - name: Mode
+        description: >
+                disable or auto or manual
+        values:
+            - name: Disable
+              description: >
+                    Disable Doh server
+            - name: Auto
+              description: >
+                    Set Doh server in auto mode
+            - name: Manual
+              description: >
+                    Set Doh server in manual mode
+                    
+      - name: AutoServerName
+        description: >
+                Google or Cloudflare or OpenDNS or None
+        values:
+            - name: Google
+              description: >
+                    Auto server is Google
+            - name: Cloudflare
+              description: >
+                    Auto server is Cloudflare
+            - name: OpenDNS
+              description: >
+                    Auto server is OpenDNS
+            - name: None
+              description: >
+                    Server is on manual mode                   
+methods:
+      - name: SetServer
+        description: >
+            Set Doh Service
+        parameters:
+            - name: serverConfig
+              type: struct[enum[self.Mode],enum[self.AutoServerName],int16,struct[string,string,string,string]]
+              description: >
+                    Data 1 - server mode
+                    Data 2 - server name in auto mode
+                    Data 3 - server traffic 
+                    Data 4 - server IP or URL in manual mode         
+        returns:                
+            - name: Result
+              type: int16
+        errors:
+            - xyz.openbmc_project.Common.Error.UnsupportedRequest                  
+properties:
+      - name: ServerMode
+        type: enum[self.Mode]
+        flags:
+            - readonly
+        description: >
+              Server mode in current status
+              Data - Disable, Auto and Manual
+      - name: AutoServerConf
+        type: enum[self.AutoServerName]
+        flags:
+            - readonly        
+        description: >
+              Server Configuration in auto mode
+              Data - Google, Cloudflare and OpenDNS or None
+      - name: ServerTraffic
+        type: int16
+        flags:
+            - readonly
+        description: >
+              Server traffic Configuration
+              Data - 0 for IPv4 1 for IPv6 and 2 for Both
+      - name: ManualServerConf
+        type: struct[string,string,string,string]
+        flags:
+            - readonly
+        description: >              
+              server IP or URL in manual mode
+              Data 1 - manual server 1
+              Data 2 - manual server 2
+              Data 3 - manual server 3
+              Data 4 - manual URL 
+              
+             

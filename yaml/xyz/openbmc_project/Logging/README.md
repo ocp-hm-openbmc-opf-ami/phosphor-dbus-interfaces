@@ -29,10 +29,10 @@
 - Every error defined will have an error YAML file and a corresponding error
   metadata YAML file.
 - The error YAML file contains the error name and a one-line description of the
-  error. An example of an error YAML file can be found [here][error-example].
+  error. An [example][error-example] of an error YAML file is available.
 - The error metadata YAML file captures required data. The format of the data is
-  defined in the error metadata file. An example of an error metadata YAML file
-  can be found [here][metadata-example].
+  defined in the error metadata file. An [example][metadata-example] of an error
+  metadata YAML file is available.
 
 [error-example]:
   https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Common/File.errors.yaml
@@ -61,46 +61,3 @@
 
 [deleteall]:
   https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Collection/DeleteAll.interface.yaml
-
-## REST commands
-
-### Logging in
-
-- Before you can do anything, you need to first login.
-
-```sh
-export bmc=xx.xx.xx.xx
-curl -c cjar -b cjar -k -H "Content-Type: application/json" -X POST \
-    -d '{"data": [ "root", "<root-password>" ] }' \
-    https://{$bmc}/login
-```
-
-### List logging child objects recursively
-
-```sh
-curl -c cjar -b cjar -k https://${bmc}/xyz/openbmc_project/logging/list
-```
-
-### List logging attributes of child objects recursively
-
-```sh
-curl -c cjar -b cjar -s -k -H "Content-Type: application/json" -X GET \
-    -d '{"data" : []}' \
-    https://${bmc}/xyz/openbmc_project/logging/enumerate
-```
-
-### Delete logging entries
-
-```sh
-curl -c cjar -b cjar -k -H "Content-Type: application/json" -X POST \
-    -d '{"data": []}' \
-    https://${bmc}/xyz/openbmc_project/logging/entry/<entry-num>/action/Delete
-```
-
-### Delete all logging entries
-
-```sh
-curl -c cjar -b cjar -k -H "Content-Type: application/json" -X POST \
-    -d "{\"data\": [] }" \
-    https://${bmc}/xyz/openbmc_project/logging/action/DeleteAll
-```

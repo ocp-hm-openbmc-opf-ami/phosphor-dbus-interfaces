@@ -1,0 +1,37 @@
+description: >
+    RFMethod for create and deleted the task.
+
+methods:
+    - name: TaskCreate
+      description: >
+          Method to create a new task.
+      parameters:
+          - name: Path
+            type: string
+            description: >
+                Task type to be created
+          - name: index
+            type: int32
+            description: >
+                Task index to be created
+
+      returns:
+          - name: objectPath
+            type: string
+            description: >
+                object path of created task
+
+    - name: TaskDelete
+      description: >
+          Method for delete a task
+      parameters:
+          - name: Path
+            type: string
+            description: >
+                Task Id to be deleted
+      returns:
+          - name: status
+            type: int32
+            description: >
+                Return code
+

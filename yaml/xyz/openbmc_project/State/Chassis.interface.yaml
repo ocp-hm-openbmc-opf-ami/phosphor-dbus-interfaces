@@ -9,6 +9,7 @@ properties:
           preserved across AC power cycles of the BMC.
       errors:
           - xyz.openbmc_project.State.Chassis.Error.BMCNotReady
+          - xyz.openbmc_project.Common.Error.Unavailable
 
     - name: CurrentPowerState
       type: enum[self.PowerState]
@@ -65,9 +66,6 @@ enumerations:
           - name: "TransitioningToOn"
             description: >
                 Firmware is transitioning the chassis to an On state
-          - name: "Unknown"
-            description: >
-                Chassis state is in Unknown state due to internal error.
 
     - name: PowerStatus
       description: >

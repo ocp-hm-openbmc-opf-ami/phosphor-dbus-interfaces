@@ -1,2 +1,73 @@
 description: >
     Implement to provide Trusted Platform Module(TPM) attributes.
+
+properties:
+    - name: Name
+      type: string
+      default: ""
+      description: >
+          The name of this TPM component.
+      flags:
+          - readonly
+
+    - name: State
+      type: string
+      default: ""
+      description: >
+          The current state of the TPM.
+          Possible values: Enabled, Disabled, Absent, etc.
+      flags:
+          - readonly
+
+    - name: FirmwareVersion
+      type: string
+      default: ""
+      description: >
+          The firmware version of the TPM.
+      flags:
+          - readonly
+
+    - name: TPM_Manufacturer
+      type: string
+      default: ""
+      description: >
+          The manufacturer of the TPM.
+      flags:
+          - readonly
+
+    - name: CapabilitiesVendorID
+      type: string
+      default: ""
+      description: >
+          The vendor ID that describes the TPM capabilities.
+          This is the value from the TPM_PT_VENDOR_STRING_x properties.
+      flags:
+          - readonly
+
+    - name: HardwareInterfaceVendorID
+      type: string
+      default: ""
+      description: >
+          The hardware interface vendor ID for this TPM.
+          Typically in hexadecimal format (e.g., "0x1050").
+      flags:
+          - readonly
+
+    - name: TrustedComponentType
+      type: string
+      default: ""
+      description: >
+          The type of trusted component, such as physical distinction
+          about the trusted component.
+      flags:
+          - readonly
+
+associations:
+    - name: certificates
+      description: >
+          Objects that implement Tpm can implement the "certificates"
+          association to provide links to the TPM certificates such as
+          Endorsement Key (EK) certificates.
+      reverse_name: tpm
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Certs.Certificate

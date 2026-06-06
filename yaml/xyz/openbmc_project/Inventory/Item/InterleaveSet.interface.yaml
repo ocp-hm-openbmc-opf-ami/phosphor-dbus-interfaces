@@ -1,0 +1,34 @@
+description: >
+    Implement to provide Interleave Set attributes for Memory Chunks.
+    This represents the interleave sets for a memory chunk.
+
+properties:
+    - name: RegionId
+      type: string
+      description: >
+          DIMM region identifier.
+    - name: SizeMiB
+      type: uint64
+      description: >
+          Size of this interleave set measured in mebibytes (MiB).
+    - name: MemoryLevel
+      type: uint32
+      description: >
+          Level of the interleave set for multi-level tiered memory.
+
+associations:
+    - name: memory
+      description: >
+          Interleave set can optionally implement the 'memory' association to provide a link to the memory
+          resource associated with this interleave set.
+      reverse_name: interleave_set
+      required_endpoint_interfaces:
+            - xyz.openbmc_project.Inventory.Item.Dimm
+
+    - name: memory_chunk
+      description: >
+          Interleave set can optionally implement the 'memory_chunk' association to provide a link to the memory chunk
+          resource associated with this interleave set.
+      reverse_name: interleave_set
+      required_endpoint_interfaces:
+          - xyz.openbmc_project.Inventory.Item.MemoryChunk

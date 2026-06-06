@@ -31,9 +31,9 @@ properties:
           with the event. The content of this property is implementation
           defined.
     - name: AdditionalData
-      type: array[string]
+      type: dict[string, string]
       description: >
-          Additional information in the form of metadata field strings VAR=val
+          Additional information in the form of metadata field strings {VAR,val}
     - name: Resolution
       type: string
       description: >
@@ -45,6 +45,8 @@ properties:
           this error log has been resolved. This will start out 'false' by
           default. Setting this to 'true' will NOT result in the error log being
           deleted.
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
     - name: ServiceProviderNotify
       type: enum[self.Notify]
       default: NotSupported

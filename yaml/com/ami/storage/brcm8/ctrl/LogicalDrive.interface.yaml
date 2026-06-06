@@ -68,8 +68,14 @@ properties:
         - readonly
       description: >
         The power‐saving options for the logical drive.
-    - name: CachePolicy
-      type: array[enum[com.ami.storage.brcm8.Enumerations.CachePolicy]]
+    - name: WriteCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.LdWriteCachePolicy]
+      flags:
+        - readonly
+      description: >
+        The current cache policy for the logical drive.
+    - name: ReadCachePolicy
+      type: enum[com.ami.storage.brcm8.Enumerations.LdReadCachePolicy]
       flags:
         - readonly
       description: >
