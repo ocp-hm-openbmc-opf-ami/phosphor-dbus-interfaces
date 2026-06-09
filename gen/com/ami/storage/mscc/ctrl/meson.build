@@ -277,3 +277,48 @@ generated_markdown += custom_target(
     build_by_default: should_generate_markdown,
 )
 
+subdir('Topology')
+generated_others += custom_target(
+    'com/ami/storage/mscc/ctrl/Topology__markdown'.underscorify(),
+    input: [ '../../../../../../yaml/com/ami/storage/mscc/ctrl/Topology.interface.yaml',  ],
+    output: [ 'Topology.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        'com/ami/storage/mscc/ctrl/Topology',
+    ],
+)
+
+subdir('TopologyPhy')
+generated_others += custom_target(
+    'com/ami/storage/mscc/ctrl/TopologyPhy__markdown'.underscorify(),
+    input: [ '../../../../../../yaml/com/ami/storage/mscc/ctrl/TopologyPhy.interface.yaml',  ],
+    output: [ 'TopologyPhy.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        'com/ami/storage/mscc/ctrl/TopologyPhy',
+    ],
+)
+
+subdir('TopologyDev')
+generated_others += custom_target(
+    'com/ami/storage/mscc/ctrl/TopologyDev__markdown'.underscorify(),
+    input: [ '../../../../../../yaml/com/ami/storage/mscc/ctrl/TopologyDev.interface.yaml',  ],
+    output: [ 'TopologyDev.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../../../yaml',
+        'com/ami/storage/mscc/ctrl/TopologyDev',
+    ],
+)
+

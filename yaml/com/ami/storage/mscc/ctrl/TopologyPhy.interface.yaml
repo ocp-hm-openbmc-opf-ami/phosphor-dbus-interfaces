@@ -1,0 +1,28 @@
+description: >
+    MSCC RAID topology PHY interface.
+
+properties:
+    - name: Id
+      type: uint16
+      flags:
+          - readonly
+      description: >
+          PHY ID (matches physical drive ID).
+    - name: ConnectorIndex
+      type: uint16
+      flags:
+          - readonly
+      description: >
+          Physical connector index.
+    - name: IsOnline
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          Whether the PHY is online (device present).
+    - name: AttachedDeviceType
+      type: enum[com.ami.storage.mscc.Enumerations.AttachedDeviceType]
+      flags:
+          - readonly
+      description: >
+          Type of device attached to this PHY.

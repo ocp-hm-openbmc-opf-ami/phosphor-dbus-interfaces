@@ -520,6 +520,19 @@ enumerations:
         - name: "OK"
         - name: "Warning"
         - name: "Critical"
+    - name: AttachedDeviceType
+      description: >
+        Type of device attached to PHY (MSCC only supports SAS/SATA).
+      values:
+        - name: NoDevice
+          description: >
+            No device attached.
+        - name: SasSata
+          description: >
+            SAS or SATA device.
+        - name: Unknown
+          description: >
+            Unknown device type.
     - name: ErrorCode
       values:
         - name: "Success"

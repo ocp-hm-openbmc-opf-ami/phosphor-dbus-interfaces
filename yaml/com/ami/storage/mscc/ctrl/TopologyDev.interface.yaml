@@ -1,0 +1,22 @@
+description: >
+    MSCC RAID topology device interface under a PHY.
+
+properties:
+    - name: Type
+      type: enum[com.ami.storage.mscc.Enumerations.AttachedDeviceType]
+      flags:
+          - readonly
+      description: >
+          Device type (SasSata for MSCC hardware).
+    - name: DeviceId
+      type: uint16
+      flags:
+          - readonly
+      description: >
+          Persistent ID of the attached device.
+    - name: DeviceWWID
+      type: string
+      flags:
+          - readonly
+      description: >
+          WWID of the attached device.

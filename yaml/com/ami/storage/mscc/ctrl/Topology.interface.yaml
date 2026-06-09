@@ -1,0 +1,46 @@
+description: >
+    MSCC RAID topology root interface.
+
+properties:
+    - name: ControllerId
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Controller ID.
+    - name: PhyCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of PHY entries under the topology root.
+    - name: SasSataDeviceCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of SAS/SATA devices in the topology.
+    - name: ExpanderDeviceCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of SAS expander devices in the topology (always 0 for MSCC).
+    - name: NvmeDeviceCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of NVMe devices in the topology (always 0 for MSCC).
+    - name: PcieSwitchDeviceCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of PCIe switch devices in the topology (always 0 for MSCC).
+    - name: VirtualDeviceCount
+      type: uint32
+      flags:
+          - readonly
+      description: >
+          Number of virtual devices in the topology (always 0 for MSCC).
