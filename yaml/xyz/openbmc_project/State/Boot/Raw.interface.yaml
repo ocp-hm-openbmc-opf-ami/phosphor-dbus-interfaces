@@ -6,3 +6,8 @@ properties:
       type: struct[array[byte],array[byte]]
       description: >
           The POST code value.
+
+    - name: HexaPostCodes
+      type: array[string]
+      description: >
+          The hexadecimal representation of postcodes as strings.
