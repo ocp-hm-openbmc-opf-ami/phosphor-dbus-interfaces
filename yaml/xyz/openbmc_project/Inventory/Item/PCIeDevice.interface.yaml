@@ -75,6 +75,16 @@ properties:
       description: >
           The Vendor ID for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
+    - name: Function0FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function0Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
 
     - name: Function1ClassCode
       type: string
@@ -115,6 +125,16 @@ properties:
       type: string
       description: >
           The Vendor ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function1FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function1Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
 
     - name: Function2ClassCode
@@ -157,6 +177,16 @@ properties:
       description: >
           The Vendor ID for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
+    - name: Function2FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function2Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
 
     - name: Function3ClassCode
       type: string
@@ -197,6 +227,16 @@ properties:
       type: string
       description: >
           The Vendor ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function3FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function3Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
 
     - name: Function4ClassCode
@@ -239,6 +279,16 @@ properties:
       description: >
           The Vendor ID for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
+    - name: Function4FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function4Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
 
     - name: Function5ClassCode
       type: string
@@ -279,6 +329,16 @@ properties:
       type: string
       description: >
           The Vendor ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function5FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function5Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
 
     - name: Function6ClassCode
@@ -321,6 +381,16 @@ properties:
       description: >
           The Vendor ID for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
+    - name: Function6FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function6Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
 
     - name: Function7ClassCode
       type: string
@@ -361,6 +431,16 @@ properties:
       type: string
       description: >
           The Vendor ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function7FunctionId
+      type: size
+      description: >
+          The Function ID for this function. This property is deprecated, it has
+          been replaced with PCIeFunction interface.
+    - name: Function7Name
+      type: string
+      description: >
+          The Name for this function. This property is deprecated, it has
           been replaced with PCIeFunction interface.
 
     - name: MaxLanes
