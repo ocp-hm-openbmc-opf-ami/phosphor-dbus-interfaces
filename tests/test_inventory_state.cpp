@@ -1,5 +1,5 @@
-#include <xyz/openbmc_project/Inventory/Item/PCIeDevice/common.hpp>
 #include <xyz/openbmc_project/Inventory/Item/PCIeSlot/common.hpp>
+#include <xyz/openbmc_project/Inventory/Item/PCIeDevice/common.hpp>
 #include <xyz/openbmc_project/Software/ApplyTime/common.hpp>
 #include <xyz/openbmc_project/State/Decorator/Health/common.hpp>
 #include <xyz/openbmc_project/State/Decorator/PowerState/common.hpp>

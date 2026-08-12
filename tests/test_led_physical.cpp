@@ -206,4 +206,41 @@ TEST(LedPhysicalPropertiesUnpack, EmptyMap_UsesDefaults)
     EXPECT_EQ(result.period, 1000u);
 }
 
+TEST(LedPhysicalPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // Palette is in the variant but is not Action; State field keeps its
+    // default
+    std::map<std::string, Physical::PropertiesVariant> props;
+    props["State"] = Palette::Red;
+
+    Physical::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.state, Action::Off);
+}
+
+TEST(LedPhysicalPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, Physical::PropertiesVariant> props;
+    props["InvalidKey"] = Action::On;
+    props["State"] = Action::On;
+
+    Physical::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.state, Action::On);
+}
+
+TEST(LedPhysicalPropertiesUnpack, DutyOnBoundaryValues)
+{
+    std::map<std::string, Physical::PropertiesVariant> props;
+    props["DutyOn"] = static_cast<uint8_t>(0);
+
+    Physical::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.duty_on, 0u);
+
+    props["DutyOn"] = static_cast<uint8_t>(100);
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.duty_on, 100u);
+}
+
 } // namespace

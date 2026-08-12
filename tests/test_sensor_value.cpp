@@ -209,6 +209,35 @@ TEST(SensorValuePropertiesUnpack, EmptyMap_UsesDefaults)
     Value::properties_t result{};
     ASSERT_NO_THROW(result = unpackProps(props));
     EXPECT_TRUE(std::isinf(result.max_value));
+    EXPECT_TRUE(std::isinf(result.min_value));
+}
+
+TEST(SensorValuePropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // uint8_t is in the variant but is not double; Value field keeps its
+    // default
+    std::map<std::string, Value::PropertiesVariant> props;
+    props["Value"] = static_cast<uint8_t>(99);
+
+    Value::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_DOUBLE_EQ(result.value, 0.0);
+}
+
+TEST(SensorValuePropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, Value::PropertiesVariant> props;
+    props["NoSuchSensorProp"] = Unit::DegreesC;
+    props["Value"] = -40.0;
+
+    Value::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_DOUBLE_EQ(result.value, -40.0);
+}
+
+TEST(SensorUnitConvertStringTo, EmptyStringReturnsNullopt)
+{
+    EXPECT_FALSE(Value::convertStringToUnit("").has_value());
 }
 
 } // namespace

@@ -313,4 +313,84 @@ TEST(OpStatusPropertiesUnpack, ValidMap)
     EXPECT_EQ(result.state, StateType::Enabled);
 }
 
+TEST(OpStatusPropertiesUnpack, EmptyMapYieldsDefaults)
+{
+    std::map<std::string, OpStatus::PropertiesVariant> props;
+    OpStatus::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_FALSE(result.functional);
+}
+
+TEST(OpStatusPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // bool is in the variant but is not StateType; State field keeps its
+    // default
+    std::map<std::string, OpStatus::PropertiesVariant> props;
+    props["State"] = true;
+
+    OpStatus::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.state, StateType{});
+}
+
+TEST(OpStatusPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, OpStatus::PropertiesVariant> props;
+    props["GarbageKey"] = StateType::Fault;
+    props["Functional"] = false;
+
+    OpStatus::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_FALSE(result.functional);
+}
+
+TEST(SoftwareVersionPropertiesUnpack, EmptyMapYieldsDefaults)
+{
+    std::map<std::string, Version::PropertiesVariant> props;
+    Version::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_TRUE(result.version.empty());
+}
+
+TEST(SoftwareVersionPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // VersionPurpose is in the variant but is not std::string
+    std::map<std::string, Version::PropertiesVariant> props;
+    props["Version"] = VersionPurpose::BMC;
+
+    Version::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_TRUE(result.version.empty());
+}
+
+TEST(SoftwareVersionPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, Version::PropertiesVariant> props;
+    props["BadKey"] = VersionPurpose::Host;
+    props["Version"] = std::string("1.2.3");
+
+    Version::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.version, "1.2.3");
+}
+
+TEST(RestorePolicyPropertiesUnpack, EmptyMapYieldsDefaults)
+{
+    std::map<std::string, RestorePolicy::PropertiesVariant> props;
+    RestorePolicy::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.power_restore_policy, RestorePolicy::Policy::Restore);
+}
+
+TEST(RestorePolicyPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // uint64_t is in the variant but is not Policy
+    std::map<std::string, RestorePolicy::PropertiesVariant> props;
+    props["PowerRestorePolicy"] = static_cast<uint64_t>(0);
+
+    RestorePolicy::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.power_restore_policy, RestorePolicy::Policy::Restore);
+}
+
 } // namespace

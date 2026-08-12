@@ -64,4 +64,24 @@ TEST(UUIDPropertiesUnpack, ValidMap_UnpacksUuid)
     EXPECT_EQ(result.uuid, testUuid);
 }
 
+TEST(UUIDPropertiesUnpack, EmptyMapYieldsEmptyUuid)
+{
+    std::map<std::string, UUID::PropertiesVariant> props;
+    UUID::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_TRUE(result.uuid.empty());
+}
+
+TEST(UUIDPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    const std::string testUuid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
+    std::map<std::string, UUID::PropertiesVariant> props;
+    props["NoSuchKey"] = std::string("garbage");
+    props["UUID"] = testUuid;
+
+    UUID::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.uuid, testUuid);
+}
+
 } // namespace

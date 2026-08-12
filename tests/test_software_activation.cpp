@@ -226,4 +226,41 @@ TEST(ActivationPropertiesUnpack, EmptyMapReturnsDefaults)
     ASSERT_NO_THROW(result = unpackProps(props));
 }
 
+TEST(ActivationPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // RequestedActivations is in the variant but is not Activations
+    std::map<std::string, Activation::PropertiesVariant> props;
+    props["Activation"] = RequestedActivations::Active;
+
+    Activation::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    // activation stays at default (value-initialised enum)
+    EXPECT_EQ(result.activation, Activations{});
+}
+
+TEST(ActivationPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, Activation::PropertiesVariant> props;
+    props["UnknownKey"] = Activations::Active;
+    props["Activation"] = Activations::Staged;
+
+    Activation::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.activation, Activations::Staged);
+}
+
+TEST(RequestedActivationsConvertStringTo, ValidReturnsValue)
+{
+    auto r = Activation::convertStringToRequestedActivations(
+        "xyz.openbmc_project.Software.Activation.RequestedActivations.Active");
+    ASSERT_TRUE(r.has_value());
+    EXPECT_EQ(*r, RequestedActivations::Active);
+}
+
+TEST(RequestedActivationsConvertStringTo, InvalidReturnsNullopt)
+{
+    EXPECT_FALSE(Activation::convertStringToRequestedActivations("xyz.invalid")
+                     .has_value());
+}
+
 } // namespace

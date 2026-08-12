@@ -250,6 +250,19 @@ TEST(RestartCauseFromString, InvalidThrows)
                  sdbusplus::exception::InvalidEnumString);
 }
 
+TEST(RestartCauseConvertStringTo, ValidReturnsValue)
+{
+    auto r = Host::convertStringToRestartCause(
+        "xyz.openbmc_project.State.Host.RestartCause.SoftReset");
+    ASSERT_TRUE(r.has_value());
+    EXPECT_EQ(*r, RestartCause::SoftReset);
+}
+
+TEST(RestartCauseConvertStringTo, InvalidReturnsNullopt)
+{
+    EXPECT_FALSE(Host::convertStringToRestartCause("xyz.invalid").has_value());
+}
+
 // ── property names
 // ────────────────────────────────────────────────────────────
 
@@ -302,6 +315,40 @@ TEST(StateHostPropertiesUnpack, EmptyMap_UsesDefaults)
     std::map<std::string, Host::PropertiesVariant> props;
     Host::properties_t result{};
     ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_host_transition, Transition::Off);
+}
+
+TEST(StateHostPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // HostState is in the variant but is not Transition; the field keeps its
+    // default
+    std::map<std::string, Host::PropertiesVariant> props;
+    props["RequestedHostTransition"] = HostState::Running;
+
+    Host::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_host_transition, Transition::Off);
+}
+
+TEST(StateHostPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, Host::PropertiesVariant> props;
+    props["NoSuchProperty"] = HostState::Running;
+    props["RequestedHostTransition"] = Transition::On;
+
+    Host::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_host_transition, Transition::On);
+}
+
+TEST(StateHostPropertiesUnpack, RestartCauseUnpacked)
+{
+    std::map<std::string, Host::PropertiesVariant> props;
+    props["RestartCause"] = RestartCause::WatchdogTimer;
+
+    Host::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.restart_cause, RestartCause::WatchdogTimer);
 }
 
 } // namespace

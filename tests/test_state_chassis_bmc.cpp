@@ -160,6 +160,37 @@ TEST(ChassisPropertiesUnpack, ValidMap)
     EXPECT_EQ(result.current_power_state, PowerState::On);
 }
 
+TEST(ChassisPropertiesUnpack, EmptyMapYieldsDefaults)
+{
+    std::map<std::string, Chassis::PropertiesVariant> props;
+    Chassis::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_power_transition, ChassisTransition::Off);
+}
+
+TEST(ChassisPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // PowerState is in the variant but is not Transition; field keeps its
+    // default
+    std::map<std::string, Chassis::PropertiesVariant> props;
+    props["RequestedPowerTransition"] = PowerState::On;
+
+    Chassis::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_power_transition, ChassisTransition::Off);
+}
+
+TEST(ChassisPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, Chassis::PropertiesVariant> props;
+    props["NonExistentKey"] = PowerState::On;
+    props["CurrentPowerState"] = PowerState::On;
+
+    Chassis::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.current_power_state, PowerState::On);
+}
+
 // ──────────────────────────────────────────────────────────────────── BMC ────
 
 using BMC = sdbusplus::common::xyz::openbmc_project::state::BMC;
@@ -310,6 +341,38 @@ TEST(BMCPropertiesUnpack, ValidMap)
     ASSERT_NO_THROW(result = unpackProps(props));
     EXPECT_EQ(result.requested_bmc_transition, BMCTransition::Reboot);
     EXPECT_EQ(result.current_bmc_state, BMCState::Ready);
+}
+
+TEST(BMCPropertiesUnpack, EmptyMapYieldsDefaults)
+{
+    std::map<std::string, BMC::PropertiesVariant> props;
+    BMC::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_bmc_transition, BMCTransition::None);
+    EXPECT_EQ(result.current_bmc_state, BMCState::NotReady);
+}
+
+TEST(BMCPropertiesUnpack, WrongVariantTypeIsIgnored)
+{
+    // RebootCause is in the variant but is not Transition; field keeps its
+    // default
+    std::map<std::string, BMC::PropertiesVariant> props;
+    props["RequestedBMCTransition"] = RebootCause::Software;
+
+    BMC::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.requested_bmc_transition, BMCTransition::None);
+}
+
+TEST(BMCPropertiesUnpack, UnknownKeyIsIgnored)
+{
+    std::map<std::string, BMC::PropertiesVariant> props;
+    props["BadKey"] = BMCState::Ready;
+    props["CurrentBMCState"] = BMCState::Quiesced;
+
+    BMC::properties_t result{};
+    ASSERT_NO_THROW(result = unpackProps(props));
+    EXPECT_EQ(result.current_bmc_state, BMCState::Quiesced);
 }
 
 } // namespace
