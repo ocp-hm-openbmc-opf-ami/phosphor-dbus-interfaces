@@ -126,3 +126,7 @@ meson.override_dependency(
     'phosphor-dbus-interfaces',
     phosphor_dbus_interfaces_dep,
 )
+
+if get_option('tests').enabled()
+    subdir('tests')
+endif
