@@ -111,6 +111,12 @@ properties:
       description: >
         The total number of non-media errors encountered.
     - name: FailurePredicted
+      type: boolean
+      flags:
+        - readonly
+      description: >
+        Whether the drive currently predicts a failure in the near future.
+    - name: FailurePredictedCount
       type: uint32
       flags:
         - readonly
