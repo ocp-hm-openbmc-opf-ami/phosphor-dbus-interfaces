@@ -49,3 +49,6 @@ enumerations:
           - name: PLDM
             description: >
               The version is a version for PLDM.
+
+paths:
+    - namespace: /xyz/openbmc_project/software

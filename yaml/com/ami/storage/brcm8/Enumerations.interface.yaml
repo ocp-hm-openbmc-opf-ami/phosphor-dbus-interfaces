@@ -61,7 +61,7 @@ enumerations:
         - name: SupportBadBlockManagement
         - name: SupportOnlineCapacityExpansionWithNewDrive
         - name: SupportOnlineCapacityExpansionWithinArray
-        - name: SuppportChangeDiskCachePolicy
+        - name: SupportChangeDiskCachePolicy
         - name: SupportChangeWritePolicy
         - name: SupportChangeReadPolicy
     - name: LogicalDriveCurrentOperation
@@ -245,7 +245,7 @@ enumerations:
         - name: "Normal"
         - name: "Thorough"
         - name: "CryptographicErase"
-        - name: "SanitizeOverwrtie"
+        - name: "SanitizeOverwrite"
         - name: "SanitizeBlockErase"
         - name: "SanitizeFreezeLock"
         - name: "SanitizeAntifreezeLock"
@@ -298,7 +298,7 @@ enumerations:
       values:
       - name: "NoOverride"
       - name: "Deasserted"
-      - name: "Assertedd"
+      - name: "Asserted"
       - name: "BackplaneError"
     - name: PatrolReadMode
       values:

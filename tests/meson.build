@@ -48,6 +48,10 @@ foreach t : [
     ['test_control_boot',         ['test_main.cpp', 'test_control_boot.cpp']],
     ['test_misc_interfaces',      ['test_main.cpp', 'test_misc_interfaces.cpp']],
     ['test_inventory_state',      ['test_main.cpp', 'test_inventory_state.cpp']],
+    ['test_logging_entry',        ['test_main.cpp', 'test_logging_entry.cpp']],
+    ['test_network_ip',           ['test_main.cpp', 'test_network_ip.cpp']],
+    ['test_state_watchdog',       ['test_main.cpp', 'test_state_watchdog.cpp']],
+    ['test_hardware_isolation',   ['test_main.cpp', 'test_hardware_isolation.cpp']],
 ]
     test(
         t[0],
