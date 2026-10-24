@@ -15,6 +15,7 @@ methods:
           List SNMP Community Profile
       errors:
           - xyz.openbmc_project.Common.Error.NotAllowed
+          - xyz.openbmc_project.Common.Error.Unavailable
       returns:
           - name: communityProfiles
             type: array[string]
@@ -22,20 +23,38 @@ methods:
                 List of SNMP community profiles
 
 properties:
+    - name: SnmpProtocolStatus
+      type: boolean
+      description: >
+            if SnmpProtocolStatus is true, snmpd daemon also set to true and vice versa. if SnmpProtocolStatus false then all SNMP properties are manually set with false.
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
+
     - name: SnmpTrapStatus
       type: boolean
       description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
+            if true SnmpTrap is enable else SnmpTrap is disable and set to false while SnmpProtocolStatus disabling
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
+
     - name: EnableSNMPV1
       type: boolean
       description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
+            if true SnmpTrap is enable else SnmpTrap is disable and set to false while SnmpProtocolStatus disabling
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
+
     - name: EnableSNMPV2
       type: boolean
       description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
+            if true SnmpTrap is enable else SnmpTrap is disable and set to false while SnmpProtocolStatus disabling
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
+
     - name: EnableSNMPV3
       type: boolean
       description: >
-            if true SnmpTrap is enable else SnmpTrap is disable
+            if true SnmpTrap is enable else SnmpTrap is disable and set to false while SnmpProtocolStatus disabling
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
 
