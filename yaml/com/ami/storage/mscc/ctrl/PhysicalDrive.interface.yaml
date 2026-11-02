@@ -141,11 +141,17 @@ properties:
       description: >
         The flag iInfo ID of this physical drive.
     - name: FailurePredicted
-      type: uint32
+      type: boolean
       flags:
         - readonly
       description: >
         Predicted failure for physical drive.
+    - name: FailurePredictedCount
+      type: uint32
+      flags:
+        - readonly
+      description: >
+        Predicted failure count for physical drive.
     - name: Health
       type: enum[com.ami.storage.mscc.Enumerations.Health]
       flags:
